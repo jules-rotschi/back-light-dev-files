@@ -1,0 +1,12 @@
+{
+  "name": "back-light-dev-files",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass test.scss:test.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

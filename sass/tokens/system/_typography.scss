@@ -1,0 +1,26 @@
+@use '../primitive/' as *;
+
+$bl-sys-font-family-headings: $bl-prim-font-family-unbounded, $bl-prim-default-font-family;
+$bl-sys-font-family-body: $bl-prim-font-family-figtree, $bl-prim-default-font-family;
+
+$bl-sys-font-size-xxxs: $bl-prim-length-150;
+$bl-sys-font-size-xxs: $bl-prim-length-175;
+$bl-sys-font-size-xs: $bl-prim-length-200;
+$bl-sys-font-size-s: $bl-prim-length-250;
+$bl-sys-font-size-ms: $bl-prim-length-300;
+$bl-sys-font-size-m: $bl-prim-length-400;
+$bl-sys-font-size-ml: $bl-prim-length-500;
+$bl-sys-font-size-l: $bl-prim-length-600;
+$bl-sys-font-size-xl: $bl-prim-length-800;
+$bl-sys-font-size-xxl: $bl-prim-length-1000;
+
+$bl-sys-line-height-xxxs: $bl-prim-length-150;
+$bl-sys-line-height-xxs: $bl-prim-length-175;
+$bl-sys-line-height-xs: $bl-prim-length-200;
+$bl-sys-line-height-s: $bl-prim-length-250;
+$bl-sys-line-height-ms: $bl-prim-length-300;
+$bl-sys-line-height-m: $bl-prim-length-400;
+$bl-sys-line-height-ml: $bl-prim-length-500;
+$bl-sys-line-height-l: $bl-prim-length-600;
+$bl-sys-line-height-xl: $bl-prim-length-800;
+$bl-sys-line-height-xxl: $bl-prim-length-1000;
