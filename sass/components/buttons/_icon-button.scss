@@ -1,0 +1,60 @@
+@use '../../tokens' as *;
+@use '../../abstract/' as *;
+@use './icon-button-colors' as *;
+
+.icon-button {
+  display: block;
+  width: fit-content;
+  cursor: pointer;
+
+  padding: $bl-sys-padding-xs $bl-sys-padding-xs;
+  border-radius: $bl-sys-border-radius-full;
+
+  transition: all $bl-sys-motion-fast $bl-prim-timing-function-ease-out;
+
+  &:enabled:active {
+    transition: none;
+  }
+
+  @include icon-button-colors('default');
+
+  &.button-neutral {
+    @include icon-button-colors('neutral');
+  }
+
+  &.button-primary {
+    @include icon-button-colors('primary');
+  }
+
+  &.button-info {
+    @include icon-button-colors('info');
+  }
+
+  &.button-success {
+    @include icon-button-colors('success');
+  }
+
+  &.button-warning {
+    @include icon-button-colors('warning');
+  }
+
+  &.button-critical {
+    @include icon-button-colors('critical');
+  }
+
+  color: var(--foreground-color);
+  background: transparent;
+
+  &:enabled:hover {
+    background: var(--hover-background-color);
+  }
+
+  &:enabled:active {
+    background: var(--active-background-color);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}

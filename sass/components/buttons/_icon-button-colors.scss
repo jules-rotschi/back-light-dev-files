@@ -1,0 +1,73 @@
+@use '../../tokens' as *;
+
+@mixin icon-button-colors($color) {
+
+  html[data-theme="light"] & {
+
+    --hover-background-color: #{$bl-sys-color-dark-opacity-10};
+    --active-background-color: #{$bl-sys-color-dark-opacity-20};
+
+    @if $color == 'default' {
+      --foreground-color: #{$bl-sys-color-neutral-900};
+    }
+  
+    @if $color == 'neutral' {
+      --foreground-color: #{$bl-sys-color-neutral-900};
+    }
+  
+    @if $color == 'primary' {
+      --foreground-color: #{$bl-sys-color-primary-700};
+    }
+  
+    @if $color == 'info' {
+      --foreground-color: #{$bl-sys-color-info-700};
+    }
+  
+    @if $color == 'success' {
+      --foreground-color: #{$bl-sys-color-success-700};
+    }
+  
+    @if $color == 'warning' {
+      --foreground-color: #{$bl-sys-color-warning-700};
+    }
+  
+    @if $color == 'critical' {
+      --foreground-color: #{$bl-sys-color-critical-700};
+    }
+  }
+
+  html[data-theme="dark"] & {
+
+    --hover-background-color: #{$bl-sys-color-light-opacity-10};
+    --active-background-color: #{$bl-sys-color-light-opacity-20};
+
+    @if $color == 'default' {
+      --foreground-color: #{$bl-sys-color-neutral-100};
+    }
+  
+    @if $color == 'neutral' {
+      --foreground-color: #{$bl-sys-color-neutral-100};
+    }
+  
+    @if $color == 'primary' {
+      --foreground-color: #{$bl-sys-color-primary-300};
+    }
+  
+    @if $color == 'info' {
+      --foreground-color: #{$bl-sys-color-info-300};
+    }
+  
+    @if $color == 'success' {
+      --foreground-color: #{$bl-sys-color-success-300};
+    }
+  
+    @if $color == 'warning' {
+      --foreground-color: #{$bl-sys-color-warning-300};
+    }
+  
+    @if $color == 'critical' {
+      --foreground-color: #{$bl-sys-color-critical-300};
+    }
+  }
+
+}

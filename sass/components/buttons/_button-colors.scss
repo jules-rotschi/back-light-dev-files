@@ -1,0 +1,228 @@
+@use '../../tokens' as *;
+
+@mixin button-colors($color) {
+
+  html[data-theme="light"] & {
+
+    --outlined-border-color: #{$bl-sys-color-neutral-200};
+    --hover-outlined-border-color: #{$bl-sys-color-neutral-500};
+    --active-outlined-border-color: #{$bl-sys-color-neutral-700};
+
+    @if $color == 'default' {
+      --filled-foreground-color: #{$bl-sys-color-light};
+      --filled-background-color: #{$bl-sys-color-neutral-950};
+      --hover-filled-background-color: #{$bl-sys-color-neutral-900};
+      --active-filled-background-color: #{$bl-sys-color-neutral-800};
+  
+      --outlined-foreground-color: #{$bl-sys-color-neutral-700};
+      --hover-outlined-background-color: #{$bl-sys-color-neutral-050};
+      --active-outlined-background-color: #{$bl-sys-color-neutral-100};
+  
+      --ghost-color: #{$bl-sys-color-neutral-700};
+      --hover-ghost-color: #{$bl-sys-color-neutral-600};
+      --active-ghost-color: #{$bl-sys-color-neutral-500};
+    }
+  
+    @if $color == 'neutral' {
+      --filled-foreground-color: #{$bl-sys-color-light};
+      --filled-background-color: #{$bl-sys-color-neutral-950};
+      --hover-filled-background-color: #{$bl-sys-color-neutral-900};
+      --active-filled-background-color: #{$bl-sys-color-neutral-800};
+  
+      --outlined-foreground-color: #{$bl-sys-color-neutral-700};
+      --hover-outlined-background-color: #{$bl-sys-color-neutral-050};
+      --active-outlined-background-color: #{$bl-sys-color-neutral-100};
+  
+      --ghost-color: #{$bl-sys-color-neutral-700};
+      --hover-ghost-color: #{$bl-sys-color-neutral-600};
+      --active-ghost-color: #{$bl-sys-color-neutral-500};
+    }
+  
+    @if $color == 'primary' {
+      --filled-foreground-color: #{$bl-sys-color-light};
+      --filled-background-color: #{$bl-sys-color-primary-800};
+      --hover-filled-background-color: #{$bl-sys-color-primary-700};
+      --active-filled-background-color: #{$bl-sys-color-primary-600};
+  
+      --outlined-foreground-color: #{$bl-sys-color-primary-700};
+      --hover-outlined-background-color: #{$bl-sys-color-primary-050};
+      --active-outlined-background-color: #{$bl-sys-color-primary-100};
+  
+      --ghost-color: #{$bl-sys-color-primary-700};
+      --hover-ghost-color: #{$bl-sys-color-primary-600};
+      --active-ghost-color: #{$bl-sys-color-primary-500};
+    }
+  
+    @if $color == 'info' {
+      --filled-foreground-color: #{$bl-sys-color-dark};
+      --filled-background-color: #{$bl-sys-color-info-300};
+      --hover-filled-background-color: #{$bl-sys-color-info-200};
+      --active-filled-background-color: #{$bl-sys-color-info-100};
+  
+      --outlined-foreground-color: #{$bl-sys-color-info-700};
+      --hover-outlined-background-color: #{$bl-sys-color-info-050};
+      --active-outlined-background-color: #{$bl-sys-color-info-100};
+  
+      --ghost-color: #{$bl-sys-color-info-700};
+      --hover-ghost-color: #{$bl-sys-color-info-600};
+      --active-ghost-color: #{$bl-sys-color-info-500};
+    }
+  
+    @if $color == 'success' {
+      --filled-foreground-color: #{$bl-sys-color-light};
+      --filled-background-color: #{$bl-sys-color-success-600};
+      --hover-filled-background-color: #{$bl-sys-color-success-500};
+      --active-filled-background-color: #{$bl-sys-color-success-400};
+  
+      --outlined-foreground-color: #{$bl-sys-color-success-700};
+      --hover-outlined-background-color: #{$bl-sys-color-success-050};
+      --active-outlined-background-color: #{$bl-sys-color-success-100};
+  
+      --ghost-color: #{$bl-sys-color-success-700};
+      --hover-ghost-color: #{$bl-sys-color-success-600};
+      --active-ghost-color: #{$bl-sys-color-success-500};
+    }
+  
+    @if $color == 'warning' {
+      --filled-foreground-color: #{$bl-sys-color-dark};
+      --filled-background-color: #{$bl-sys-color-warning-400};
+      --hover-filled-background-color: #{$bl-sys-color-warning-300};
+      --active-filled-background-color: #{$bl-sys-color-warning-200};
+  
+      --outlined-foreground-color: #{$bl-sys-color-warning-700};
+      --hover-outlined-background-color: #{$bl-sys-color-warning-050};
+      --active-outlined-background-color: #{$bl-sys-color-warning-100};
+  
+      --ghost-color: #{$bl-sys-color-warning-700};
+      --hover-ghost-color: #{$bl-sys-color-warning-600};
+      --active-ghost-color: #{$bl-sys-color-warning-500};
+    }
+  
+    @if $color == 'critical' {
+      --filled-foreground-color: #{$bl-sys-color-light};
+      --filled-background-color: #{$bl-sys-color-critical-800};
+      --hover-filled-background-color: #{$bl-sys-color-critical-700};
+      --active-filled-background-color: #{$bl-sys-color-critical-600};
+  
+      --outlined-foreground-color: #{$bl-sys-color-critical-700};
+      --hover-outlined-background-color: #{$bl-sys-color-critical-050};
+      --active-outlined-background-color: #{$bl-sys-color-critical-100};
+  
+      --ghost-color: #{$bl-sys-color-critical-700};
+      --hover-ghost-color: #{$bl-sys-color-critical-600};
+      --active-ghost-color: #{$bl-sys-color-critical-500};
+    }
+  }
+
+  html[data-theme="dark"] & {
+
+    --outlined-border-color: #{$bl-sys-color-neutral-800};
+    --hover-outlined-border-color: #{$bl-sys-color-neutral-500};
+    --active-outlined-border-color: #{$bl-sys-color-neutral-300};
+
+    @if $color == 'default' {
+      --filled-foreground-color: #{$bl-sys-color-dark};
+      --filled-background-color: #{$bl-sys-color-neutral-050};
+      --hover-filled-background-color: #{$bl-sys-color-neutral-100};
+      --active-filled-background-color: #{$bl-sys-color-neutral-200};
+  
+      --outlined-foreground-color: #{$bl-sys-color-neutral-300};
+      --hover-outlined-background-color: #{$bl-sys-color-neutral-950};
+      --active-outlined-background-color: #{$bl-sys-color-neutral-900};
+  
+      --ghost-color: #{$bl-sys-color-neutral-300};
+      --hover-ghost-color: #{$bl-sys-color-neutral-400};
+      --active-ghost-color: #{$bl-sys-color-neutral-500};
+    }
+  
+    @if $color == 'neutral' {
+      --filled-foreground-color: #{$bl-sys-color-dark};
+      --filled-background-color: #{$bl-sys-color-neutral-050};
+      --hover-filled-background-color: #{$bl-sys-color-neutral-100};
+      --active-filled-background-color: #{$bl-sys-color-neutral-200};
+  
+      --outlined-foreground-color: #{$bl-sys-color-neutral-300};
+      --hover-outlined-background-color: #{$bl-sys-color-neutral-950};
+      --active-outlined-background-color: #{$bl-sys-color-neutral-900};
+  
+      --ghost-color: #{$bl-sys-color-neutral-300};
+      --hover-ghost-color: #{$bl-sys-color-neutral-400};
+      --active-ghost-color: #{$bl-sys-color-neutral-500};
+    }
+  
+    @if $color == 'primary' {
+      --filled-foreground-color: #{$bl-sys-color-light};
+      --filled-background-color: #{$bl-sys-color-primary-800};
+      --hover-filled-background-color: #{$bl-sys-color-primary-700};
+      --active-filled-background-color: #{$bl-sys-color-primary-600};
+  
+      --outlined-foreground-color: #{$bl-sys-color-primary-300};
+      --hover-outlined-background-color: #{$bl-sys-color-primary-950};
+      --active-outlined-background-color: #{$bl-sys-color-primary-900};
+  
+      --ghost-color: #{$bl-sys-color-primary-300};
+      --hover-ghost-color: #{$bl-sys-color-primary-400};
+      --active-ghost-color: #{$bl-sys-color-primary-500};
+    }
+  
+    @if $color == 'info' {
+      --filled-foreground-color: #{$bl-sys-color-dark};
+      --filled-background-color: #{$bl-sys-color-info-300};
+      --hover-filled-background-color: #{$bl-sys-color-info-400};
+      --active-filled-background-color: #{$bl-sys-color-info-500};
+  
+      --outlined-foreground-color: #{$bl-sys-color-info-300};
+      --hover-outlined-background-color: #{$bl-sys-color-info-950};
+      --active-outlined-background-color: #{$bl-sys-color-info-900};
+  
+      --ghost-color: #{$bl-sys-color-info-300};
+      --hover-ghost-color: #{$bl-sys-color-info-400};
+      --active-ghost-color: #{$bl-sys-color-info-500};
+    }
+  
+    @if $color == 'success' {
+      --filled-foreground-color: #{$bl-sys-color-light};
+      --filled-background-color: #{$bl-sys-color-success-600};
+      --hover-filled-background-color: #{$bl-sys-color-success-500};
+      --active-filled-background-color: #{$bl-sys-color-success-400};
+  
+      --outlined-foreground-color: #{$bl-sys-color-success-300};
+      --hover-outlined-background-color: #{$bl-sys-color-success-950};
+      --active-outlined-background-color: #{$bl-sys-color-success-900};
+  
+      --ghost-color: #{$bl-sys-color-success-300};
+      --hover-ghost-color: #{$bl-sys-color-success-400};
+      --active-ghost-color: #{$bl-sys-color-success-500};
+    }
+  
+    @if $color == 'warning' {
+      --filled-foreground-color: #{$bl-sys-color-dark};
+      --filled-background-color: #{$bl-sys-color-warning-400};
+      --hover-filled-background-color: #{$bl-sys-color-warning-500};
+      --active-filled-background-color: #{$bl-sys-color-warning-600};
+  
+      --outlined-foreground-color: #{$bl-sys-color-warning-300};
+      --hover-outlined-background-color: #{$bl-sys-color-warning-950};
+      --active-outlined-background-color: #{$bl-sys-color-warning-900};
+  
+      --ghost-color: #{$bl-sys-color-warning-300};
+      --hover-ghost-color: #{$bl-sys-color-warning-400};
+      --active-ghost-color: #{$bl-sys-color-warning-500};
+    }
+  
+    @if $color == 'critical' {
+      --filled-foreground-color: #{$bl-sys-color-light};
+      --filled-background-color: #{$bl-sys-color-critical-800};
+      --hover-filled-background-color: #{$bl-sys-color-critical-700};
+      --active-filled-background-color: #{$bl-sys-color-critical-600};
+  
+      --outlined-foreground-color: #{$bl-sys-color-critical-300};
+      --hover-outlined-background-color: #{$bl-sys-color-critical-950};
+      --active-outlined-background-color: #{$bl-sys-color-critical-900};
+  
+      --ghost-color: #{$bl-sys-color-critical-300};
+      --hover-ghost-color: #{$bl-sys-color-critical-400};
+      --active-ghost-color: #{$bl-sys-color-critical-500};
+    }
+  }
+}

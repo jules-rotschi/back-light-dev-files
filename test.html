@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,37 +7,33 @@
   <title>Document</title>
 </head>
 <body>
-  <div style="margin-top: 2rem;"></div>
-  <button class="button primary neutral">Button</button>
-  <button class="button primary brand">Button</button>
-  <button class="button primary info">Button</button>
-  <button class="button primary success">Button</button>
-  <button class="button primary warning">Button</button>
-  <button class="button primary critical">Button</button>
-  <div style="margin-top: 2rem;"></div>
-  <button class="button secondary neutral">Button</button>
-  <button class="button secondary brand">Button</button>
-  <button class="button secondary info">Button</button>
-  <button class="button secondary success">Button</button>
-  <button class="button secondary warning">Button</button>
-  <button class="button secondary critical">Button</button>
-  <div style="margin-top: 2rem;"></div>
-  <button class="button tertiary neutral">Button</button>
-  <button class="button tertiary brand">Button</button>
-  <button class="button tertiary info">Button</button>
-  <button class="button tertiary success">Button</button>
-  <button class="button tertiary warning">Button</button>
-  <button class="button tertiary critical">Button</button>
-  <div style="margin-top: 2rem;"></div>
-  <button class="button ghost neutral">Button</button>
-  <button class="button ghost brand">Button</button>
-  <button class="button ghost info">Button</button>
-  <button class="button ghost success">Button</button>
-  <button class="button ghost warning">Button</button>
-  <button class="button ghost critical">Button</button>
-  <div style="margin-top: 2rem;"></div>
-  <button class="button primary neutral button-with-icon">Button <div style="height: 20px; width: 20px; font-size: 20px; line-height: 1;">J</div></button>
-  <button class="button primary neutral icon-button"><div style="height: 20px; width: 20px; font-size: 20px; line-height: 1;">J</div></button>
-  <button disabled class="button primary neutral">Default button</button>
+  <button id="btn" type="button" class="button"></button>
+  <button type="button" class="small-button button-outlined">Small</button>
+  <button type="button" class="icon-button">J</button>
+  
+  <script>
+    const getCurrentTheme = () => {
+      return document.documentElement.getAttribute('data-theme');
+    }
+
+    const getNextTheme = (currentTheme) => {
+      return currentTheme === 'light' ? 'dark' : 'light';
+    }
+
+    const currentTheme = getCurrentTheme();
+    const nextTheme = getNextTheme(currentTheme);
+
+    const btn = document.getElementById('btn');
+    btn.textContent = `Switch to ${nextTheme} mode`;
+
+    const toggleTheme = () => {
+      const currentTheme = getCurrentTheme();
+      const newTheme = getNextTheme(currentTheme);
+      document.documentElement.setAttribute("data-theme", newTheme)
+      btn.textContent = `Switch to ${currentTheme} mode`;
+    }
+
+    btn.addEventListener('click', toggleTheme);
+  </script>
 </body>
 </html>

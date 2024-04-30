@@ -1,3 +1,5 @@
+@use '../tokens' as *;
+
 *{
   padding: 0;
   margin: 0;
@@ -8,6 +10,14 @@
 body {
   max-width: 100vw;
   overflow-x: hidden;
+
+  html[data-theme="light"] & {
+    background: $bl-sys-color-light;
+  }
+
+  html[data-theme="dark"] & {
+    background: $bl-sys-color-dark;
+  }
 }
 
 a {
@@ -19,4 +29,8 @@ button {
   background: none;
   border: none;
   border-radius: 0;
+}
+
+[disabled] { 
+  pointer-events: cursor;
 }

@@ -1,0 +1,97 @@
+@use '../../tokens' as *;
+@use '../../abstract/' as *;
+@use './button-colors' as *;
+
+.small-button {
+  display: block;
+  width: fit-content;
+  cursor: pointer;
+
+  padding: $bl-sys-padding-xxs $bl-sys-padding-xs;
+  border-radius: $bl-sys-border-radius-ms;
+
+  transition: all $bl-sys-motion-fast $bl-prim-timing-function-ease-out;
+
+  @include label-3();
+
+  &:enabled:active {
+    transition: none;
+  }
+
+  @include button-colors('default');
+
+  &.button-neutral {
+    @include button-colors('neutral');
+  }
+
+  &.button-primary {
+    @include button-colors('primary');
+  }
+
+  &.button-info {
+    @include button-colors('info');
+  }
+
+  &.button-success {
+    @include button-colors('success');
+  }
+
+  &.button-warning {
+    @include button-colors('warning');
+  }
+
+  &.button-critical {
+    @include button-colors('critical');
+  }
+
+  &.button-filled {
+    color: var(--filled-foreground-color);
+    background: var(--filled-background-color);
+
+    &:enabled:hover {
+      background: var(--hover-filled-background-color);
+    }
+
+    &:enabled:active {
+      background: var(--active-filled-background-color);
+    }
+  }
+
+  &.button-outlined {
+    color: var(--outlined-foreground-color);
+    background: transparent;
+    border: 1px solid;
+    border-color: var(--outlined-border-color);
+
+    &:enabled:hover {
+      background: var(--hover-outlined-background-color);
+      border-color: var(--hover-outlined-border-color);
+    }
+
+    &:enabled:active {
+      background: var(--active-outlined-background-color);
+      border-color: var(--active-outlined-border-color);
+    }
+  }
+
+  color: var(--filled-foreground-color);
+  background: var(--filled-background-color);
+
+  &:enabled:hover {
+    background: var(--hover-filled-background-color);
+  }
+
+  &:enabled:active {
+    background: var(--active-filled-background-color);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &.button-with-icon {
+    display: flex;
+    gap: $bl-sys-gap-xxs;
+  }
+}
