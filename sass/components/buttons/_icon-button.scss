@@ -12,10 +12,6 @@
 
   transition: all $bl-sys-motion-fast $bl-prim-timing-function-ease-out;
 
-  &:enabled:active {
-    transition: none;
-  }
-
   @include icon-button-colors('default');
 
   &.button-neutral {

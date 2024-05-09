@@ -1,6 +1,6 @@
 import { PropsWithChildren, ReactEventHandler } from 'react';
 
-interface ButtonProps {
+interface SmallButtonProps {
   type?: "button" | "submit" | "reset";
   className?: string;
   onClick?: ReactEventHandler;
@@ -9,7 +9,7 @@ interface ButtonProps {
   hasIcon?: boolean;
 }
 
-export const Button = (props: PropsWithChildren<ButtonProps>) => {
+export const SmallButton = (props: PropsWithChildren<SmallButtonProps>) => {
 
   const styleClassName = `button-${props.style}`;
   const colorClassName = `button-${props.color}`;

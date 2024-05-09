@@ -1,13 +1,13 @@
 import { PropsWithChildren, ReactEventHandler } from 'react';
 
-interface ButtonProps {
+interface IconButtonProps {
   type?: "button" | "submit" | "reset";
   className?: string;
   onClick?: ReactEventHandler;
   color: "neutral" | "primary" | "info" | "success" | "warning" | "critical";
 }
 
-export const Button = (props: PropsWithChildren<ButtonProps>) => {
+export const IconButton = (props: PropsWithChildren<IconButtonProps>) => {
 
   const colorClassName = `button-${props.color}`;
 
