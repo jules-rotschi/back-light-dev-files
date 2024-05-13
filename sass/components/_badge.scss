@@ -1,0 +1,26 @@
+@use '../tokens' as *;
+@use '../abstract' as *;
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $bl-sys-border-radius-ms;
+  width: fit-content;
+  padding: $bl-sys-padding-xxs $bl-sys-padding-xs;
+  gap: $bl-sys-gap-xxs;
+
+  .label {
+    @include label-3();
+  }
+
+  html[data-theme="light"] & {
+    @include background-gradient($bl-sys-color-neutral-opacity-40, $bl-sys-color-neutral-opacity-20, "top");
+    color: $bl-sys-color-neutral-800;
+  }
+
+  html[data-theme="dark"] & {
+    @include background-gradient($bl-sys-color-neutral-opacity-20, $bl-sys-color-neutral-opacity-40, "bottom");
+    color: $bl-sys-color-neutral-200;
+  }
+}

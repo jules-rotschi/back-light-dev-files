@@ -2,10 +2,6 @@
 
 @mixin button-colors($color) {
 
-  @if $color == 'default' {
-    $color: "neutral";
-  }
-
   html[data-theme="light"] & {
 
     --outlined-border-color: #{$bl-sys-color-neutral-200};

@@ -1,0 +1,81 @@
+@use '../tokens' as *;
+@use '../abstract' as *;
+
+$snackbar-foreground-color: $bl-sys-color-light;
+
+$snackbar-info-bottom-background-color: $bl-sys-color-info-800;
+$snackbar-info-top-background-color: $bl-sys-color-info-700;
+
+$snackbar-success-bottom-background-color: $bl-sys-color-success-800;
+$snackbar-success-top-background-color: $bl-sys-color-success-700;
+
+$snackbar-warning-bottom-background-color: $bl-sys-color-warning-800;
+$snackbar-warning-top-background-color: $bl-sys-color-warning-700;
+
+$snackbar-critical-bottom-background-color: $bl-sys-color-critical-800;
+$snackbar-critical-top-background-color: $bl-sys-color-critical-700;
+
+.snackbar {
+  padding: $bl-sys-padding-ms $bl-sys-padding-m;
+  border-radius: $bl-sys-border-radius-l;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $bl-sys-color-light;
+  width: 26rem;
+
+  .icon-button {
+    color: $bl-sys-color-light;
+  }
+}
+
+.snackbar--info {
+  @include background-gradient(
+    $snackbar-info-bottom-background-color,
+    $snackbar-info-top-background-color,
+    "top"
+  )
+}
+
+.snackbar--success {
+  @include background-gradient(
+    $snackbar-success-bottom-background-color,
+    $snackbar-success-top-background-color,
+    "top"
+  )
+}
+
+.snackbar--warning {
+  @include background-gradient(
+    $snackbar-warning-bottom-background-color,
+    $snackbar-warning-top-background-color,
+    "top"
+  )
+}
+
+.snackbar--critical {
+  @include background-gradient(
+    $snackbar-critical-bottom-background-color,
+    $snackbar-critical-top-background-color,
+    "top"
+  )
+}
+
+.snackbar__start {
+  display: flex;
+  align-items: center;
+  gap: $bl-sys-gap-ms;
+}
+
+.snackbar__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.snackbar__title {
+  @include title-3();
+}
+
+.snackbar__message {
+  @include body-2();
+}

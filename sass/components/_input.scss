@@ -1,0 +1,101 @@
+@use '../tokens' as *;
+@use '../abstract' as *;
+
+html[data-theme="light"] {
+  --input-background-color: #{$bl-sys-color-light};
+  --input-foreground-main-color: #{$bl-sys-color-neutral-700};
+  --input-foreground-secondary-color: #{$bl-sys-color-neutral-400};
+  --input-active-stroke-color: #{$bl-sys-color-primary-700};
+  --input-error-foreground-main-color: #{$bl-sys-color-critical-800};
+  --input-disabled-foreground-main-color: #{$bl-sys-color-neutral-300};
+  --input-disabled-foreground-secondary-color: #{$bl-sys-color-neutral-100};
+}
+
+html[data-theme="dark"] {
+  --input-background-color: #{$bl-sys-color-dark};
+  --input-foreground-main-color: #{$bl-sys-color-neutral-300};
+  --input-foreground-secondary-color: #{$bl-sys-color-neutral-600};
+  --input-active-stroke-color: #{$bl-sys-color-primary-500};
+  --input-error-foreground-main-color: #{$bl-sys-color-critical-500};
+  --input-disabled-foreground-main-color: #{$bl-sys-color-neutral-700};
+  --input-disabled-foreground-secondary-color: #{$bl-sys-color-neutral-900};
+}
+
+.input {
+  position: relative;
+  width: fit-content;
+
+  .label-container {
+    position: absolute;
+    left: 12px;
+    top: -12px;
+    padding-inline: 2px;
+    background-color: var(--input-background-color);
+  }
+
+  label {
+    @include quiet-1();
+    color: var(--input-foreground-main-color);
+  }
+
+  .field {
+    height: 2.5rem;
+    padding-inline: $bl-sys-padding-xs;
+    border-radius: $bl-sys-border-radius-m;
+    outline: $bl-sys-stroke-width-s solid var(--input-foreground-main-color);
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+      z-index: 10;
+      @include body-2();
+      color: var(--input-foreground-main-color);
+      border: none;
+      background: none;
+      height: 100%;
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+      margin: 0;
+      -moz-appearance: textfield;
+
+      &::placeholder {
+        @include body-2();
+        color: var(--input-foreground-secondary-color);
+        opacity: 1;
+      }
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    .unit {
+      @include quiet-2();
+      color: var(--input-foreground-secondary-color);
+      width: fit-content;
+      text-wrap: nowrap;
+    }
+  }
+
+  .field:has(input:focus-within) {
+    border-color: transparent;
+    outline:
+      $bl-sys-stroke-width-m
+      solid
+      var(--input-active-stroke-color);
+  }
+
+  legend {
+    margin-left: 14px;
+    @include quiet-2();
+    color: var(--input-foreground-main-color);
+  }
+
+  &.input--error {
+    --input-foreground-main-color: var(--input-error-foreground-main-color);
+    --input-active-stroke-color: var(--input-error-foreground-main-color);
+  }
+}

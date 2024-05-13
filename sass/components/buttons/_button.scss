@@ -1,10 +1,8 @@
 @use '../../tokens' as *;
-@use '../../abstract/' as *;
+@use '../../abstract' as *;
 @use './button-colors' as *;
 
 .button {
-
-  // base
   display: block;
   width: fit-content;
   cursor: pointer;
@@ -12,12 +10,9 @@
   padding: $bl-sys-padding-s $bl-sys-padding-m;
   border-radius: $bl-sys-border-radius-m;
 
-  transition: all $bl-sys-motion-fast $bl-prim-timing-function-ease-out;
+  @include pointer-event-transition(all);
 
   @include label-2();
-
-  // color variables
-  @include button-colors('default');
 
   &.button-neutral {
     @include button-colors('neutral');
@@ -43,70 +38,6 @@
     @include button-colors('critical');
   }
 
-  // if no style class name => filled
-  html[data-theme="light"] &.button-neutral,
-  html[data-theme="light"] &.button-primary,
-  html[data-theme="light"] &.button-info,
-  html[data-theme="light"] &.button-success,
-  html[data-theme="light"] &.button-warning,
-  html[data-theme="light"] &.button-critical,
-  html[data-theme="dark"] &.button-primary,
-  html[data-theme="dark"] &.button-info,
-  html[data-theme="dark"] &.button-success,
-  html[data-theme="dark"] &.button-warning,
-  html[data-theme="dark"] &.button-critical {
-    @include background-gradient(var(--filled-static-background-color), var(--default-filled-dynamic-background-color), "top");
-  }
-
-  html[data-theme="dark"] &.button-neutral {
-    @include background-gradient(var(--filled-static-background-color), var(--default-filled-dynamic-background-color), "bottom");
-  }
-
-  &:enabled:hover {
-    html[data-theme="light"] &,
-    html[data-theme="light"] &.button-neutral,
-    html[data-theme="light"] &.button-primary,
-    html[data-theme="light"] &.button-info,
-    html[data-theme="light"] &.button-success,
-    html[data-theme="light"] &.button-warning,
-    html[data-theme="light"] &.button-critical,
-    html[data-theme="dark"] &.button-primary,
-    html[data-theme="dark"] &.button-info,
-    html[data-theme="dark"] &.button-success,
-    html[data-theme="dark"] &.button-warning,
-    html[data-theme="dark"] &.button-critical {
-      @include background-gradient(var(--filled-static-background-color), var(--hover-filled-dynamic-background-color), "top");
-    }
-
-    html[data-theme="dark"] &,
-    html[data-theme="dark"] &.button-neutral {
-      @include background-gradient(var(--filled-static-background-color), var(--hover-filled-dynamic-background-color), "bottom");
-    }
-  }
-
-  &:enabled:active {
-    html[data-theme="light"] &,
-    html[data-theme="light"] &.button-neutral,
-    html[data-theme="light"] &.button-primary,
-    html[data-theme="light"] &.button-info,
-    html[data-theme="light"] &.button-success,
-    html[data-theme="light"] &.button-warning,
-    html[data-theme="light"] &.button-critical,
-    html[data-theme="dark"] &.button-primary,
-    html[data-theme="dark"] &.button-info,
-    html[data-theme="dark"] &.button-success,
-    html[data-theme="dark"] &.button-warning,
-    html[data-theme="dark"] &.button-critical {
-      @include background-gradient(var(--filled-static-background-color), var(--active-filled-dynamic-background-color), "top");
-    }
-
-    html[data-theme="dark"] &,
-    html[data-theme="dark"] &.button-neutral {
-      @include background-gradient(var(--filled-static-background-color), var(--active-filled-dynamic-background-color), "bottom");
-    }
-  }
-
-  //filled button
   &.button-filled {
     color: var(--filled-foreground-color);
 
@@ -129,7 +60,6 @@
     }
 
     &:enabled:hover {
-      html[data-theme="light"] &,
       html[data-theme="light"] &.button-neutral,
       html[data-theme="light"] &.button-primary,
       html[data-theme="light"] &.button-info,
@@ -144,14 +74,12 @@
         @include background-gradient(var(--filled-static-background-color), var(--hover-filled-dynamic-background-color), "top");
       }
 
-      html[data-theme="dark"] &,
       html[data-theme="dark"] &.button-neutral {
         @include background-gradient(var(--filled-static-background-color), var(--hover-filled-dynamic-background-color), "bottom");
       }
     }
 
     &:enabled:active {
-      html[data-theme="light"] &,
       html[data-theme="light"] &.button-neutral,
       html[data-theme="light"] &.button-primary,
       html[data-theme="light"] &.button-info,
@@ -166,14 +94,12 @@
         @include background-gradient(var(--filled-static-background-color), var(--active-filled-dynamic-background-color), "top");
       }
 
-      html[data-theme="dark"] &,
       html[data-theme="dark"] &.button-neutral {
         @include background-gradient(var(--filled-static-background-color), var(--active-filled-dynamic-background-color), "bottom");
       }
     }
   }
 
-  // outlined button
   &.button-outlined {
     color: var(--outlined-foreground-color);
     html[data-theme="light"] & {
@@ -182,7 +108,7 @@
     html[data-theme="dark"] & {
       @include background-gradient(var(--outlined-static-background-color), var(--default-outlined-dynamic-background-color), "top");
     }
-    border: 1px solid;
+    border: $bl-sys-stroke-width-s solid;
     border-color: var(--outlined-border-color);
 
     &:enabled:hover {
@@ -206,7 +132,6 @@
     }
   }
 
-  // ghost button
   &.button-ghost {
     padding: $bl-sys-padding-xs $bl-sys-padding-ms;
     color: var(--ghost-color);
@@ -223,7 +148,6 @@
     }
   }
   
-  // general effects
   &:disabled {
     opacity: 0.4;
     cursor: not-allowed;
@@ -232,36 +156,5 @@
   &.button-with-icon {
     display: flex;
     gap: $bl-sys-gap-xs;
-  }
-
-  //if no style nor color => filled neutral
-  color: var(--filled-foreground-color);
-  
-  html[data-theme="light"] & {
-    @include background-gradient(var(--filled-static-background-color), var(--default-filled-dynamic-background-color), "top");
-  }
-
-  html[data-theme="dark"] & {
-    @include background-gradient(var(--filled-static-background-color), var(--default-filled-dynamic-background-color), "bottom");
-  }
-
-  &:enabled:hover {
-    html[data-theme="light"] & {
-      @include background-gradient(var(--filled-static-background-color), var(--hover-filled-dynamic-background-color), "top");
-    }
-  
-    html[data-theme="dark"] & {
-      @include background-gradient(var(--filled-static-background-color), var(--hover-filled-dynamic-background-color), "bottom");
-    }
-  }
-
-  &:enabled:active {
-    html[data-theme="light"] & {
-      @include background-gradient(var(--filled-static-background-color), var(--active-filled-dynamic-background-color), "top");
-    }
-  
-    html[data-theme="dark"] & {
-      @include background-gradient(var(--filled-static-background-color), var(--active-filled-dynamic-background-color), "bottom");
-    }
   }
 }

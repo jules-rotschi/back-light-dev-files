@@ -10,7 +10,7 @@
   padding: $bl-sys-padding-xxs $bl-sys-padding-xs;
   border-radius: $bl-sys-border-radius-ms;
 
-  transition: all $bl-sys-motion-fast $bl-prim-timing-function-ease-out;
+  @include pointer-event-transition(all);
 
   @include label-3();
 
@@ -40,68 +40,6 @@
     @include button-colors('critical');
   }
 
-  html[data-theme="light"] &.button-neutral,
-  html[data-theme="light"] &.button-primary,
-  html[data-theme="light"] &.button-info,
-  html[data-theme="light"] &.button-success,
-  html[data-theme="light"] &.button-warning,
-  html[data-theme="light"] &.button-critical,
-  html[data-theme="dark"] &.button-primary,
-  html[data-theme="dark"] &.button-info,
-  html[data-theme="dark"] &.button-success,
-  html[data-theme="dark"] &.button-warning,
-  html[data-theme="dark"] &.button-critical {
-    @include background-gradient(var(--filled-static-background-color), var(--default-filled-dynamic-background-color), "top");
-  }
-
-  html[data-theme="dark"] &.button-neutral {
-    @include background-gradient(var(--filled-static-background-color), var(--default-filled-dynamic-background-color), "bottom");
-  }
-
-  &:enabled:hover {
-    html[data-theme="light"] &,
-    html[data-theme="light"] &.button-neutral,
-    html[data-theme="light"] &.button-primary,
-    html[data-theme="light"] &.button-info,
-    html[data-theme="light"] &.button-success,
-    html[data-theme="light"] &.button-warning,
-    html[data-theme="light"] &.button-critical,
-    html[data-theme="dark"] &.button-primary,
-    html[data-theme="dark"] &.button-info,
-    html[data-theme="dark"] &.button-success,
-    html[data-theme="dark"] &.button-warning,
-    html[data-theme="dark"] &.button-critical {
-      @include background-gradient(var(--filled-static-background-color), var(--hover-filled-dynamic-background-color), "top");
-    }
-
-    html[data-theme="dark"] &,
-    html[data-theme="dark"] &.button-neutral {
-      @include background-gradient(var(--filled-static-background-color), var(--hover-filled-dynamic-background-color), "bottom");
-    }
-  }
-
-  &:enabled:active {
-    html[data-theme="light"] &,
-    html[data-theme="light"] &.button-neutral,
-    html[data-theme="light"] &.button-primary,
-    html[data-theme="light"] &.button-info,
-    html[data-theme="light"] &.button-success,
-    html[data-theme="light"] &.button-warning,
-    html[data-theme="light"] &.button-critical,
-    html[data-theme="dark"] &.button-primary,
-    html[data-theme="dark"] &.button-info,
-    html[data-theme="dark"] &.button-success,
-    html[data-theme="dark"] &.button-warning,
-    html[data-theme="dark"] &.button-critical {
-      @include background-gradient(var(--filled-static-background-color), var(--active-filled-dynamic-background-color), "top");
-    }
-
-    html[data-theme="dark"] &,
-    html[data-theme="dark"] &.button-neutral {
-      @include background-gradient(var(--filled-static-background-color), var(--active-filled-dynamic-background-color), "bottom");
-    }
-  }
-
   &.button-filled {
     color: var(--filled-foreground-color);
 
@@ -124,7 +62,6 @@
     }
 
     &:enabled:hover {
-      html[data-theme="light"] &,
       html[data-theme="light"] &.button-neutral,
       html[data-theme="light"] &.button-primary,
       html[data-theme="light"] &.button-info,
@@ -139,14 +76,12 @@
         @include background-gradient(var(--filled-static-background-color), var(--hover-filled-dynamic-background-color), "top");
       }
 
-      html[data-theme="dark"] &,
       html[data-theme="dark"] &.button-neutral {
         @include background-gradient(var(--filled-static-background-color), var(--hover-filled-dynamic-background-color), "bottom");
       }
     }
 
     &:enabled:active {
-      html[data-theme="light"] &,
       html[data-theme="light"] &.button-neutral,
       html[data-theme="light"] &.button-primary,
       html[data-theme="light"] &.button-info,
@@ -161,7 +96,6 @@
         @include background-gradient(var(--filled-static-background-color), var(--active-filled-dynamic-background-color), "top");
       }
 
-      html[data-theme="dark"] &,
       html[data-theme="dark"] &.button-neutral {
         @include background-gradient(var(--filled-static-background-color), var(--active-filled-dynamic-background-color), "bottom");
       }
@@ -198,17 +132,6 @@
       }
       border-color: var(--active-outlined-border-color);
     }
-  }
-
-  color: var(--filled-foreground-color);
-  background: var(--filled-background-color);
-
-  &:enabled:hover {
-    background: var(--hover-filled-background-color);
-  }
-
-  &:enabled:active {
-    background: var(--active-filled-background-color);
   }
 
   &:disabled {

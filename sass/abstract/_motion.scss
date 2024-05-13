@@ -1,8 +1,9 @@
-// @use '../tokens/' as *;
+@use '../tokens/' as *;
 
-// $motions: (
-//   instant: $bl-sys-motion-instant,
-//   fast: $bl-sys-motion-fast,
-//   medium: $bl-sys-motion-medium,
-//   slow: $bl-sys-motion-slow
-// );
+@mixin pointer-event-transition($property) {
+  transition: $property $bl-sys-motion-fast $bl-prim-timing-function-ease-out;
+}
+
+@mixin transform-transition() {
+  transition: transform $bl-sys-motion-medium $bl-prim-timing-function-ease-in-out;
+}

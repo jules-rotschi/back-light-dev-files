@@ -1,0 +1,192 @@
+@use '../abstract' as *;
+@use '../tokens' as *;
+
+$light-radio-foreground-color: $bl-sys-color-dark;
+$light-radio-hover-background-color: $bl-sys-color-primary-050;
+$light-radio-active-background-color: $bl-sys-color-primary-100;
+$light-radio-static-background-color: $bl-sys-color-primary-700;
+$light-radio-default-dynamic-background-color: $bl-sys-color-primary-600;
+$light-radio-hover-dynamic-background-color: $bl-sys-color-primary-500;
+$light-radio-active-dynamic-background-color: $bl-sys-color-primary-400;
+
+$dark-radio-foreground-color: $bl-sys-color-light;
+$dark-radio-hover-background-color: $bl-sys-color-primary-950;
+$dark-radio-active-background-color: $bl-sys-color-primary-900;
+$dark-radio-static-background-color: $bl-sys-color-primary-400;
+$dark-radio-default-dynamic-background-color: $bl-sys-color-primary-300;
+$dark-radio-hover-dynamic-background-color: $bl-sys-color-primary-200;
+$dark-radio-active-dynamic-background-color: $bl-sys-color-primary-100;
+
+$stroke-width: $bl-sys-stroke-width-s;
+
+.radio-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: $bl-sys-gap-xs;
+
+  input {
+    @include pointer-event-transition(all);
+    cursor: pointer;
+    appearance: none;
+    width: $bl-sys-size-xs;
+    height: $bl-sys-size-xs;
+    border-radius: $bl-sys-border-radius-full;
+    position: relative;
+    display: grid;
+    place-items: center;
+
+    &::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: $bl-sys-border-radius-full;
+    }
+
+    &:checked {
+      &::after {
+        @include pointer-event-transition(all);
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: $bl-sys-border-radius-full;
+      }
+    }
+  }
+
+  label {
+    @include label-3();
+    cursor: pointer;
+  }
+
+  html[data-theme="light"] & {
+
+    input {
+      @include background-gradient(
+        $light-radio-static-background-color,
+        $light-radio-default-dynamic-background-color,
+        "top"
+      );
+  
+      &::before {
+        background-color: $bl-sys-color-light;
+      }
+
+      &:hover {
+        @include background-gradient(
+          $light-radio-static-background-color,
+          $light-radio-hover-dynamic-background-color,
+          "top"
+        );
+      }
+
+      &:active {
+        @include background-gradient(
+          $light-radio-static-background-color,
+          $light-radio-active-dynamic-background-color,
+          "top"
+        );
+      }
+  
+      &:checked {
+        &::after {
+          @include background-gradient(
+            $light-radio-static-background-color,
+            $light-radio-default-dynamic-background-color,
+            "top"
+          );
+        }
+  
+        &:hover {
+          &::after {
+            @include background-gradient(
+              $light-radio-static-background-color,
+              $light-radio-hover-dynamic-background-color,
+              "top"
+            );
+          }
+        }
+  
+        &:active {
+          &::after {
+            @include background-gradient(
+              $light-radio-static-background-color,
+              $light-radio-active-dynamic-background-color,
+              "top"
+            );
+          }
+        }
+      }
+    }
+
+    label {
+      color: $bl-sys-color-dark;
+    }
+  }
+
+  html[data-theme="dark"] & {
+
+    input {
+      @include background-gradient(
+        $dark-radio-static-background-color,
+        $dark-radio-default-dynamic-background-color,
+        "top"
+      );
+  
+      &::before {
+        background-color: $bl-sys-color-dark;
+      }
+
+      &:hover {
+        @include background-gradient(
+          $dark-radio-static-background-color,
+          $dark-radio-hover-dynamic-background-color,
+          "top"
+        );
+      }
+
+      &:active {
+        @include background-gradient(
+          $dark-radio-static-background-color,
+          $dark-radio-active-dynamic-background-color,
+          "top"
+        );
+      }
+  
+      &:checked {
+        &::after {
+          @include background-gradient(
+            $dark-radio-static-background-color,
+            $dark-radio-default-dynamic-background-color,
+            "top"
+          );
+        }
+  
+        &:hover {
+          &::after {
+            @include background-gradient(
+              $dark-radio-static-background-color,
+              $dark-radio-hover-dynamic-background-color,
+              "top"
+            );
+          }
+        }
+  
+        &:active {
+          &::after {
+            @include background-gradient(
+              $dark-radio-static-background-color,
+              $dark-radio-active-dynamic-background-color,
+              "top"
+            );
+          }
+        }
+      }
+    }
+
+    label {
+      color: $bl-sys-color-light;
+    }
+  }
+}

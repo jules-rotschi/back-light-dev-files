@@ -1,0 +1,167 @@
+@use '../abstract' as *;
+@use '../tokens' as *;
+
+$light-switch-not-checked-static-background-color: $bl-sys-color-neutral-200;
+$light-switch-not-checked-default-dynamic-background-color: $bl-sys-color-neutral-300;
+$light-switch-not-checked-hover-dynamic-background-color: $bl-sys-color-neutral-400;
+$light-switch-not-checked-active-dynamic-background-color: $bl-sys-color-neutral-500;
+$light-switch-checked-static-background-color: $bl-sys-color-primary-800;
+$light-switch-checked-default-dynamic-background-color: $bl-sys-color-primary-700;
+$light-switch-checked-hover-dynamic-background-color: $bl-sys-color-primary-600;
+$light-switch-checked-active-dynamic-background-color: $bl-sys-color-primary-500;
+
+$dark-switch-not-checked-static-background-color: $bl-sys-color-neutral-700;
+$dark-switch-not-checked-default-dynamic-background-color: $bl-sys-color-neutral-600;
+$dark-switch-not-checked-hover-dynamic-background-color: $bl-sys-color-neutral-500;
+$dark-switch-not-checked-active-dynamic-background-color: $bl-sys-color-neutral-400;
+$dark-switch-checked-static-background-color: $bl-sys-color-primary-700;
+$dark-switch-checked-default-dynamic-background-color: $bl-sys-color-primary-600;
+$dark-switch-checked-hover-dynamic-background-color: $bl-sys-color-primary-500;
+$dark-switch-checked-active-dynamic-background-color: $bl-sys-color-primary-400;
+
+.switch {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: $bl-sys-gap-xs;
+
+  input {
+    @include pointer-event-transition(background-color);
+    cursor: pointer;
+    appearance: none;
+    width: $bl-sys-size-ms;
+    height: $bl-sys-size-xs;
+    border-radius: $bl-sys-border-radius-full;
+    position: relative;
+  
+    &::after {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: $bl-sys-border-radius-full;
+      background-color: $bl-sys-color-light;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      margin-left: 0;
+      transition: margin-left 200ms ease-in-out;
+    }
+  
+    &:checked::after {
+      margin-left: 16px;
+    }
+  }
+
+  label {
+    @include label-3();
+    cursor: pointer;
+  }
+
+  html[data-theme="light"] & {
+    input {
+      @include background-gradient(
+        $light-switch-not-checked-static-background-color,
+        $light-switch-not-checked-default-dynamic-background-color,
+        "bottom"
+      );
+  
+      &:hover {
+        @include background-gradient(
+          $light-switch-not-checked-static-background-color,
+          $light-switch-not-checked-hover-dynamic-background-color,
+          "bottom"
+        );
+      }
+  
+      &:active {
+        @include background-gradient(
+          $light-switch-not-checked-static-background-color,
+          $light-switch-not-checked-active-dynamic-background-color,
+          "bottom"
+        );
+      }
+
+      &:checked {
+        @include background-gradient(
+          $light-switch-checked-static-background-color,
+          $light-switch-checked-default-dynamic-background-color,
+          "top"
+        );
+    
+        &:hover {
+          @include background-gradient(
+            $light-switch-checked-static-background-color,
+            $light-switch-checked-hover-dynamic-background-color,
+            "top"
+          );
+        }
+    
+        &:active {
+          @include background-gradient(
+            $light-switch-checked-static-background-color,
+            $light-switch-checked-active-dynamic-background-color,
+            "top"
+          );
+        }
+      }
+    }
+
+    label {
+      color: $bl-sys-color-dark;
+    }
+  }
+
+  html[data-theme="dark"] & {
+    input {
+      @include background-gradient(
+        $dark-switch-not-checked-static-background-color,
+        $dark-switch-not-checked-default-dynamic-background-color,
+        "top"
+      );
+  
+      &:hover {
+        @include background-gradient(
+          $dark-switch-not-checked-static-background-color,
+          $dark-switch-not-checked-hover-dynamic-background-color,
+          "top"
+        );
+      }
+  
+      &:active {
+        @include background-gradient(
+          $dark-switch-not-checked-static-background-color,
+          $dark-switch-not-checked-active-dynamic-background-color,
+          "top"
+        );
+      }
+
+      &:checked {
+        @include background-gradient(
+          $dark-switch-checked-static-background-color,
+          $dark-switch-checked-default-dynamic-background-color,
+          "top"
+        );
+    
+        &:hover {
+          @include background-gradient(
+            $dark-switch-checked-static-background-color,
+            $dark-switch-checked-hover-dynamic-background-color,
+            "top"
+          );
+        }
+    
+        &:active {
+          @include background-gradient(
+            $dark-switch-checked-static-background-color,
+            $dark-switch-checked-active-dynamic-background-color,
+            "top"
+          );
+        }
+      }
+    }
+
+    label {
+      color: $bl-sys-color-light;
+    }
+  }
+}

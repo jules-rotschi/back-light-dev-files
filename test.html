@@ -8,19 +8,21 @@
 </head>
 <body>
   <!-- Button -->
-  <button id="btn" type="button" class="button"></button>
+  <button id="btn" type="button" class="button button-neutral button-filled"></button>
   <button class="button button-outlined button-success">Gagner 10 000 €</button>
-  <button class="button button-critical">Supprimer</button>
-  <button class="button button-outlined">Annuler</button>
+  <button class="button button-filled button-critical">Supprimer</button>
+  <button class="button button-outlined button-neutral">Annuler</button>
 
   <!-- Small button -->
-  <button type="button" class="small-button button-outlined">Small</button>
+  <button type="button" class="small-button button-neutral button-outlined">Small</button>
 
   <!-- Icon button -->
-  <button type="button" class="icon-button">J</button>
+  <button type="button" class="icon-button button-neutral">J</button>
+
+  <button>Button</button>
 
   <!-- Input -->
-  <div class="input input-text">
+  <div class="input input--error">
     <div class="label-container">
       <label for="text-input">Label</label>
     </div>
@@ -30,7 +32,7 @@
     <legend>Légende</legend>
   </div>
 
-  <div class="input input-number">
+  <div class="input">
     <div class="label-container">
       <label for="num-input">Label</label>
     </div>
@@ -41,20 +43,37 @@
     <legend>Légende</legend>
   </div>
 
+  <label for="in">Label</label>
+  <input placeholder="Placeholder" type="text" id="in">
+  <legend>Legend</legend>
+
   <!-- Checkbox -->
   <div class="checkbox">
     <input type="checkbox" id="checkbox">
     <label for="checkbox">Checkbox label</label>
   </div>
 
+  <input type="checkbox" name="cb" id="cb">
+  <label for="cb">Checkbox label</label>
+
   <!-- Radio button -->
   <div class="radio-button">
-    <input type="radio" id="radio">
+    <input type="radio" id="radio" name="radio-test">
     <label for="radio">Radio label</label>
   </div>
+  <div class="radio-button">
+    <input type="radio" id="radio2" name="radio-test">
+    <label for="radio2">Radio label 2</label>
+  </div>
+
+  <input type="radio" name="radio" id="radio">
+  <label for="radio">Radio label</label>
 
   <!-- Switch -->
-  <input type="checkbox" id="switch">
+  <div class="switch">
+    <input type="checkbox" id="switch">
+    <label for="switch">Switch label</label>
+  </div>
 
   <!-- Badge -->
   <div class="badge">
@@ -63,22 +82,45 @@
   </div>
 
   <!-- Select -->
-  <div class="select">
+  <div style="margin-bottom: 200px;" class="select select--open">
     <div class="select__button">
       <span class="select__label">Select</span>
       <span class="select__arrow">&lt;</span>
     </div>
     <div class="select__dropdown">
-      <div class="select__option">Option 1</div>
-      <div class="select__option">Option 2</div>
-      <div class="select__option">Option 3</div>
-      <div class="select__option">Option 4</div>
-      <div class="select__option">Option 5</div>
+      <div class="select__option">
+        <input type="radio" id="option1" class="select__option" name="select"/>
+        <label for="option1">Option 1</label>
+      </div>
+      <div class="select__option">
+        <input type="radio" id="option2" class="select__option" name="select"/>
+        <label for="option2">Option 2</label>
+      </div>
+      <div class="select__option">
+        <input type="radio" id="option3" class="select__option" name="select"/>
+        <label for="option3">Option 3 Option 3</label>
+      </div>
+      <div class="select__option">
+        <input type="radio" id="option4" class="select__option" name="select"/>
+        <label for="option4">Option 4</label>
+      </div>
+      <div class="select__option">
+        <input type="radio" id="option5" class="select__option" name="select"/>
+        <label for="option5">Option 5</label>
+      </div>
     </div>
   </div>
 
+  <select name="sel" id="sel">
+    <option value="option1">Option 1</option>
+    <option value="option1">Option 2</option>
+    <option value="option1">Option 3</option>
+    <option value="option1">Option 4</option>
+    <option value="option1">Option 5</option>
+  </select>
+
   <!-- Snackbar -->
-  <div class="snackbar">
+  <div class="snackbar snackbar--info">
     <div class="snackbar__start">
       <span class="snackbar__icon">J</span>
       <div class="snackbar__content">
@@ -86,9 +128,9 @@
         <div class="snackbar__message">Snackbar message...</div>
       </div>
     </div>
-    <div class="snackbar__end">
+    <button type="button" class="icon-button">
       X
-    </div>
+    </button>
   </div>
   <script>
     const getCurrentTheme = () => {
