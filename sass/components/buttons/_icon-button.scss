@@ -3,8 +3,7 @@
 @use './icon-button-colors' as *;
 
 .icon-button {
-  display: block;
-  width: fit-content;
+  display: flex;
   cursor: pointer;
 
   padding: $bl-sys-padding-xs $bl-sys-padding-xs;

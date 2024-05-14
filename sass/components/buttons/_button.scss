@@ -155,6 +155,7 @@
 
   &.button-with-icon {
     display: flex;
+    align-items: center;
     gap: $bl-sys-gap-xs;
   }
 }

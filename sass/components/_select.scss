@@ -195,7 +195,7 @@ html[data-theme="dark"] {
   .select__option {
     label {
       color: $dark-select-option-foreground-color;
-      &:hover {
+      &:hover, &:focus {
         @include background-gradient(
           $dark-select-option-hover-bottom-background-color,
           $dark-select-option-hover-top-background-color,

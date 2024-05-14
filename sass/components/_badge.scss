@@ -10,6 +10,11 @@
   padding: $bl-sys-padding-xxs $bl-sys-padding-xs;
   gap: $bl-sys-gap-xxs;
 
+  .icon {
+    display: grid;
+    place-items: center;
+  }
+
   .label {
     @include label-3();
   }

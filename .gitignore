@@ -2,3 +2,5 @@ node_modules
 *.css
 *.css.map
 pnpm-lock.yaml
+dist
+.parcel-cache

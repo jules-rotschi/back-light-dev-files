@@ -1,23 +1,26 @@
-import { PropsWithChildren, ReactEventHandler } from 'react';
+import { ReactEventHandler } from 'react';
+import { IconComponent } from '../react-icons/icon-component-type';
 
 interface IconButtonProps {
-  type?: "button" | "submit" | "reset";
+  color: "neutral" | "primary" | "info" | "success" | "warning" | "critical";
+  icon: IconComponent;
   className?: string;
   onClick?: ReactEventHandler;
-  color: "neutral" | "primary" | "info" | "success" | "warning" | "critical";
+  type?: "button" | "submit" | "reset";
 }
 
-export const IconButton = (props: PropsWithChildren<IconButtonProps>) => {
+export const IconButton = (props: IconButtonProps) => {
 
-  const colorClassName = `button-${props.color}`;
+  const colorClassName = ` button-${props.color}`;
+  const customClassName = props.className ? ` ${props.className}` : "";
 
   return (
     <button
       type={props.type || 'button'}
-      className={`icon-button ${colorClassName} ${(props.className || '')}`}
+      className={"icon-button" + colorClassName + customClassName}
       onClick={props.onClick}
     >
-      {props.children}
+      <props.icon size={24} />
     </button>
   )
 }
