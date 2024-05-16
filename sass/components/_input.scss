@@ -39,9 +39,9 @@ html[data-theme="dark"] {
   }
 
   .field {
-    height: 2.5rem;
+    height: 2rem;
     padding-inline: $bl-sys-padding-xs;
-    border-radius: $bl-sys-border-radius-m;
+    border-radius: $bl-sys-border-radius-ms;
     outline: $bl-sys-stroke-width-s solid var(--input-foreground-main-color);
     width: fit-content;
     display: flex;
@@ -77,6 +77,11 @@ html[data-theme="dark"] {
       color: var(--input-foreground-secondary-color);
       width: fit-content;
       text-wrap: nowrap;
+    }
+
+    @media (min-width: $bl-prim-breakpoint-medium-screen) {
+      height: 2.5rem;
+      border-radius: $bl-sys-border-radius-m;
     }
   }
 

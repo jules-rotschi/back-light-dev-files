@@ -65,6 +65,7 @@ $dark-select-dropdown-top-background-color: $bl-sys-color-neutral-800;
   position: absolute;
   top: 2.5rem;
   min-width: fit-content;
+  width: 100%;
   border-radius: $bl-sys-border-radius-ms;
   overflow: hidden;
 }
@@ -87,8 +88,12 @@ $dark-select-dropdown-top-background-color: $bl-sys-color-neutral-800;
     display: inline-block;
     min-width: 100%;
     text-wrap: nowrap;
+  
+    @media (max-width: $bl-prim-breakpoint-medium-screen) {
+      padding-block: $bl-sys-padding-xxs;
+    }
+  
   }
-
 }
 
 html[data-theme="light"] {

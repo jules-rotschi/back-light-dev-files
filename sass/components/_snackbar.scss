@@ -16,16 +16,21 @@ $snackbar-critical-bottom-background-color: $bl-sys-color-critical-800;
 $snackbar-critical-top-background-color: $bl-sys-color-critical-700;
 
 .snackbar {
-  padding: $bl-sys-padding-ms $bl-sys-padding-m;
+  padding: $bl-sys-padding-s $bl-sys-padding-ms;
   border-radius: $bl-sys-border-radius-l;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: $bl-sys-color-light;
-  width: 26rem;
+  width: 20rem;
 
   .icon-button {
     color: $bl-sys-color-light;
+  }
+
+  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+    padding: $bl-sys-padding-ms $bl-sys-padding-m;
+    width: 26rem;
   }
 }
 
@@ -64,7 +69,19 @@ $snackbar-critical-top-background-color: $bl-sys-color-critical-700;
 .snackbar__start {
   display: flex;
   align-items: center;
-  gap: $bl-sys-gap-ms;
+  gap: $bl-sys-gap-s;
+
+  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+    gap: $bl-sys-gap-ms;
+  }
+}
+
+.snackbar__icon {
+  display: flex;
+  
+  @media (max-width: $bl-prim-breakpoint-medium-screen) {
+    width: $bl-sys-size-xs;
+  }
 }
 
 .snackbar__content {
