@@ -1,12 +1,15 @@
 @use '../../tokens' as *;
 
 @mixin button-colors($color) {
+  --active-outlined-border-color: #{$bl-sys-color-neutral-700};
+  --hover-outlined-background-color: #{$bl-sys-color-neutral-opacity-20};
+  --active-outlined-background-color: #{$bl-sys-color-neutral-opacity-40};
+
 
   html[data-theme="light"] & {
 
     --outlined-border-color: #{$bl-sys-color-neutral-200};
-    --hover-outlined-border-color: #{$bl-sys-color-neutral-300};
-    --active-outlined-border-color: #{$bl-sys-color-neutral-500};
+    --hover-outlined-border-color: #{$bl-sys-color-neutral-500};
   
     @if $color == 'neutral' {
 
@@ -17,10 +20,6 @@
       --active-filled-dynamic-background-color: #{$bl-sys-color-neutral-700};
   
       --outlined-foreground-color: #{$bl-sys-color-neutral-700};
-      --outlined-static-background-color: #{$bl-sys-color-light};
-      --default-outlined-dynamic-background-color: #{$bl-sys-color-light};
-      --hover-outlined-dynamic-background-color: #{$bl-sys-color-neutral-050};
-      --active-outlined-dynamic-background-color: #{$bl-sys-color-neutral-100};
   
       --ghost-color: #{$bl-sys-color-neutral-700};
       --hover-ghost-color: #{$bl-sys-color-neutral-600};
@@ -36,10 +35,6 @@
       --active-filled-dynamic-background-color: #{$bl-sys-color-primary-600};
 
       --outlined-foreground-color: #{$bl-sys-color-primary-700};
-      --outlined-static-background-color: #{$bl-sys-color-light};
-      --default-outlined-dynamic-background-color: #{$bl-sys-color-light};
-      --hover-outlined-dynamic-background-color: #{$bl-sys-color-primary-050};
-      --active-outlined-dynamic-background-color: #{$bl-sys-color-primary-100};
   
       --ghost-color: #{$bl-sys-color-primary-700};
       --hover-ghost-color: #{$bl-sys-color-primary-600};
@@ -55,10 +50,6 @@
       --active-filled-dynamic-background-color: #{$bl-sys-color-info-050};
   
       --outlined-foreground-color: #{$bl-sys-color-info-700};
-      --outlined-static-background-color: #{$bl-sys-color-light};
-      --default-outlined-dynamic-background-color: #{$bl-sys-color-light};
-      --hover-outlined-dynamic-background-color: #{$bl-sys-color-info-050};
-      --active-outlined-dynamic-background-color: #{$bl-sys-color-info-100};
   
       --ghost-color: #{$bl-sys-color-info-700};
       --hover-ghost-color: #{$bl-sys-color-info-600};
@@ -74,10 +65,6 @@
       --active-filled-dynamic-background-color: #{$bl-sys-color-success-400};
   
       --outlined-foreground-color: #{$bl-sys-color-success-700};
-      --outlined-static-background-color: #{$bl-sys-color-light};
-      --default-outlined-dynamic-background-color: #{$bl-sys-color-light};
-      --hover-outlined-dynamic-background-color: #{$bl-sys-color-success-050};
-      --active-outlined-dynamic-background-color: #{$bl-sys-color-success-100};
   
       --ghost-color: #{$bl-sys-color-success-700};
       --hover-ghost-color: #{$bl-sys-color-success-600};
@@ -93,10 +80,6 @@
       --active-filled-dynamic-background-color: #{$bl-sys-color-warning-100};
   
       --outlined-foreground-color: #{$bl-sys-color-warning-700};
-      --outlined-static-background-color: #{$bl-sys-color-light};
-      --default-outlined-dynamic-background-color: #{$bl-sys-color-light};
-      --hover-outlined-dynamic-background-color: #{$bl-sys-color-warning-050};
-      --active-outlined-dynamic-background-color: #{$bl-sys-color-warning-100};
   
       --ghost-color: #{$bl-sys-color-warning-700};
       --hover-ghost-color: #{$bl-sys-color-warning-600};
@@ -112,10 +95,6 @@
       --active-filled-dynamic-background-color: #{$bl-sys-color-critical-500};
   
       --outlined-foreground-color: #{$bl-sys-color-critical-700};
-      --outlined-static-background-color: #{$bl-sys-color-light};
-      --default-outlined-dynamic-background-color: #{$bl-sys-color-light};
-      --hover-outlined-dynamic-background-color: #{$bl-sys-color-critical-050};
-      --active-outlined-dynamic-background-color: #{$bl-sys-color-critical-100};
   
       --ghost-color: #{$bl-sys-color-critical-700};
       --hover-ghost-color: #{$bl-sys-color-critical-600};
@@ -127,8 +106,8 @@
 
 
     --outlined-border-color: #{$bl-sys-color-neutral-800};
-    --hover-outlined-border-color: #{$bl-sys-color-neutral-700};
-    --active-outlined-border-color: #{$bl-sys-color-neutral-500};
+    --hover-outlined-border-color: #{$bl-sys-color-neutral-500};
+    --active-outlined-border-color: #{$bl-sys-color-neutral-300};
   
     @if $color == 'neutral' {
 
@@ -139,10 +118,6 @@
       --active-filled-dynamic-background-color: #{$bl-sys-color-neutral-200};
   
       --outlined-foreground-color: #{$bl-sys-color-neutral-300};
-      --outlined-static-background-color: #{$bl-sys-color-dark};
-      --default-outlined-dynamic-background-color: #{$bl-sys-color-dark};
-      --hover-outlined-dynamic-background-color: #{$bl-sys-color-neutral-950};
-      --active-outlined-dynamic-background-color: #{$bl-sys-color-neutral-900};
   
       --ghost-color: #{$bl-sys-color-neutral-300};
       --hover-ghost-color: #{$bl-sys-color-neutral-400};
@@ -158,10 +133,6 @@
       --active-filled-dynamic-background-color: #{$bl-sys-color-primary-600};
   
       --outlined-foreground-color: #{$bl-sys-color-primary-300};
-      --outlined-static-background-color: #{$bl-sys-color-dark};
-      --default-outlined-dynamic-background-color: #{$bl-sys-color-dark};
-      --hover-outlined-dynamic-background-color: #{$bl-sys-color-primary-950};
-      --active-outlined-dynamic-background-color: #{$bl-sys-color-primary-900};
   
       --ghost-color: #{$bl-sys-color-primary-300};
       --hover-ghost-color: #{$bl-sys-color-primary-400};
@@ -177,10 +148,6 @@
       --active-filled-dynamic-background-color: #{$bl-sys-color-info-050};
   
       --outlined-foreground-color: #{$bl-sys-color-info-300};
-      --outlined-static-background-color: #{$bl-sys-color-dark};
-      --default-outlined-dynamic-background-color: #{$bl-sys-color-dark};
-      --hover-outlined-dynamic-background-color: #{$bl-sys-color-info-950};
-      --active-outlined-dynamic-background-color: #{$bl-sys-color-info-900};
   
       --ghost-color: #{$bl-sys-color-info-300};
       --hover-ghost-color: #{$bl-sys-color-info-400};
@@ -196,10 +163,6 @@
       --active-filled-dynamic-background-color: #{$bl-sys-color-success-400};
   
       --outlined-foreground-color: #{$bl-sys-color-success-300};
-      --outlined-static-background-color: #{$bl-sys-color-dark};
-      --default-outlined-dynamic-background-color: #{$bl-sys-color-dark};
-      --hover-outlined-dynamic-background-color: #{$bl-sys-color-success-950};
-      --active-outlined-dynamic-background-color: #{$bl-sys-color-success-900};
   
       --ghost-color: #{$bl-sys-color-success-300};
       --hover-ghost-color: #{$bl-sys-color-success-400};
@@ -215,10 +178,6 @@
       --active-filled-dynamic-background-color: #{$bl-sys-color-warning-100};
   
       --outlined-foreground-color: #{$bl-sys-color-warning-300};
-      --outlined-static-background-color: #{$bl-sys-color-dark};
-      --default-outlined-dynamic-background-color: #{$bl-sys-color-dark};
-      --hover-outlined-dynamic-background-color: #{$bl-sys-color-warning-950};
-      --active-outlined-dynamic-background-color: #{$bl-sys-color-warning-900};
   
       --ghost-color: #{$bl-sys-color-warning-300};
       --hover-ghost-color: #{$bl-sys-color-warning-400};
@@ -234,10 +193,6 @@
       --active-filled-dynamic-background-color: #{$bl-sys-color-critical-500};
   
       --outlined-foreground-color: #{$bl-sys-color-critical-300};
-      --outlined-static-background-color: #{$bl-sys-color-dark};
-      --default-outlined-dynamic-background-color: #{$bl-sys-color-dark};
-      --hover-outlined-dynamic-background-color: #{$bl-sys-color-critical-950};
-      --active-outlined-dynamic-background-color: #{$bl-sys-color-critical-900};
   
       --ghost-color: #{$bl-sys-color-critical-300};
       --hover-ghost-color: #{$bl-sys-color-critical-400};

@@ -5,19 +5,28 @@
   margin: 0;
   box-sizing: border-box;
   list-style: none;
+
+  &::selection {
+    background-color: $bl-sys-color-primary-500;
+    color: $bl-sys-color-neutral-050;
+  }
 }
 
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-
   html[data-theme="light"] & {
-    background: $bl-sys-color-light;
+    --background-color: #{$bl-sys-color-light};
+    --foreground-color: #{$bl-sys-color-dark};
   }
 
   html[data-theme="dark"] & {
-    background: $bl-sys-color-dark;
+    --background-color: #{$bl-sys-color-dark};
+    --foreground-color: #{$bl-sys-color-light};
   }
+
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--background-color);
+  color: var(--foreground-color);
 }
 
 a {
@@ -29,6 +38,11 @@ button {
   background: none;
   border: none;
   border-radius: 0;
+}
+
+input[type=number] {
+  appearance: none;
+  -moz-appearance: textfield;
 }
 
 [disabled] { 

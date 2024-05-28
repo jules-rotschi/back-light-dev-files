@@ -40,11 +40,11 @@
   color: var(--foreground-color);
   background-color: transparent;
 
-  &:enabled:hover {
+  &:not(:disabled):hover {
     background-color: var(--hover-background-color);
   }
 
-  &:enabled:active {
+  &:not(:disabled):active {
     background-color: var(--active-background-color);
   }
 

@@ -61,7 +61,7 @@
       @include background-gradient(var(--filled-static-background-color), var(--default-filled-dynamic-background-color), "bottom");
     }
 
-    &:enabled:hover {
+    &:not(:disabled):hover {
       html[data-theme="light"] &.button-neutral,
       html[data-theme="light"] &.button-primary,
       html[data-theme="light"] &.button-info,
@@ -81,7 +81,7 @@
       }
     }
 
-    &:enabled:active {
+    &:not(:disabled):active {
       html[data-theme="light"] &.button-neutral,
       html[data-theme="light"] &.button-primary,
       html[data-theme="light"] &.button-info,
@@ -113,7 +113,7 @@
     border: 1px solid;
     border-color: var(--outlined-border-color);
 
-    &:enabled:hover {
+    &:not(:disabled):hover {
       html[data-theme="light"] & {
         @include background-gradient(var(--outlined-static-background-color), var(--hover-outlined-dynamic-background-color), "bottom");
       }
@@ -123,7 +123,7 @@
       border-color: var(--hover-outlined-border-color);
     }
 
-    &:enabled:active {
+    &:not(:disabled):active {
       html[data-theme="light"] & {
         @include background-gradient(var(--outlined-static-background-color), var(--active-outlined-dynamic-background-color), "bottom");
       }

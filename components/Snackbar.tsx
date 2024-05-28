@@ -1,9 +1,9 @@
-import { Alert } from "../react-icons/Alert";
-import { Check } from "../react-icons/Check";
+import { IconComponent } from "../react-icons/icon-component-type";
 import { Cross } from "../react-icons/Cross";
+import { Check } from "../react-icons/Check";
 import { Info } from "../react-icons/Info";
 import { Warning } from "../react-icons/Warning";
-import { IconComponent } from "../react-icons/icon-component-type";
+import { Alert } from "../react-icons/Alert";
 
 interface SnackbarProps {
   type: "info" | "success" | "warning" | "critical";

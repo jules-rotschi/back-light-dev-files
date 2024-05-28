@@ -1,23 +1,29 @@
 @use '../abstract' as *;
 @use '../tokens' as *;
 
-$light-checkbox-label-color: $bl-sys-color-dark;
-$light-checkbox-static-background-color: $bl-sys-color-primary-700;
-$light-checkbox-default-dynamic-background-color: $bl-sys-color-primary-600;
-$light-checkbox-hover-dynamic-background-color: $bl-sys-color-primary-500;
-$light-checkbox-active-dynamic-background-color: $bl-sys-color-primary-400;
-
-$dark-checkbox-label-color: $bl-sys-color-light;
-$dark-checkbox-static-background-color: $bl-sys-color-primary-600;
-$dark-checkbox-default-dynamic-background-color: $bl-sys-color-primary-500;
-$dark-checkbox-hover-dynamic-background-color: $bl-sys-color-primary-400;
-$dark-checkbox-active-dynamic-background-color: $bl-sys-color-primary-300;
-
 .checkbox {
+
+  --background-color: inherit;
+
+  html[data-theme="light"] & {
+    --static-background-color: #{$bl-sys-color-primary-700};
+    --default-dynamic-background-color: #{$bl-sys-color-primary-600};
+    --hover-dynamic-background-color: #{$bl-sys-color-primary-500};
+    --active-dynamic-background-color: #{$bl-sys-color-primary-400};
+    --before-background-color: #{$bl-sys-color-light};
+  }
+
+  html[data-theme="dark"] & {
+    --static-background-color: #{$bl-sys-color-primary-600};
+    --default-dynamic-background-color: #{$bl-sys-color-primary-500};
+    --hover-dynamic-background-color: #{$bl-sys-color-primary-400};
+    --active-dynamic-background-color: #{$bl-sys-color-primary-300};
+    --before-background-color: #{$bl-sys-color-dark};
+  }
+  
   display: flex;
   align-items: center;
   gap: $bl-sys-gap-xs;
-
   
   input {
     @include pointer-event-transition(all);
@@ -29,22 +35,53 @@ $dark-checkbox-active-dynamic-background-color: $bl-sys-color-primary-300;
     position: relative;
     display: grid;
     place-items: center;
-
+    @include background-gradient(var(--static-background-color), var(--default-dynamic-background-color), "top");
+    
     &::before {
       content: "";
       border-radius: 2px;
       width: 12px;
       height: 12px;
+      background-color: var(--background-color);
     }
 
+    &:hover {
+      @include background-gradient(var(--static-background-color), var(--hover-dynamic-background-color), "top");
+    }
+
+    &:active {
+      @include background-gradient(var(--static-background-color), var(--active-dynamic-background-color), "top");
+    }
+    
     &:checked {
       border: none;
+      @include background-gradient(
+        var(--static-background-color),
+        var(--default-dynamic-background-color),
+        "top"
+      );
 
+      &:hover {
+        @include background-gradient(
+          var(--static-background-color),
+          var(--hover-dynamic-background-color),
+          "top"
+        );
+      }
+
+      &:active {
+        @include background-gradient(
+          var(--static-background-color),
+          var(--active-dynamic-background-color),
+          "top"
+        );
+      }
+      
       &::before {
         width: 0;
         height: 0;
       }
-
+      
       &::after {
         content: "";
         position: absolute;
@@ -60,103 +97,10 @@ $dark-checkbox-active-dynamic-background-color: $bl-sys-color-primary-300;
       }
     }
   }
-
+  
   label {
     cursor: pointer;
     @include label-3();
-  }
-
-  html[data-theme="light"] & {
-
-    input {
-      @include background-gradient($light-checkbox-static-background-color, $light-checkbox-default-dynamic-background-color, "top");
-  
-      &:hover {
-        @include background-gradient($light-checkbox-static-background-color, $light-checkbox-hover-dynamic-background-color, "top");
-      }
-  
-      &:active {
-        @include background-gradient($light-checkbox-static-background-color, $light-checkbox-active-dynamic-background-color, "top");
-      }
-
-      &::before {
-        background-color: $bl-sys-color-light;
-      }
-  
-      &:checked {
-        @include background-gradient(
-          $light-checkbox-static-background-color,
-          $light-checkbox-default-dynamic-background-color,
-          "top"
-        );
-  
-        &:hover {
-          @include background-gradient(
-            $light-checkbox-static-background-color,
-            $light-checkbox-hover-dynamic-background-color,
-            "top"
-          );
-        }
-  
-        &:active {
-          @include background-gradient(
-            $light-checkbox-static-background-color,
-            $light-checkbox-active-dynamic-background-color,
-            "top"
-          );
-        }
-      }
-    }
-
-    label {
-      color: $bl-sys-color-dark;
-    }
-  }
-
-  html[data-theme="dark"] & {
-
-    input {
-      @include background-gradient($dark-checkbox-static-background-color, $dark-checkbox-default-dynamic-background-color, "top");
-  
-      &:hover {
-        @include background-gradient($dark-checkbox-static-background-color, $dark-checkbox-hover-dynamic-background-color, "top");
-      }
-  
-      &:active {
-        @include background-gradient($dark-checkbox-static-background-color, $dark-checkbox-active-dynamic-background-color, "top");
-      }
-
-      &::before {
-        background-color: $bl-sys-color-dark;
-      }
-  
-      &:checked {
-        @include background-gradient(
-          $dark-checkbox-static-background-color,
-          $dark-checkbox-default-dynamic-background-color,
-          "top"
-        );
-  
-        &:hover {
-          @include background-gradient(
-            $dark-checkbox-static-background-color,
-            $dark-checkbox-hover-dynamic-background-color,
-            "top"
-          );
-        }
-  
-        &:active {
-          @include background-gradient(
-            $dark-checkbox-static-background-color,
-            $dark-checkbox-active-dynamic-background-color,
-            "top"
-          );
-        }
-      }
-    }
-
-    label {
-      color: $bl-sys-color-light;
-    }
+    color: inherit;
   }
 }
