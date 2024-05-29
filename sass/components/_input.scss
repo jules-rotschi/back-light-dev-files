@@ -1,69 +1,67 @@
 @use '../tokens' as *;
 @use '../abstract' as *;
 
-html[data-theme="light"] {
-  --input-background-color: #{$bl-sys-color-light};
-  --input-foreground-main-color: #{$bl-sys-color-neutral-700};
-  --input-foreground-secondary-color: #{$bl-sys-color-neutral-400};
-  --input-active-stroke-color: #{$bl-sys-color-primary-700};
-  --input-error-foreground-main-color: #{$bl-sys-color-critical-800};
-  --input-disabled-foreground-main-color: #{$bl-sys-color-neutral-300};
-  --input-disabled-foreground-secondary-color: #{$bl-sys-color-neutral-100};
-}
-
-html[data-theme="dark"] {
-  --input-background-color: #{$bl-sys-color-dark};
-  --input-foreground-main-color: #{$bl-sys-color-neutral-300};
-  --input-foreground-secondary-color: #{$bl-sys-color-neutral-600};
-  --input-active-stroke-color: #{$bl-sys-color-primary-500};
-  --input-error-foreground-main-color: #{$bl-sys-color-critical-500};
-  --input-disabled-foreground-main-color: #{$bl-sys-color-neutral-700};
-  --input-disabled-foreground-secondary-color: #{$bl-sys-color-neutral-900};
-}
-
 .input {
-  position: relative;
+
+  --foreground-color: inherit;
+
+  html[data-theme="light"] & {
+    --foreground-color-secondary: #{$bl-sys-color-neutral-400};
+    --active-stroke-color: #{$bl-sys-color-primary-700};
+    --error-foreground-color: #{$bl-sys-color-critical-800};
+    --disabled-foreground-color: #{$bl-sys-color-neutral-300};
+    --disabled-foreground-color-secondary: #{$bl-sys-color-neutral-100};
+  }
+  
+  html[data-theme="dark"] & {
+    --foreground-color-secondary: #{$bl-sys-color-neutral-600};
+    --active-stroke-color: #{$bl-sys-color-primary-500};
+    --error-foreground-color: #{$bl-sys-color-critical-500};
+    --disabled-foreground-color: #{$bl-sys-color-neutral-700};
+    --disabled-foreground-color-secondary: #{$bl-sys-color-neutral-900};
+  }
+
   width: fit-content;
+  position: relative;
 
   .label-container {
     position: absolute;
     left: 12px;
     top: -12px;
     padding-inline: 2px;
-    background-color: var(--input-background-color);
+    background-color: var(--background-color);
   }
 
   label {
+    display: block;
+    height: fit-content;
+    color: var(--foreground-color);
     @include quiet-1();
-    color: var(--input-foreground-main-color);
   }
 
   .field {
-    height: 2rem;
-    padding-inline: $bl-sys-padding-xs;
-    border-radius: $bl-sys-border-radius-ms;
-    outline: $bl-sys-stroke-width-s solid var(--input-foreground-main-color);
     width: fit-content;
+    height: 2rem;
+    border-radius: $bl-sys-border-radius-ms;
+    padding-inline: $bl-sys-padding-xs;
+    outline: $bl-sys-stroke-width-s solid var(--foreground-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     input {
+      width: 100%;
+      height: 100%;
+      margin: 0;
       z-index: 10;
-      @include body-2();
-      color: var(--input-foreground-main-color);
       border: none;
       background: none;
-      height: 100%;
-      width: 100%;
-      appearance: none;
-      -webkit-appearance: none;
-      margin: 0;
-      -moz-appearance: textfield;
+      color: var(--foreground-color);
+      @include body-2();
 
       &::placeholder {
         @include body-2();
-        color: var(--input-foreground-secondary-color);
+        color: var(--foreground-color-secondary);
         opacity: 1;
       }
 
@@ -73,9 +71,9 @@ html[data-theme="dark"] {
     }
 
     .unit {
-      @include quiet-2();
-      color: var(--input-foreground-secondary-color);
       width: fit-content;
+      color: var(--foreground-color-secondary);
+      @include quiet-2();
       text-wrap: nowrap;
     }
 
@@ -83,24 +81,24 @@ html[data-theme="dark"] {
       height: 2.5rem;
       border-radius: $bl-sys-border-radius-m;
     }
-  }
 
-  .field:has(input:focus-within) {
-    border-color: transparent;
-    outline:
-      $bl-sys-stroke-width-m
-      solid
-      var(--input-active-stroke-color);
+    &:has(input:focus-within) {
+      border-color: transparent;
+      outline:
+        $bl-sys-stroke-width-m
+        solid
+        var(--active-stroke-color);
+    }
   }
 
   legend {
     margin-left: 14px;
+    color: var(--foreground-color);
     @include quiet-2();
-    color: var(--input-foreground-main-color);
   }
 
-  &.input--error {
-    --input-foreground-main-color: var(--input-error-foreground-main-color);
-    --input-active-stroke-color: var(--input-error-foreground-main-color);
+  html[data-theme] &.input--error {
+    --foreground-color: var(--error-foreground-color);
+    --active-stroke-color: var(--error-foreground-color);
   }
 }

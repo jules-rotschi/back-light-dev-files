@@ -1,167 +1,137 @@
 @use '../abstract' as *;
 @use '../tokens' as *;
 
-$light-switch-not-checked-static-background-color: $bl-sys-color-neutral-200;
-$light-switch-not-checked-default-dynamic-background-color: $bl-sys-color-neutral-300;
-$light-switch-not-checked-hover-dynamic-background-color: $bl-sys-color-neutral-400;
-$light-switch-not-checked-active-dynamic-background-color: $bl-sys-color-neutral-500;
-$light-switch-checked-static-background-color: $bl-sys-color-primary-800;
-$light-switch-checked-default-dynamic-background-color: $bl-sys-color-primary-700;
-$light-switch-checked-hover-dynamic-background-color: $bl-sys-color-primary-600;
-$light-switch-checked-active-dynamic-background-color: $bl-sys-color-primary-500;
-
-$dark-switch-not-checked-static-background-color: $bl-sys-color-neutral-700;
-$dark-switch-not-checked-default-dynamic-background-color: $bl-sys-color-neutral-600;
-$dark-switch-not-checked-hover-dynamic-background-color: $bl-sys-color-neutral-500;
-$dark-switch-not-checked-active-dynamic-background-color: $bl-sys-color-neutral-400;
-$dark-switch-checked-static-background-color: $bl-sys-color-primary-700;
-$dark-switch-checked-default-dynamic-background-color: $bl-sys-color-primary-600;
-$dark-switch-checked-hover-dynamic-background-color: $bl-sys-color-primary-500;
-$dark-switch-checked-active-dynamic-background-color: $bl-sys-color-primary-400;
-
 .switch {
+
+  html[data-theme="light"] & {
+    --not-checked-static-background-color: #{$bl-sys-color-neutral-200};
+    --not-checked-default-dynamic-background-color: #{$bl-sys-color-neutral-300};
+    --not-checked-hover-dynamic-background-color: #{$bl-sys-color-neutral-400};
+    --not-checked-active-dynamic-background-color: #{$bl-sys-color-neutral-500};
+    --checked-static-background-color: #{$bl-sys-color-primary-800};
+    --checked-default-dynamic-background-color: #{$bl-sys-color-primary-700};
+    --checked-hover-dynamic-background-color: #{$bl-sys-color-primary-600};
+    --checked-active-dynamic-background-color: #{$bl-sys-color-primary-500};
+  }
+
+  html[data-theme="dark"] & {
+    --not-checked-static-background-color: #{$bl-sys-color-neutral-700};
+    --not-checked-default-dynamic-background-color: #{$bl-sys-color-neutral-600};
+    --not-checked-hover-dynamic-background-color: #{$bl-sys-color-neutral-500};
+    --not-checked-active-dynamic-background-color: #{$bl-sys-color-neutral-400};
+    --checked-static-background-color: #{$bl-sys-color-primary-700};
+    --checked-default-dynamic-background-color: #{$bl-sys-color-primary-600};
+    --checked-hover-dynamic-background-color: #{$bl-sys-color-primary-500};
+    --checked-active-dynamic-background-color: #{$bl-sys-color-primary-400};
+  }
+
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: $bl-sys-gap-xs;
 
   input {
-    @include pointer-event-transition(background-color);
-    cursor: pointer;
     appearance: none;
+    cursor: pointer;
     width: $bl-sys-size-ms;
     height: $bl-sys-size-xs;
     border-radius: $bl-sys-border-radius-full;
     position: relative;
+    @include pointer-event-transition(background-color);
+
+    html[data-theme="light"] & {
+      @include background-gradient(
+        var(--not-checked-static-background-color),
+        var(--not-checked-default-dynamic-background-color),
+        "bottom"
+      );
+
+      &:hover {
+        @include background-gradient(
+          var(--not-checked-static-background-color),
+          var(--not-checked-hover-dynamic-background-color),
+          "bottom"
+        );
+      }
+  
+      &:active {
+        @include background-gradient(
+          var(--not-checked-static-background-color),
+          var(--not-checked-active-dynamic-background-color),
+          "bottom"
+        );
+      }
+    }
+
+    html[data-theme="dark"] & {
+      @include background-gradient(
+        var(--not-checked-static-background-color),
+        var(--not-checked-default-dynamic-background-color),
+        "top"
+      );
+  
+      &:hover {
+        @include background-gradient(
+          var(--not-checked-static-background-color),
+          var(--not-checked-hover-dynamic-background-color),
+          "top"
+        );
+      }
+  
+      &:active {
+        @include background-gradient(
+          var(--not-checked-static-background-color),
+          var(--not-checked-active-dynamic-background-color),
+          "top"
+        );
+      }
+    }
   
     &::after {
       content: "";
       width: 12px;
       height: 12px;
       border-radius: $bl-sys-border-radius-full;
-      background-color: $bl-sys-color-light;
       position: absolute;
-      top: 2px;
       left: 2px;
+      top: 2px;
       margin-left: 0;
+      background-color: $bl-sys-color-light;
       transition: margin-left 200ms ease-in-out;
     }
+
+    html[data-theme] &:checked {
+      &::after {
+        margin-left: 16px;
+      }
+
+      @include background-gradient(
+        var(--checked-static-background-color),
+        var(--checked-default-dynamic-background-color),
+        "top"
+      );
   
-    &:checked::after {
-      margin-left: 16px;
+      &:hover {
+        @include background-gradient(
+          var(--checked-static-background-color),
+          var(--checked-hover-dynamic-background-color),
+          "top"
+        );
+      }
+  
+      &:active {
+        @include background-gradient(
+          var(--checked-static-background-color),
+          var(--checked-active-dynamic-background-color),
+          "top"
+        );
+      }
     }
   }
 
   label {
     @include label-3();
     cursor: pointer;
-  }
-
-  html[data-theme="light"] & {
-    input {
-      @include background-gradient(
-        $light-switch-not-checked-static-background-color,
-        $light-switch-not-checked-default-dynamic-background-color,
-        "bottom"
-      );
-  
-      &:hover {
-        @include background-gradient(
-          $light-switch-not-checked-static-background-color,
-          $light-switch-not-checked-hover-dynamic-background-color,
-          "bottom"
-        );
-      }
-  
-      &:active {
-        @include background-gradient(
-          $light-switch-not-checked-static-background-color,
-          $light-switch-not-checked-active-dynamic-background-color,
-          "bottom"
-        );
-      }
-
-      &:checked {
-        @include background-gradient(
-          $light-switch-checked-static-background-color,
-          $light-switch-checked-default-dynamic-background-color,
-          "top"
-        );
-    
-        &:hover {
-          @include background-gradient(
-            $light-switch-checked-static-background-color,
-            $light-switch-checked-hover-dynamic-background-color,
-            "top"
-          );
-        }
-    
-        &:active {
-          @include background-gradient(
-            $light-switch-checked-static-background-color,
-            $light-switch-checked-active-dynamic-background-color,
-            "top"
-          );
-        }
-      }
-    }
-
-    label {
-      color: $bl-sys-color-dark;
-    }
-  }
-
-  html[data-theme="dark"] & {
-    input {
-      @include background-gradient(
-        $dark-switch-not-checked-static-background-color,
-        $dark-switch-not-checked-default-dynamic-background-color,
-        "top"
-      );
-  
-      &:hover {
-        @include background-gradient(
-          $dark-switch-not-checked-static-background-color,
-          $dark-switch-not-checked-hover-dynamic-background-color,
-          "top"
-        );
-      }
-  
-      &:active {
-        @include background-gradient(
-          $dark-switch-not-checked-static-background-color,
-          $dark-switch-not-checked-active-dynamic-background-color,
-          "top"
-        );
-      }
-
-      &:checked {
-        @include background-gradient(
-          $dark-switch-checked-static-background-color,
-          $dark-switch-checked-default-dynamic-background-color,
-          "top"
-        );
-    
-        &:hover {
-          @include background-gradient(
-            $dark-switch-checked-static-background-color,
-            $dark-switch-checked-hover-dynamic-background-color,
-            "top"
-          );
-        }
-    
-        &:active {
-          @include background-gradient(
-            $dark-switch-checked-static-background-color,
-            $dark-switch-checked-active-dynamic-background-color,
-            "top"
-          );
-        }
-      }
-    }
-
-    label {
-      color: $bl-sys-color-light;
-    }
+    padding-left: $bl-sys-gap-xs;
+    color: inherit;
   }
 }

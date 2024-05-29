@@ -13,12 +13,12 @@
     @include background-gradient($bl-sys-color-neutral-opacity-20, $bl-sys-color-neutral-opacity-40, "bottom");
   }
 
+  width: fit-content;
+  border-radius: $bl-sys-border-radius-ms;
+  padding: $bl-sys-padding-xxs $bl-sys-padding-xs;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: $bl-sys-border-radius-ms;
-  width: fit-content;
-  padding: $bl-sys-padding-xxs $bl-sys-padding-xs;
   gap: $bl-sys-gap-xxs;
   color: var(--label-color);
 

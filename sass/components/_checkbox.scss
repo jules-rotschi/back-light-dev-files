@@ -10,7 +10,6 @@
     --default-dynamic-background-color: #{$bl-sys-color-primary-600};
     --hover-dynamic-background-color: #{$bl-sys-color-primary-500};
     --active-dynamic-background-color: #{$bl-sys-color-primary-400};
-    --before-background-color: #{$bl-sys-color-light};
   }
 
   html[data-theme="dark"] & {
@@ -18,30 +17,28 @@
     --default-dynamic-background-color: #{$bl-sys-color-primary-500};
     --hover-dynamic-background-color: #{$bl-sys-color-primary-400};
     --active-dynamic-background-color: #{$bl-sys-color-primary-300};
-    --before-background-color: #{$bl-sys-color-dark};
   }
   
   display: flex;
   align-items: center;
-  gap: $bl-sys-gap-xs;
   
   input {
-    @include pointer-event-transition(all);
-    cursor: pointer;
     appearance: none;
+    cursor: pointer;
     width: $bl-sys-size-xs;
     height: $bl-sys-size-xs;
     border-radius: $bl-sys-border-radius-xs;
     position: relative;
     display: grid;
     place-items: center;
+    @include pointer-event-transition(all);
     @include background-gradient(var(--static-background-color), var(--default-dynamic-background-color), "top");
     
     &::before {
       content: "";
-      border-radius: 2px;
       width: 12px;
       height: 12px;
+      border-radius: 2px;
       background-color: var(--background-color);
     }
 
@@ -84,15 +81,15 @@
       
       &::after {
         content: "";
+        width: 5px;
+        height: 8px;
         position: absolute;
         bottom: 4.5px;
         left: 5px;
-        margin: auto;
-        display: block;
-        width: 5px;
-        height: 8px;
         border: solid $bl-sys-color-light;
         border-width: 0 1.5px 1.5px 0;
+        margin: auto;
+        display: block;
         transform: rotate(45deg);
       }
     }
@@ -100,7 +97,8 @@
   
   label {
     cursor: pointer;
-    @include label-3();
+    padding-left: $bl-sys-gap-xs;
     color: inherit;
+    @include label-3();
   }
 }

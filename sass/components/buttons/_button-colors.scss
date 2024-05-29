@@ -1,15 +1,14 @@
 @use '../../tokens' as *;
 
 @mixin button-colors($color) {
-  --active-outlined-border-color: #{$bl-sys-color-neutral-700};
-  --hover-outlined-background-color: #{$bl-sys-color-neutral-opacity-20};
-  --active-outlined-background-color: #{$bl-sys-color-neutral-opacity-40};
-
+  --hover-outlined-background-color: #{$bl-sys-color-neutral-opacity-10};
+  --active-outlined-background-color: #{$bl-sys-color-neutral-opacity-20};
 
   html[data-theme="light"] & {
 
     --outlined-border-color: #{$bl-sys-color-neutral-200};
-    --hover-outlined-border-color: #{$bl-sys-color-neutral-500};
+    --hover-outlined-border-color: #{$bl-sys-color-neutral-300};
+    --active-outlined-border-color: #{$bl-sys-color-neutral-500};
   
     @if $color == 'neutral' {
 
@@ -106,8 +105,8 @@
 
 
     --outlined-border-color: #{$bl-sys-color-neutral-800};
-    --hover-outlined-border-color: #{$bl-sys-color-neutral-500};
-    --active-outlined-border-color: #{$bl-sys-color-neutral-300};
+    --hover-outlined-border-color: #{$bl-sys-color-neutral-700};
+    --active-outlined-border-color: #{$bl-sys-color-neutral-500};
   
     @if $color == 'neutral' {
 

@@ -41,10 +41,15 @@ $bl-sys-color-neutral-950: $bl-prim-color-gray-950;
 
 $bl-sys-color-neutral-main: $bl-sys-color-neutral-500;
 
+$bl-sys-color-neutral-opacity-10: rgba($bl-sys-color-neutral-main, 0.1);
 $bl-sys-color-neutral-opacity-20: rgba($bl-sys-color-neutral-main, 0.2);
+$bl-sys-color-neutral-opacity-30: rgba($bl-sys-color-neutral-main, 0.3);
 $bl-sys-color-neutral-opacity-40: rgba($bl-sys-color-neutral-main, 0.4);
+$bl-sys-color-neutral-opacity-50: rgba($bl-sys-color-neutral-main, 0.5);
 $bl-sys-color-neutral-opacity-60: rgba($bl-sys-color-neutral-main, 0.6);
+$bl-sys-color-neutral-opacity-70: rgba($bl-sys-color-neutral-main, 0.7);
 $bl-sys-color-neutral-opacity-80: rgba($bl-sys-color-neutral-main, 0.8);
+$bl-sys-color-neutral-opacity-90: rgba($bl-sys-color-neutral-main, 0.9);
 
 // Primary
 

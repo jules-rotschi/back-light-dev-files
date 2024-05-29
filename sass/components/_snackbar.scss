@@ -1,67 +1,64 @@
 @use '../tokens' as *;
 @use '../abstract' as *;
 
-$snackbar-foreground-color: $bl-sys-color-light;
-
-$snackbar-info-bottom-background-color: $bl-sys-color-info-800;
-$snackbar-info-top-background-color: $bl-sys-color-info-700;
-
-$snackbar-success-bottom-background-color: $bl-sys-color-success-800;
-$snackbar-success-top-background-color: $bl-sys-color-success-700;
-
-$snackbar-warning-bottom-background-color: $bl-sys-color-warning-800;
-$snackbar-warning-top-background-color: $bl-sys-color-warning-700;
-
-$snackbar-critical-bottom-background-color: $bl-sys-color-critical-800;
-$snackbar-critical-top-background-color: $bl-sys-color-critical-700;
-
 .snackbar {
-  padding: $bl-sys-padding-s $bl-sys-padding-ms;
+  
+  --foreground-color: #{$bl-sys-color-light};
+  --info-bottom-background-color: #{$bl-sys-color-info-800};
+  --info-top-background-color: #{$bl-sys-color-info-700};
+  --success-bottom-background-color: #{$bl-sys-color-success-800};
+  --success-top-background-color: #{$bl-sys-color-success-700};
+  --warning-bottom-background-color: #{$bl-sys-color-warning-800};
+  --warning-top-background-color: #{$bl-sys-color-warning-700};
+  --critical-bottom-background-color: #{$bl-sys-color-critical-800};
+  --critical-top-background-color: #{$bl-sys-color-critical-700};
+
+  width: 20rem;
   border-radius: $bl-sys-border-radius-l;
+  padding: $bl-sys-padding-s $bl-sys-padding-ms;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: $bl-sys-color-light;
-  width: 20rem;
+  color: var(--foreground-color);
 
   .icon-button {
-    color: $bl-sys-color-light;
+    color: inherit;
   }
 
   @media (min-width: $bl-prim-breakpoint-medium-screen) {
-    padding: $bl-sys-padding-ms $bl-sys-padding-m;
     width: 26rem;
+    padding: $bl-sys-padding-ms $bl-sys-padding-m;
   }
 }
 
 .snackbar--info {
   @include background-gradient(
-    $snackbar-info-bottom-background-color,
-    $snackbar-info-top-background-color,
+    var(--info-bottom-background-color),
+    var(--info-top-background-color),
     "top"
   )
 }
 
 .snackbar--success {
   @include background-gradient(
-    $snackbar-success-bottom-background-color,
-    $snackbar-success-top-background-color,
+    var(--success-bottom-background-color),
+    var(--success-top-background-color),
     "top"
   )
 }
 
 .snackbar--warning {
   @include background-gradient(
-    $snackbar-warning-bottom-background-color,
-    $snackbar-warning-top-background-color,
+    var(--warning-bottom-background-color),
+    var(--warning-top-background-color),
     "top"
   )
 }
 
 .snackbar--critical {
   @include background-gradient(
-    $snackbar-critical-bottom-background-color,
-    $snackbar-critical-top-background-color,
+    var(--critical-bottom-background-color),
+    var(--critical-top-background-color),
     "top"
   )
 }

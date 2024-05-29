@@ -3,11 +3,13 @@
 @use './icon-button-colors' as *;
 
 .icon-button {
-  display: flex;
   cursor: pointer;
-
   padding: $bl-sys-padding-xs $bl-sys-padding-xs;
   border-radius: $bl-sys-border-radius-full;
+  display: flex;
+  color: var(--foreground-color);
+  background-color: transparent;
+
 
   @include pointer-event-transition(all);
 
@@ -36,9 +38,6 @@
   &.button-critical {
     @include icon-button-colors('critical');
   }
-
-  color: var(--foreground-color);
-  background-color: transparent;
 
   &:not(:disabled):hover {
     background-color: var(--hover-background-color);

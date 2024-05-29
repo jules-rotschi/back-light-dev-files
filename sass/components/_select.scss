@@ -1,55 +1,109 @@
 @use '../tokens' as *;
 @use '../abstract' as *;
 
-$light-select-button-static-background-color: $bl-sys-color-neutral-050;
-$light-select-button-default-dynamic-background-color: $bl-sys-color-neutral-100;
-$light-select-button-hover-dynamic-background-color: $bl-sys-color-neutral-200;
-$light-select-button-active-dynamic-background-color: $bl-sys-color-neutral-300;
-$light-select-button-foreground-color: $bl-sys-color-dark;
-
-$light-select-option-foreground-color: $bl-sys-color-dark;
-$light-select-option-hover-bottom-background-color: $bl-sys-color-primary-200;
-$light-select-option-hover-top-background-color: $bl-sys-color-primary-100;
-$light-select-option-selected-foreground-color: $bl-sys-color-light;
-$light-select-option-selected-static-background-color: $bl-sys-color-primary-800;
-$light-select-option-selected-default-dynamic-background-color: $bl-sys-color-primary-700;
-$light-select-option-selected-hover-dynamic-background-color: $bl-sys-color-primary-600;
-
-$light-select-dropdown-bottom-background-color: $bl-sys-color-neutral-100;
-$light-select-dropdown-top-background-color: $bl-sys-color-neutral-050;
-
-$dark-select-button-static-background-color: $bl-sys-color-neutral-900;
-$dark-select-button-default-dynamic-background-color: $bl-sys-color-neutral-800;
-$dark-select-button-hover-dynamic-background-color: $bl-sys-color-neutral-700;
-$dark-select-button-active-dynamic-background-color: $bl-sys-color-neutral-600;
-$dark-select-button-foreground-color: $bl-sys-color-light;
-
-$dark-select-option-foreground-color: $bl-sys-color-light;
-$dark-select-option-hover-bottom-background-color: $bl-sys-color-primary-900;
-$dark-select-option-hover-top-background-color: $bl-sys-color-primary-800;
-$dark-select-option-selected-foreground-color: $bl-sys-color-dark;
-$dark-select-option-selected-static-background-color: $bl-sys-color-primary-300;
-$dark-select-option-selected-default-dynamic-background-color: $bl-sys-color-primary-200;
-$dark-select-option-selected-hover-dynamic-background-color: $bl-sys-color-primary-100;
-
-$dark-select-dropdown-bottom-background-color: $bl-sys-color-neutral-900;
-$dark-select-dropdown-top-background-color: $bl-sys-color-neutral-800;
-
 .select {
+
+  html[data-theme="light"] & {
+    --button-foreground-color: #{$bl-sys-color-dark};
+    --button-static-background-color: #{$bl-sys-color-neutral-050};
+    --button-default-dynamic-background-color: #{$bl-sys-color-neutral-100};
+    --button-hover-dynamic-background-color: #{$bl-sys-color-neutral-200};
+    --button-active-dynamic-background-color: #{$bl-sys-color-neutral-300};
+
+    --option-foreground-color: #{$bl-sys-color-dark};
+    --option-hover-bottom-background-color: #{$bl-sys-color-primary-200};
+    --option-hover-top-background-color: #{$bl-sys-color-primary-100};
+    --option-selected-foreground-color: #{$bl-sys-color-light};
+    --option-selected-static-background-color: #{$bl-sys-color-primary-800};
+    --option-selected-default-dynamic-background-color: #{$bl-sys-color-primary-700};
+    --option-selected-hover-dynamic-background-color: #{$bl-sys-color-primary-600};
+
+    --dropdown-bottom-background-color: #{$bl-sys-color-neutral-100};
+    --dropdown-top-background-color: #{$bl-sys-color-neutral-050};
+  }
+
+  html[data-theme="dark"] & {
+    --button-foreground-color: #{$bl-sys-color-light};
+    --button-static-background-color: #{$bl-sys-color-neutral-900};
+    --button-default-dynamic-background-color: #{$bl-sys-color-neutral-800};
+    --button-hover-dynamic-background-color: #{$bl-sys-color-neutral-700};
+    --button-active-dynamic-background-color: #{$bl-sys-color-neutral-600};
+
+    --option-foreground-color: #{$bl-sys-color-light};
+    --option-hover-bottom-background-color: #{$bl-sys-color-primary-900};
+    --option-hover-top-background-color: #{$bl-sys-color-primary-800};
+    --option-selected-foreground-color: #{$bl-sys-color-dark};
+    --option-selected-static-background-color: #{$bl-sys-color-primary-300};
+    --option-selected-default-dynamic-background-color: #{$bl-sys-color-primary-200};
+    --option-selected-hover-dynamic-background-color: #{$bl-sys-color-primary-100};
+
+    --dropdown-bottom-background-color: #{$bl-sys-color-neutral-900};
+    --dropdown-top-background-color: #{$bl-sys-color-neutral-800};
+  }
+
   width: fit-content;
   position: relative;
 }
 
 .select__button {
-  @include pointer-event-transition(all);
   cursor: pointer;
   min-width: fit-content;
-  padding: $bl-sys-padding-xs $bl-sys-padding-ms;
   border-radius: $bl-sys-border-radius-ms;
+  padding: $bl-sys-padding-xs $bl-sys-padding-ms;
   display: flex;
-  gap: $bl-sys-gap-xs;
   align-items: center;
   justify-content: space-between;
+  gap: $bl-sys-gap-xs;
+  @include pointer-event-transition(all);
+  color: var(--button-foreground-color);
+
+  html[data-theme="light"] & {
+    @include background-gradient(
+      var(--button-static-background-color),
+      var(--button-default-dynamic-background-color),
+      "bottom"
+    );
+
+    &:hover {
+      @include background-gradient(
+        var(--button-static-background-color),
+        var(--button-hover-dynamic-background-color),
+        "bottom"
+      );
+    }
+
+    &:active {
+      @include background-gradient(
+        var(--button-static-background-color),
+        var(--button-active-dynamic-background-color),
+        "bottom"
+      );
+    }
+  }
+
+  html[data-theme="dark"] & {
+    @include background-gradient(
+      var(--button-static-background-color),
+      var(--button-default-dynamic-background-color),
+      "top"
+    );
+
+    &:hover {
+      @include background-gradient(
+        var(--button-static-background-color),
+        var(--button-hover-dynamic-background-color),
+        "top"
+      );
+    }
+
+    &:active {
+      @include background-gradient(
+        var(--button-static-background-color),
+        var(--button-active-dynamic-background-color),
+        "top"
+      );
+    }
+  }
 }
 
 .select__label {
@@ -61,19 +115,24 @@ $dark-select-dropdown-top-background-color: $bl-sys-color-neutral-800;
 }
 
 .select__dropdown {
-  visibility: hidden;
-  position: absolute;
-  top: 2.5rem;
   min-width: fit-content;
   width: 100%;
   border-radius: $bl-sys-border-radius-ms;
+  position: absolute;
+  top: 2.5rem;
+  visibility: hidden;
   overflow: hidden;
+  @include background-gradient(
+      var(--dropdown-bottom-background-color),
+      var(--dropdown-top-background-color),
+      "top"
+    );
 }
 
 .select__option {
-  position: relative;
-  min-width: fit-content;
   height: fit-content;
+  min-width: fit-content;
+  position: relative;
   display: flex;
 
   input{
@@ -83,148 +142,42 @@ $dark-select-dropdown-top-background-color: $bl-sys-color-neutral-800;
   
   label {
     cursor: pointer;
-    @include body-3();
-    padding-inline: $bl-sys-padding-s;
     display: inline-block;
     min-width: 100%;
+    padding-inline: $bl-sys-padding-s;
+    @include body-3();
     text-wrap: nowrap;
   
     @media (max-width: $bl-prim-breakpoint-medium-screen) {
       padding-block: $bl-sys-padding-xxs;
     }
-  
-  }
-}
 
-html[data-theme="light"] {
-  .select__button {
-    color: $light-select-button-foreground-color;
-    @include background-gradient(
-      $light-select-button-static-background-color,
-      $light-select-button-default-dynamic-background-color,
-      "bottom"
-    );
+    color: var(--option-foreground-color);
 
     &:hover {
       @include background-gradient(
-        $light-select-button-static-background-color,
-        $light-select-button-hover-dynamic-background-color,
-        "bottom"
-      );
-    }
-
-    &:active {
-      @include background-gradient(
-        $light-select-button-static-background-color,
-        $light-select-button-active-dynamic-background-color,
-        "bottom"
+        var(--option-hover-bottom-background-color),
+        var(--option-hover-top-background-color),
+        "top"
       );
     }
   }
 
-  .select__dropdown {
-    @include background-gradient(
-      $light-select-dropdown-bottom-background-color,
-      $light-select-dropdown-top-background-color,
-      "top"
-    );
-  }
-
-  .select__option {
+  &:has(input:checked) {
     label {
-      color: $light-select-option-foreground-color;
+      color: var(--option-selected-foreground-color);
+      @include background-gradient(
+        var(--option-selected-static-background-color),
+        var(--option-selected-default-dynamic-background-color),
+        "top"
+      );
+  
       &:hover {
         @include background-gradient(
-          $light-select-option-hover-bottom-background-color,
-          $light-select-option-hover-top-background-color,
+          var(--option-selected-static-background-color),
+          var(--option-selected-hover-dynamic-background-color),
           "top"
         );
-      }
-    }
-
-    &:has(input:checked) {
-      label {
-        @include background-gradient(
-          $light-select-option-selected-static-background-color,
-          $light-select-option-selected-default-dynamic-background-color,
-          "top"
-        );
-        color: $light-select-option-selected-foreground-color;
-    
-        &:hover {
-          @include background-gradient(
-            $light-select-option-selected-static-background-color,
-            $light-select-option-selected-hover-dynamic-background-color,
-            "top"
-          );
-        }
-      }
-    }
-  }
-}
-
-html[data-theme="dark"] {
-  .select__button {
-    color: $dark-select-button-foreground-color;
-    @include background-gradient(
-      $dark-select-button-static-background-color,
-      $dark-select-button-default-dynamic-background-color,
-      "top"
-    );
-
-    &:hover {
-      @include background-gradient(
-        $dark-select-button-static-background-color,
-        $dark-select-button-hover-dynamic-background-color,
-        "top"
-      );
-    }
-
-    &:active {
-      @include background-gradient(
-        $dark-select-button-static-background-color,
-        $dark-select-button-active-dynamic-background-color,
-        "top"
-      );
-    }
-  }
-
-  .select__dropdown {
-    @include background-gradient(
-      $dark-select-dropdown-bottom-background-color,
-      $dark-select-dropdown-top-background-color,
-      "top"
-    );
-  }
-
-  .select__option {
-    label {
-      color: $dark-select-option-foreground-color;
-      &:hover, &:focus {
-        @include background-gradient(
-          $dark-select-option-hover-bottom-background-color,
-          $dark-select-option-hover-top-background-color,
-          "top"
-        );
-      }
-    }
-
-    &:has(input:checked) {
-      label {
-        @include background-gradient(
-          $dark-select-option-selected-static-background-color,
-          $dark-select-option-selected-default-dynamic-background-color,
-          "top"
-        );
-        color: $dark-select-option-selected-foreground-color;
-    
-        &:hover {
-          @include background-gradient(
-            $dark-select-option-selected-static-background-color,
-            $dark-select-option-selected-hover-dynamic-background-color,
-            "top"
-          );
-        }
       }
     }
   }
