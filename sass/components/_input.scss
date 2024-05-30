@@ -3,8 +3,6 @@
 
 .input {
 
-  --foreground-color: inherit;
-
   html[data-theme="light"] & {
     --foreground-color-secondary: #{$bl-sys-color-neutral-400};
     --active-stroke-color: #{$bl-sys-color-primary-700};

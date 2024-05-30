@@ -1,8 +1,8 @@
 import { ReactEventHandler } from 'react';
-import { IconComponent } from '../react-icons/icon-component-type';
 import { Link } from 'react-router-dom';
+import { IconComponent } from '../../icons/react/icon-component-type';
 
-interface SmallButtonProps {
+interface ButtonProps {
   style: "filled" | "outlined" | "ghost";
   color: "neutral" | "primary" | "info" | "success" | "warning" | "critical";
   label: string;
@@ -15,7 +15,7 @@ interface SmallButtonProps {
   disabled?: boolean;
 }
 
-export const SmallButton = (props: SmallButtonProps) => {
+export const Button = (props: ButtonProps) => {
 
   const styleClassName = ` button-${props.style}`;
   const colorClassName = ` button-${props.color}`;
@@ -25,32 +25,32 @@ export const SmallButton = (props: SmallButtonProps) => {
   if (props.link && props.externalLink) return (
     <a
       href={props.link}
-      className={"small-button" + styleClassName + colorClassName + iconClassName + customClassName}
+      className={"button" + styleClassName + colorClassName + iconClassName + customClassName}
     >
-      {props.icon !== undefined && <props.icon size={16}/>}
-      {props.label}
+      <span>{props.icon !== undefined && <props.icon size={16}/>}</span>
+      <span>{props.label}</span>
     </a>
   )
 
   if (props.link) return (
     <Link
       to={props.link}
-      className={"small-button" + styleClassName + colorClassName + iconClassName + customClassName}
+      className={"button" + styleClassName + colorClassName + iconClassName + customClassName}
     >
-      {props.icon !== undefined && <props.icon size={16}/>}
-      {props.label}
+      <span>{props.icon !== undefined && <props.icon size={16}/>}</span>
+      <span>{props.label}</span>
     </Link>
   )
 
   return (
     <button
       type={props.type || 'button'}
-      className={"small-button" + styleClassName + colorClassName + iconClassName + customClassName}
+      className={"button" + styleClassName + colorClassName + iconClassName + customClassName}
       onClick={props.onClick}
       disabled={props.disabled}
     >
-      {props.icon !== undefined && <props.icon size={16}/>}
-      {props.label}
+      <span>{props.icon !== undefined && <props.icon size={16}/>}</span>
+      <span>{props.label}</span>
     </button>
   )
 }

@@ -1,0 +1,26 @@
+<div class="select" id="select-element">
+  <button
+    type="button"
+    class="select__button"
+    role="combobox"
+    aria-controls="select-dropdown"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    id="select-button"
+  >
+    <span class="select__label">Label</span>
+    <span class="select__arrow"><img width="16px" src="../../../icons/svg/chevron.svg" /></span>
+  </button>
+  <ul class="select__dropdown" role="listbox" id="select-dropdown">
+    <li class="select__option" role="option">
+      <input
+        type="radio"
+        id="option-id"
+        class="select__option"
+        name="field-name"
+        value="option-value"
+      />
+      <label for="option-id">Option</label>
+    </li>
+  </ul>
+</div>

@@ -1,13 +1,13 @@
-enum Theme {
+export enum Theme {
   light = "light",
   dark = "dark"
 }
 
-const getCurrentTheme = () => {
+export const getCurrentTheme = () => {
   return document.documentElement.getAttribute('data-theme') as Theme;
 }
 
-const getNextTheme = (currentTheme: Theme) => {
+export const getNextTheme = (currentTheme: Theme) => {
   return currentTheme === Theme.light ? Theme.dark : Theme.light;
 }
 

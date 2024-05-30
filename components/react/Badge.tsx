@@ -1,4 +1,4 @@
-import { IconComponent } from "../react-icons/icon-component-type";
+import { IconComponent } from "../../react-icons/icon-component-type";
 
 interface BadgeProps {
   label: string;

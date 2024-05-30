@@ -3,8 +3,6 @@
 
 .checkbox {
 
-  --background-color: inherit;
-
   html[data-theme="light"] & {
     --static-background-color: #{$bl-sys-color-primary-700};
     --default-dynamic-background-color: #{$bl-sys-color-primary-600};
@@ -98,7 +96,7 @@
   label {
     cursor: pointer;
     padding-left: $bl-sys-gap-xs;
-    color: inherit;
+    color: var(--foreground-color);
     @include label-3();
   }
 }

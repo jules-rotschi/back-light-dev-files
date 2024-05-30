@@ -1,0 +1,27 @@
+@use '../tokens' as *;
+
+*::selection {
+  background-color: $bl-sys-color-primary-600;
+  color: $bl-sys-color-neutral-050;
+}
+
+body {
+  html[data-theme="light"] & {
+    --background-color: #{$bl-sys-color-light};
+    --foreground-color: #{$bl-sys-color-dark};
+  }
+
+  html[data-theme="dark"] & {
+    --background-color: #{$bl-sys-color-dark};
+    --foreground-color: #{$bl-sys-color-light};
+  }
+
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--background-color);
+  color: var(--foreground-color);
+}
+
+[disabled] { 
+  pointer-events: cursor;
+}

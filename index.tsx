@@ -1,27 +1,31 @@
 import { createRoot } from "react-dom/client";
-import { Snackbar } from "./components/Snackbar";
-import { Select } from "./components/Select";
-import { Button } from "./components/Button";
-import { SmallButton } from "./components/SmallButton";
+import { Snackbar } from "./components/react/Snackbar";
+import { Button } from "./components/react/Button";
+import { Checkbox } from "./components/react/Checkbox";
+import { RadioButton } from "./components/react/RadioButton";
+import { Switch } from "./components/react/Switch";
+import { Input } from "./components/react/Input";
 
-const root = createRoot(document.getElementById('root') as HTMLElement);
+const root = createRoot(document.getElementById('react') as HTMLElement);
 
 const App = () => {
 
-  const options = [
-    {
-      label: "Option 1",
-      value: "1"
-    },
-    {
-      label: "Option 2",
-      value: "2"
-    }
-  ]
-
   return (
     <>
-    <SmallButton style="outlined" color="success" label="Test" />
+    <Snackbar type="info" title="Title" message="Message" close={() => {}} />
+    <Snackbar type="success" title="Title" message="Message" close={() => {}} />
+    <Snackbar type="warning" title="Title" message="Message" close={() => {}} />
+    <Snackbar type="critical" title="Title" message="Message" close={() => {}} />
+
+    <Button style="filled" color="neutral" label="Button" />
+
+    <Checkbox id="cb" label="Checkbox" />
+    <RadioButton id="radio" name="radio" label="Radio button" />
+    <Switch id="sw" label="Switch"/>
+
+    <Input id="in" type="text" label="Input" />
+
+    
     </>
   )
 }

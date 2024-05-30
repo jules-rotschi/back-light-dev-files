@@ -132,6 +132,6 @@
     @include label-3();
     cursor: pointer;
     padding-left: $bl-sys-gap-xs;
-    color: inherit;
+    color: var(--foreground-color);
   }
 }

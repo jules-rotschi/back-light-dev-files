@@ -8,7 +8,7 @@ export const RadioButton = (props: RadioButtonProps) => {
   return (
     <div className="radio-button">
       <input type="radio" id={props.id} name={props.name} />
-    <label htmlFor={props.id}>{props.label}</label>
-  </div>
+      <label htmlFor={props.id}>{props.label}</label>
+    </div>
   )
 }

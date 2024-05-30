@@ -1,8 +1,8 @@
 import { ReactEventHandler } from 'react';
-import { IconComponent } from '../react-icons/icon-component-type';
 import { Link } from 'react-router-dom';
+import { IconComponent } from '../../icons/react/icon-component-type';
 
-interface ButtonProps {
+interface SmallButtonProps {
   style: "filled" | "outlined" | "ghost";
   color: "neutral" | "primary" | "info" | "success" | "warning" | "critical";
   label: string;
@@ -15,7 +15,7 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-export const Button = (props: ButtonProps) => {
+export const SmallButton = (props: SmallButtonProps) => {
 
   const styleClassName = ` button-${props.style}`;
   const colorClassName = ` button-${props.color}`;
@@ -25,7 +25,7 @@ export const Button = (props: ButtonProps) => {
   if (props.link && props.externalLink) return (
     <a
       href={props.link}
-      className={"button" + styleClassName + colorClassName + iconClassName + customClassName}
+      className={"small-button" + styleClassName + colorClassName + iconClassName + customClassName}
     >
       {props.icon !== undefined && <props.icon size={16}/>}
       {props.label}
@@ -35,7 +35,7 @@ export const Button = (props: ButtonProps) => {
   if (props.link) return (
     <Link
       to={props.link}
-      className={"button" + styleClassName + colorClassName + iconClassName + customClassName}
+      className={"small-button" + styleClassName + colorClassName + iconClassName + customClassName}
     >
       {props.icon !== undefined && <props.icon size={16}/>}
       {props.label}
@@ -45,7 +45,7 @@ export const Button = (props: ButtonProps) => {
   return (
     <button
       type={props.type || 'button'}
-      className={"button" + styleClassName + colorClassName + iconClassName + customClassName}
+      className={"small-button" + styleClassName + colorClassName + iconClassName + customClassName}
       onClick={props.onClick}
       disabled={props.disabled}
     >

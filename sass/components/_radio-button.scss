@@ -5,7 +5,6 @@
 .radio-button {
   
   --stroke-width: #{$bl-sys-stroke-width-s};
-  --background-color: inherit;
 
   html[data-theme="light"] & {
     --static-background-color: #{$bl-sys-color-primary-700};
@@ -106,6 +105,6 @@
     @include label-3();
     cursor: pointer;
     padding-left: $bl-sys-gap-xs;
-    color: inherit;
+    color: var(--foreground-color);
   }
 }
