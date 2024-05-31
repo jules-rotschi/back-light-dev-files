@@ -1,0 +1,21 @@
+@use '../tokens' as *;
+
+$layout-margin: 1.5rem;
+$layout-colomn-width: calc(((100vw - 2 * $layout-margin - (var(--layout-column-number) - 1) * $layout-gutter-width) / var(--layout-column-number)));
+$layout-gutter-width: 1.5rem;
+
+@mixin get-column-width($columns-number, $edge) {
+  @if ($edge) {
+    --got-width: calc($columns-number * ($layout-colomn-width + $layout-gutter-width))
+  } @else {
+    --got-width: calc($columns-number * $layout-colomn-width + ($columns-number - 1) * $layout-gutter-width)
+  }
+}
+
+@mixin get-column-space($columns-number, $edge) {
+  @if ($edge) {
+    --got-space: calc($columns-number * ($layout-colomn-width + $layout-gutter-width))
+  } @else {
+    --got-space: calc($columns-number * $layout-colomn-width + ($columns-number + 1) * $layout-gutter-width)
+  }
+}
