@@ -14,10 +14,10 @@
   }
 
   html[data-theme="dark"] & {
-    --static-background-color: #{$bl-sys-color-primary-400};
-    --default-dynamic-background-color: #{$bl-sys-color-primary-300};
-    --hover-dynamic-background-color: #{$bl-sys-color-primary-200};
-    --active-dynamic-background-color: #{$bl-sys-color-primary-100};
+    --static-background-color: #{$bl-sys-color-primary-600};
+    --default-dynamic-background-color: #{$bl-sys-color-primary-500};
+    --hover-dynamic-background-color: #{$bl-sys-color-primary-400};
+    --active-dynamic-background-color: #{$bl-sys-color-primary-300};
   }
 
   cursor: pointer;

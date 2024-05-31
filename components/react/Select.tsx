@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { Chevron } from "../../icons/react/Chevron";
 
-interface Option {
+export interface Option {
   label: string;
   value: string;
 }

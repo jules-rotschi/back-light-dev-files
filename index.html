@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,60 +8,182 @@
 </head>
 <body>
 
-  <!-- <div id="native">
+  <div id="native">
 
     <div class="snackbar snackbar--info">
       <div class="snackbar__start">
-        <span class="snackbar__icon"><img width="24px" src="./icons/svg/info.svg"/></span>
+        <span class="snackbar__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 7C11 6.44772 11.4477 6 12 6C12.5523 6 13 6.44772 13 7C13 7.55228 12.5523 8 12 8C11.4477 8 11 7.55228 11 7Z"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C11.4477 18 11 17.5523 11 17L11 11C11 10.4477 11.4477 10 12 10C12.5523 10 13 10.4477 13 11L13 17C13 17.5523 12.5523 18 12 18Z"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21ZM12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23Z"/>
+          </svg>     
+        </span>
         <div class="snackbar__content">
           <div class="snackbar__title">Title</div>
           <div class="snackbar__message">Message</div>
         </div>
       </div>
       <button type="button" class="icon-button">
-        <img width="24px" src="./icons/svg/cross.svg"/>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M20.7071 3.29289C21.0976 3.68342 21.0976 4.31658 20.7071 4.70711L13.4142 12L20.7071 19.2929C21.0976 19.6834 21.0976 20.3166 20.7071 20.7071C20.3166 21.0976 19.6834 21.0976 19.2929 20.7071L12 13.4142L4.70711 20.7071C4.31658 21.0976 3.68342 21.0976 3.29289 20.7071C2.90237 20.3166 2.90237 19.6834 3.29289 19.2929L10.5858 12L3.29289 4.70711C2.90237 4.31659 2.90237 3.68342 3.29289 3.2929C3.68342 2.90237 4.31658 2.90237 4.70711 3.2929L12 10.5858L19.2929 3.29289C19.6834 2.90237 20.3166 2.90237 20.7071 3.29289Z"/>
+        </svg>
       </button>
     </div>
 
-    <div class="snackbar snackbar--success">
-      <div class="snackbar__start">
-        <span class="snackbar__icon"><img width="24px" src="./icons/svg/check.svg"/></span>
-        <div class="snackbar__content">
-          <div class="snackbar__title">Title</div>
-          <div class="snackbar__message">Message</div>
-        </div>
-      </div>
-      <button type="button" class="icon-button">
-        <img width="24px" src="./icons/svg/cross.svg"/>
-      </button>
+    <button type="button" class="button button-filled button-neutral">
+      <span>Label</span>
+    </button>
+
+    <a href="/home" class="button button-filled button-neutral">
+      <span>Label</span>
+    </a>
+
+    <a href="/" class="button button-filled button-neutral button-with-icon">
+      <span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 12L1.29289 11.2929C0.902369 11.6834 0.902369 12.3166 1.29289 12.7071L2 12ZM6.29289 17.7071L7 18.4142L8.41421 17L7.70711 16.2929L6.29289 17.7071ZM22 12L22.7071 12.7071C22.8946 12.5196 23 12.2652 23 12C23 11.7348 22.8946 11.4804 22.7071 11.2929L22 12ZM16.2929 16.2929L15.5858 17L17 18.4142L17.7071 17.7071L16.2929 16.2929ZM14.9701 4.24254L15.2127 3.27239L13.2724 2.78732L13.0299 3.75746L14.9701 4.24254ZM9.02986 19.7575L8.78732 20.7276L10.7276 21.2127L10.9701 20.2425L9.02986 19.7575ZM2.70711 12.7071L7.70711 7.70711L6.29289 6.29289L1.29289 11.2929L2.70711 12.7071ZM1.29289 12.7071L6.29289 17.7071L7.70711 16.2929L2.70711 11.2929L1.29289 12.7071ZM16.2929 7.70711L21.2929 12.7071L22.7071 11.2929L17.7071 6.29289L16.2929 7.70711ZM21.2929 11.2929L16.2929 16.2929L17.7071 17.7071L22.7071 12.7071L21.2929 11.2929ZM13.0299 3.75746L9.02986 19.7575L10.9701 20.2425L14.9701 4.24254L13.0299 3.75746Z"/>
+        </svg>
+      </span>
+      <span>Label</span>
+    </a>
+
+    <button type="button" class="button button-filled button-neutral button-with-icon">
+      <span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 12L1.29289 11.2929C0.902369 11.6834 0.902369 12.3166 1.29289 12.7071L2 12ZM6.29289 17.7071L7 18.4142L8.41421 17L7.70711 16.2929L6.29289 17.7071ZM22 12L22.7071 12.7071C22.8946 12.5196 23 12.2652 23 12C23 11.7348 22.8946 11.4804 22.7071 11.2929L22 12ZM16.2929 16.2929L15.5858 17L17 18.4142L17.7071 17.7071L16.2929 16.2929ZM14.9701 4.24254L15.2127 3.27239L13.2724 2.78732L13.0299 3.75746L14.9701 4.24254ZM9.02986 19.7575L8.78732 20.7276L10.7276 21.2127L10.9701 20.2425L9.02986 19.7575ZM2.70711 12.7071L7.70711 7.70711L6.29289 6.29289L1.29289 11.2929L2.70711 12.7071ZM1.29289 12.7071L6.29289 17.7071L7.70711 16.2929L2.70711 11.2929L1.29289 12.7071ZM16.2929 7.70711L21.2929 12.7071L22.7071 11.2929L17.7071 6.29289L16.2929 7.70711ZM21.2929 11.2929L16.2929 16.2929L17.7071 17.7071L22.7071 12.7071L21.2929 11.2929ZM13.0299 3.75746L9.02986 19.7575L10.9701 20.2425L14.9701 4.24254L13.0299 3.75746Z"/>
+        </svg>
+      </span>
+      <span>Label</span>
+    </button>
+
+    <button type="button" class="small-button button-filled button-neutral">
+      <span>Label</span>
+    </button>
+
+    <a href="/home" class="small-button button-filled button-neutral">
+      <span>Label</span>
+    </a>
+
+    <button type="button" class="small-button button-filled button-neutral button-with-icon">
+      <span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 12L1.29289 11.2929C0.902369 11.6834 0.902369 12.3166 1.29289 12.7071L2 12ZM6.29289 17.7071L7 18.4142L8.41421 17L7.70711 16.2929L6.29289 17.7071ZM22 12L22.7071 12.7071C22.8946 12.5196 23 12.2652 23 12C23 11.7348 22.8946 11.4804 22.7071 11.2929L22 12ZM16.2929 16.2929L15.5858 17L17 18.4142L17.7071 17.7071L16.2929 16.2929ZM14.9701 4.24254L15.2127 3.27239L13.2724 2.78732L13.0299 3.75746L14.9701 4.24254ZM9.02986 19.7575L8.78732 20.7276L10.7276 21.2127L10.9701 20.2425L9.02986 19.7575ZM2.70711 12.7071L7.70711 7.70711L6.29289 6.29289L1.29289 11.2929L2.70711 12.7071ZM1.29289 12.7071L6.29289 17.7071L7.70711 16.2929L2.70711 11.2929L1.29289 12.7071ZM16.2929 7.70711L21.2929 12.7071L22.7071 11.2929L17.7071 6.29289L16.2929 7.70711ZM21.2929 11.2929L16.2929 16.2929L17.7071 17.7071L22.7071 12.7071L21.2929 11.2929ZM13.0299 3.75746L9.02986 19.7575L10.9701 20.2425L14.9701 4.24254L13.0299 3.75746Z"/>
+        </svg>
+      </span>
+      <span>Label</span>
+    </button>
+
+    <button type="button" class="icon-button button-neutral">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12L1.29289 11.2929C0.902369 11.6834 0.902369 12.3166 1.29289 12.7071L2 12ZM6.29289 17.7071L7 18.4142L8.41421 17L7.70711 16.2929L6.29289 17.7071ZM22 12L22.7071 12.7071C22.8946 12.5196 23 12.2652 23 12C23 11.7348 22.8946 11.4804 22.7071 11.2929L22 12ZM16.2929 16.2929L15.5858 17L17 18.4142L17.7071 17.7071L16.2929 16.2929ZM14.9701 4.24254L15.2127 3.27239L13.2724 2.78732L13.0299 3.75746L14.9701 4.24254ZM9.02986 19.7575L8.78732 20.7276L10.7276 21.2127L10.9701 20.2425L9.02986 19.7575ZM2.70711 12.7071L7.70711 7.70711L6.29289 6.29289L1.29289 11.2929L2.70711 12.7071ZM1.29289 12.7071L6.29289 17.7071L7.70711 16.2929L2.70711 11.2929L1.29289 12.7071ZM16.2929 7.70711L21.2929 12.7071L22.7071 11.2929L17.7071 6.29289L16.2929 7.70711ZM21.2929 11.2929L16.2929 16.2929L17.7071 17.7071L22.7071 12.7071L21.2929 11.2929ZM13.0299 3.75746L9.02986 19.7575L10.9701 20.2425L14.9701 4.24254L13.0299 3.75746Z"/>
+      </svg>
+    </button>
+
+    <button type="button" class="icon-button button-primary">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12L1.29289 11.2929C0.902369 11.6834 0.902369 12.3166 1.29289 12.7071L2 12ZM6.29289 17.7071L7 18.4142L8.41421 17L7.70711 16.2929L6.29289 17.7071ZM22 12L22.7071 12.7071C22.8946 12.5196 23 12.2652 23 12C23 11.7348 22.8946 11.4804 22.7071 11.2929L22 12ZM16.2929 16.2929L15.5858 17L17 18.4142L17.7071 17.7071L16.2929 16.2929ZM14.9701 4.24254L15.2127 3.27239L13.2724 2.78732L13.0299 3.75746L14.9701 4.24254ZM9.02986 19.7575L8.78732 20.7276L10.7276 21.2127L10.9701 20.2425L9.02986 19.7575ZM2.70711 12.7071L7.70711 7.70711L6.29289 6.29289L1.29289 11.2929L2.70711 12.7071ZM1.29289 12.7071L6.29289 17.7071L7.70711 16.2929L2.70711 11.2929L1.29289 12.7071ZM16.2929 7.70711L21.2929 12.7071L22.7071 11.2929L17.7071 6.29289L16.2929 7.70711ZM21.2929 11.2929L16.2929 16.2929L17.7071 17.7071L22.7071 12.7071L21.2929 11.2929ZM13.0299 3.75746L9.02986 19.7575L10.9701 20.2425L14.9701 4.24254L13.0299 3.75746Z"/>
+      </svg>
+    </button>
+
+    <a href="/" class="icon-button button-neutral">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12L1.29289 11.2929C0.902369 11.6834 0.902369 12.3166 1.29289 12.7071L2 12ZM6.29289 17.7071L7 18.4142L8.41421 17L7.70711 16.2929L6.29289 17.7071ZM22 12L22.7071 12.7071C22.8946 12.5196 23 12.2652 23 12C23 11.7348 22.8946 11.4804 22.7071 11.2929L22 12ZM16.2929 16.2929L15.5858 17L17 18.4142L17.7071 17.7071L16.2929 16.2929ZM14.9701 4.24254L15.2127 3.27239L13.2724 2.78732L13.0299 3.75746L14.9701 4.24254ZM9.02986 19.7575L8.78732 20.7276L10.7276 21.2127L10.9701 20.2425L9.02986 19.7575ZM2.70711 12.7071L7.70711 7.70711L6.29289 6.29289L1.29289 11.2929L2.70711 12.7071ZM1.29289 12.7071L6.29289 17.7071L7.70711 16.2929L2.70711 11.2929L1.29289 12.7071ZM16.2929 7.70711L21.2929 12.7071L22.7071 11.2929L17.7071 6.29289L16.2929 7.70711ZM21.2929 11.2929L16.2929 16.2929L17.7071 17.7071L22.7071 12.7071L21.2929 11.2929ZM13.0299 3.75746L9.02986 19.7575L10.9701 20.2425L14.9701 4.24254L13.0299 3.75746Z"/>
+      </svg>
+    </a>
+
+    <div class="checkbox">
+      <input type="checkbox" id="cb-id" name="field-name" />
+      <label for="cb-id">Label</label>
     </div>
 
-    <div class="snackbar snackbar--warning">
-      <div class="snackbar__start">
-        <span class="snackbar__icon"><img width="24px" src="./icons/svg/warning.svg"/></span>
-        <div class="snackbar__content">
-          <div class="snackbar__title">Title</div>
-          <div class="snackbar__message">Message</div>
-        </div>
-      </div>
-      <button type="button" class="icon-button">
-        <img width="24px" src="./icons/svg/cross.svg"/>
-      </button>
+    <div class="radio-button">
+      <input type="radio" id="radio-id" name="field-name" />
+      <label for="radio-id">Label</label>
     </div>
 
-    <div class="snackbar snackbar--critical">
-      <div class="snackbar__start">
-        <span class="snackbar__icon"><img width="24px" src="./icons/svg/alert.svg"/></span>
-        <div class="snackbar__content">
-          <div class="snackbar__title">Title</div>
-          <div class="snackbar__message">Message</div>
-        </div>
-      </div>
-      <button type="button" class="icon-button">
-        <img width="24px" src="./icons/svg/cross.svg"/>
-      </button>
+    <div class="switch">
+      <input type="checkbox" id="sw-id" />
+      <label for="sw-id">Label</label>
     </div>
-  </div> -->
+
+    <div class="input">
+      <div class="label-container">
+        <label for="input-id">Label</label>
+      </div>
+      <div class="field">
+        <input type="number" id="input-id" name="field-name" placeholder="Placeholder" />
+        <span class="unit">un/it</span>
+      </div>
+      <legend>Legend</legend>
+    </div>
+
+    <div class="select" id="select-element">
+      <button
+        type="button"
+        class="select__button"
+        role="combobox"
+        aria-controls="select-dropdown"
+        aria-haspopup="listbox"
+        aria-expanded="false"
+        id="select-button"
+      >
+        <span class="select__label">Label</span>
+        <span class="select__arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.51472 9.48529L11.2929 17.2635C11.6834 17.654 12.3166 17.654 12.7071 17.2635L20.4853 9.48529L19.0711 8.07108L12 15.1421L4.92893 8.07108L3.51472 9.48529Z"/>
+          </svg>
+        </span>
+      </button>
+      <ul class="select__dropdown" role="listbox" id="select-dropdown">
+        <li class="select__option" role="option">
+          <input
+            type="radio"
+            id="option-1"
+            class="select__option"
+            name="field-name"
+            value="1"
+          />
+          <label for="option-1">Option 1</label>
+        </li>
+        <li class="select__option" role="option">
+          <input
+            type="radio"
+            id="option-2"
+            class="select__option"
+            name="field-name"
+            value="2"
+          />
+          <label for="option-2">Option 2</label>
+        </li>
+        <li class="select__option" role="option">
+          <input
+            type="radio"
+            id="option-3"
+            class="select__option"
+            name="field-name"
+            value="3"
+          />
+          <label for="option-3">Option 3</label>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="badge">
+      <span class="label">Label</span>
+    </div>
+    
+    <div class="badge">
+      <span class="icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 12L1.29289 11.2929C0.902369 11.6834 0.902369 12.3166 1.29289 12.7071L2 12ZM6.29289 17.7071L7 18.4142L8.41421 17L7.70711 16.2929L6.29289 17.7071ZM22 12L22.7071 12.7071C22.8946 12.5196 23 12.2652 23 12C23 11.7348 22.8946 11.4804 22.7071 11.2929L22 12ZM16.2929 16.2929L15.5858 17L17 18.4142L17.7071 17.7071L16.2929 16.2929ZM14.9701 4.24254L15.2127 3.27239L13.2724 2.78732L13.0299 3.75746L14.9701 4.24254ZM9.02986 19.7575L8.78732 20.7276L10.7276 21.2127L10.9701 20.2425L9.02986 19.7575ZM2.70711 12.7071L7.70711 7.70711L6.29289 6.29289L1.29289 11.2929L2.70711 12.7071ZM1.29289 12.7071L6.29289 17.7071L7.70711 16.2929L2.70711 11.2929L1.29289 12.7071ZM16.2929 7.70711L21.2929 12.7071L22.7071 11.2929L17.7071 6.29289L16.2929 7.70711ZM21.2929 11.2929L16.2929 16.2929L17.7071 17.7071L22.7071 12.7071L21.2929 11.2929ZM13.0299 3.75746L9.02986 19.7575L10.9701 20.2425L14.9701 4.24254L13.0299 3.75746Z"/>
+        </svg>
+              
+      </span>
+      <span class="label">Label</span>
+    </div>
+    
+  </div>
 
   <div id="react"></div>
 

@@ -25,3 +25,7 @@ body {
 [disabled] { 
   pointer-events: cursor;
 }
+
+span:has(> svg) {
+  display: grid;
+}
