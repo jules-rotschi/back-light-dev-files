@@ -19,7 +19,7 @@ body {
 
   html[data-theme="light"] & {
     --background-color: #{$bl-sys-color-light};
-    --foreground-color: #{$bl-sys-color-dark};
+    --foreground-color: #{$bl-sys-color-neutral-950};
   }
 
   html[data-theme="dark"] & {
