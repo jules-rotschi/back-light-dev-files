@@ -3,42 +3,38 @@
 @mixin display() {
   font-family: $bl-sys-font-family-headings;
   font-weight: $bl-prim-font-weight-bold;
-  letter-spacing: $bl-prim-letter-spacing-null;
-  font-size: $bl-sys-font-size-xl;
-  line-height: $bl-sys-line-height-ms;
+  font-size: $bl-sys-font-size-ml;
+  line-height: $bl-sys-line-height-s;
+  letter-spacing: $bl-sys-letter-spacing-negative-s;
 
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
     font-size: $bl-sys-font-size-xxl;
     line-height: $bl-sys-line-height-l;
-  }
-
-  @media (min-width: $bl-prim-breakpoint-large-screen) {
-    font-size: $bl-sys-font-size-xxxl;
-    line-height: $bl-sys-line-height-xxl;
+    letter-spacing: $bl-sys-letter-spacing-negative-m;
   }
 }
 
 @mixin headline-1() {
   font-family: $bl-sys-font-family-headings;
   font-weight: $bl-prim-font-weight-semi-bold;
-  letter-spacing: $bl-prim-letter-spacing-null;
-  font-size: $bl-sys-font-size-l;
-  line-height: $bl-sys-line-height-ms;
+  font-size: $bl-sys-font-size-m;
+  line-height: $bl-sys-line-height-xs;
+  letter-spacing: $bl-sys-letter-spacing-null;
 
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
-    font-size: $bl-sys-font-size-xl;
-    line-height: $bl-sys-line-height-m;
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
+    font-size: $bl-sys-font-size-xxl;
+    line-height: $bl-sys-line-height-l;
   }
 }
 
 @mixin headline-2() {
   font-family: $bl-sys-font-family-headings;
   font-weight: $bl-prim-font-weight-medium;
-  letter-spacing: $bl-prim-letter-spacing-null;
-  font-size: $bl-sys-font-size-ml;
-  line-height: $bl-sys-line-height-s;
+  font-size: $bl-sys-font-size-ms;
+  line-height: $bl-sys-line-height-xs;
+  letter-spacing: $bl-sys-letter-spacing-null;
 
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
     font-size: $bl-sys-font-size-l;
     line-height: $bl-sys-line-height-ms;
   }
@@ -47,11 +43,11 @@
 @mixin headline-3() {
   font-family: $bl-sys-font-family-headings;
   font-weight: $bl-prim-font-weight-regular;
-  letter-spacing: $bl-prim-letter-spacing-null;
-  font-size: $bl-sys-font-size-m;
+  font-size: $bl-sys-font-size-ms;
   line-height: $bl-sys-line-height-xs;
+  letter-spacing: $bl-sys-letter-spacing-null;
 
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
     font-size: $bl-sys-font-size-ml;
     line-height: $bl-sys-line-height-s;
   }
@@ -60,11 +56,11 @@
 @mixin title-1() {
   font-family: $bl-sys-font-family-body;
   font-weight: $bl-prim-font-weight-bold;
-  letter-spacing: $bl-prim-letter-spacing-null;
   font-size: $bl-sys-font-size-m;
   line-height: $bl-sys-line-height-xs;
+  letter-spacing: $bl-sys-letter-spacing-null;
 
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
     font-size: $bl-sys-font-size-ml;
     line-height: $bl-sys-line-height-s;
   }
@@ -73,11 +69,11 @@
 @mixin title-2() {
   font-family: $bl-sys-font-family-body;
   font-weight: $bl-prim-font-weight-bold;
-  letter-spacing: $bl-prim-letter-spacing-null;
-  font-size: $bl-sys-font-size-ms;
-  line-height: $bl-sys-line-height-xs;
+  font-size: $bl-sys-font-size-s;
+  line-height: $bl-sys-line-height-xxs;
+  letter-spacing: $bl-sys-letter-spacing-null;
 
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
     font-size: $bl-sys-font-size-m;
     line-height: $bl-sys-line-height-xs;
   }
@@ -86,11 +82,11 @@
 @mixin title-3() {
   font-family: $bl-sys-font-family-body;
   font-weight: $bl-prim-font-weight-bold;
-  letter-spacing: $bl-prim-letter-spacing-null;
-  font-size: $bl-sys-font-size-s;
+  font-size: $bl-sys-font-size-xs;
   line-height: $bl-sys-line-height-xxs;
+  letter-spacing: $bl-sys-letter-spacing-null;
 
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
     font-size: $bl-sys-font-size-ms;
     line-height: $bl-sys-line-height-xs;
   }
@@ -99,113 +95,86 @@
 @mixin label-1() {
   font-family: $bl-sys-font-family-body;
   font-weight: $bl-prim-font-weight-semi-bold;
-  letter-spacing: $bl-prim-letter-spacing-positive;
-  font-size: $bl-sys-font-size-ms;
-  line-height: $bl-sys-line-height-xs;
+  font-size: $bl-sys-font-size-s;
+  line-height: $bl-sys-line-height-xxs;
+  letter-spacing: $bl-sys-letter-spacing-positive-xs;
 }
 
 @mixin label-2() {
   font-family: $bl-sys-font-family-body;
-  font-weight: $bl-prim-font-weight-medium;
-  letter-spacing: $bl-prim-letter-spacing-positive;
-  font-size: $bl-sys-font-size-s;
+  font-weight: $bl-prim-font-weight-semi-bold;
+  font-size: $bl-sys-font-size-xs;
   line-height: $bl-sys-line-height-xxs;
+  letter-spacing: $bl-sys-letter-spacing-positive-xs;
 }
 
 @mixin label-3() {
   font-family: $bl-sys-font-family-body;
-  font-weight: $bl-prim-font-weight-medium;
-  letter-spacing: $bl-prim-letter-spacing-positive;
-  font-size: $bl-sys-font-size-xs;
+  font-weight: $bl-prim-font-weight-semi-bold;
+  font-size: $bl-sys-font-size-xxs;
   line-height: $bl-sys-line-height-xxs;
-}
-
-@mixin body-1-strong() {
-  font-family: $bl-sys-font-family-body;
-  font-weight: $bl-prim-font-weight-extra-bold;
-  letter-spacing: $bl-prim-letter-spacing-null;
-  font-size: $bl-sys-font-size-s;
-  line-height: $bl-sys-line-height-xs;
-
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
-    font-size: $bl-sys-font-size-ms;
-    line-height: $bl-sys-line-height-s;
-  }
+  letter-spacing: $bl-sys-letter-spacing-positive-xs;
 }
 
 @mixin body-1() {
   font-family: $bl-sys-font-family-body;
   font-weight: $bl-prim-font-weight-regular;
-  letter-spacing: $bl-prim-letter-spacing-null;
   font-size: $bl-sys-font-size-s;
   line-height: $bl-sys-line-height-xs;
-
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+  letter-spacing: $bl-sys-letter-spacing-null;
+  
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
     font-size: $bl-sys-font-size-ms;
     line-height: $bl-sys-line-height-s;
   }
 }
 
-@mixin body-2-strong() {
-  font-family: $bl-sys-font-family-body;
-  font-weight: $bl-prim-font-weight-bold;
-  letter-spacing: $bl-prim-letter-spacing-null;
-  font-size: $bl-sys-font-size-xs;
-  line-height: $bl-sys-line-height-xs;
-
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
-    font-size: $bl-sys-font-size-s;
-    line-height: $bl-sys-line-height-xs;
-  }
+@mixin body-1-strong() {
+  font-weight: $bl-prim-font-weight-extra-bold;
 }
 
 @mixin body-2() {
   font-family: $bl-sys-font-family-body;
   font-weight: $bl-prim-font-weight-regular;
-  letter-spacing: $bl-prim-letter-spacing-null;
   font-size: $bl-sys-font-size-xs;
   line-height: $bl-sys-line-height-xs;
+  letter-spacing: $bl-sys-letter-spacing-null;
 
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
     font-size: $bl-sys-font-size-s;
     line-height: $bl-sys-line-height-xs;
   }
 }
 
-@mixin body-3-strong() {
-  font-family: $bl-sys-font-family-body;
+@mixin body-2-strong() {
   font-weight: $bl-prim-font-weight-bold;
-  letter-spacing: $bl-prim-letter-spacing-null;
-  font-size: $bl-sys-font-size-xxs;
-  line-height: $bl-sys-line-height-xxs;
-
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
-    font-size: $bl-sys-font-size-xs;
-    line-height: $bl-sys-line-height-xs;
-  }
 }
 
 @mixin body-3() {
   font-family: $bl-sys-font-family-body;
   font-weight: $bl-prim-font-weight-regular;
-  letter-spacing: $bl-prim-letter-spacing-null;
   font-size: $bl-sys-font-size-xxs;
   line-height: $bl-sys-line-height-xxs;
+  letter-spacing: $bl-sys-letter-spacing-null;
 
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
     font-size: $bl-sys-font-size-xs;
     line-height: $bl-sys-line-height-xs;
   }
 }
 
+@mixin body-3-strong() {
+  font-weight: $bl-prim-font-weight-bold;
+}
+
 @mixin quiet-1() {
   font-family: $bl-sys-font-family-body;
   font-weight: $bl-prim-font-weight-regular;
-  letter-spacing: $bl-prim-letter-spacing-null;
   font-size: $bl-sys-font-size-xxs;
   line-height: $bl-sys-line-height-xxs;
+  letter-spacing: $bl-sys-letter-spacing-null;
 
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
     font-size: $bl-sys-font-size-xs;
     line-height: $bl-sys-line-height-xs;
   }
@@ -214,11 +183,11 @@
 @mixin quiet-2() {
   font-family: $bl-sys-font-family-body;
   font-weight: $bl-prim-font-weight-regular;
-  letter-spacing: $bl-prim-letter-spacing-null;
   font-size: $bl-sys-font-size-xxxs;
   line-height: $bl-sys-line-height-xxs;
+  letter-spacing: $bl-sys-letter-spacing-null;
 
-  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
     font-size: $bl-sys-font-size-xxs;
     line-height: $bl-sys-line-height-xxs;
   }
@@ -227,7 +196,12 @@
 @mixin quiet-3() {
   font-family: $bl-sys-font-family-body;
   font-weight: $bl-prim-font-weight-regular;
-  letter-spacing: $bl-prim-letter-spacing-null;
-  font-size: $bl-sys-font-size-xxxs;
-  line-height: $bl-sys-line-height-xxs;
+  font-size: $bl-sys-font-size-xxxxs;
+  line-height: $bl-sys-line-height-xxxs;
+  letter-spacing: $bl-sys-letter-spacing-null;
+
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
+    font-size: $bl-sys-font-size-xxxs;
+    line-height: $bl-sys-line-height-xxs;
+  }
 }

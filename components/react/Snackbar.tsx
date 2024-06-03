@@ -1,7 +1,7 @@
 import { IconComponent } from "../../icons/react/icon-component-type";
 import { Alert } from "../../icons/react/Alert";
-import { Check } from "../../icons/react/Check";
 import { Info } from "../../icons/react/Info";
+import { Success } from "../../icons/react/Sucess";
 import { Warning } from "../../icons/react/Warning";
 import { Cross } from "../../icons/react/Cross";
 
@@ -24,7 +24,7 @@ export const Snackbar = (props: SnackbarProps) => {
       break;
     case "success":
       typeClassName = " snackbar--success"
-      Icon = Check;
+      Icon = Success;
       break;
     case "warning":
       typeClassName = " snackbar--warning"

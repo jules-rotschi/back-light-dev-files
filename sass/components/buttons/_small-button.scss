@@ -5,10 +5,11 @@
 .small-button {
   cursor: pointer;
   width: fit-content;
+  height: 1.5rem;
   padding: $bl-sys-padding-xxs $bl-sys-padding-xs;
   border-radius: $bl-sys-border-radius-ms;
   display: block;
-  @include label-3();
+  @include label-2();
   @include pointer-event-transition(all);
 
   &.button-neutral {

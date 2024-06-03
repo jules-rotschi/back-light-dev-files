@@ -34,7 +34,7 @@
     display: block;
     height: fit-content;
     color: var(--foreground-color);
-    @include quiet-1();
+    @include label-2();
   }
 
   .field {
@@ -75,7 +75,7 @@
       text-wrap: nowrap;
     }
 
-    @media (min-width: $bl-prim-breakpoint-medium-screen) {
+    @media (min-width: $bl-prim-breakpoint-small-screen) {
       height: 2.5rem;
       border-radius: $bl-sys-border-radius-m;
     }
@@ -98,5 +98,25 @@
   html[data-theme] &.input--error {
     --foreground-color: var(--error-foreground-color);
     --active-stroke-color: var(--error-foreground-color);
+  }
+
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+
+    label, .field, input {
+      cursor: not-allowed;
+    }
+
+    .field {
+      outline-color: var(--disabled-foreground-color);
+    }
+
+    label, legend {
+      color: var(--disabled-foreground-color);
+    }
+
+    input::placeholder, .unit {
+      color: var(--disabled-foreground-color-secondary);
+    }
   }
 }

@@ -4,6 +4,7 @@ import { Chevron } from "../../icons/react/Chevron";
 export interface Option {
   label: string;
   value: string;
+  isEnabled: boolean;
 }
 
 interface SelectProps {
@@ -13,6 +14,7 @@ interface SelectProps {
   onChange?: Function;
   defaultValue?: string;
   placeholder?: string;
+  disabled?: boolean;
 }
 
 export const Select = (props: SelectProps) => {
@@ -20,7 +22,9 @@ export const Select = (props: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleIsOpen = () => {
-    setIsOpen((c) => !c)
+    if (!props.disabled) {
+      setIsOpen((c) => !c)
+    }
   }
 
   const close = () => {
@@ -45,7 +49,7 @@ export const Select = (props: SelectProps) => {
   const label = currentOption?.label || props.placeholder || props.options[0].label || "Select";
 
   return (
-    <div className={"select" + openClassName}>
+    <div className={"select" + openClassName} aria-disabled={props.disabled}>
       <button
         type="button"
         className="select__button"
@@ -62,7 +66,7 @@ export const Select = (props: SelectProps) => {
         {
           props.options.map((option) => {
             return (
-              <li className="select__option" key={option.value} role="option">
+              <li className="select__option" key={option.value} role="option" aria-disabled={!option.isEnabled}>
                 <input
                   type="radio"
                   id={props.name + "-" + option.value}

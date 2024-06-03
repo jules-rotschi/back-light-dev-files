@@ -9,7 +9,8 @@ interface IconButtonProps {
   onClick?: ReactEventHandler;
   type?: "button" | "submit" | "reset";
   link?: string;
-  externalLink?: boolean
+  externalLink?: boolean;
+  disabled?: boolean;
 }
 
 
@@ -41,6 +42,7 @@ export const IconButton = (props: IconButtonProps) => {
       type={props.type || 'button'}
       className={"icon-button" + colorClassName + customClassName}
       onClick={props.onClick}
+      disabled={props.disabled}
     >
       <props.icon size={24} />
     </button>

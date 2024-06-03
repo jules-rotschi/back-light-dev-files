@@ -5,11 +5,12 @@
 .button {
   cursor: pointer;
   width: fit-content;
+  height: 2.5rem;
   padding: $bl-sys-padding-s $bl-sys-padding-m;
   border-radius: $bl-sys-border-radius-m;
   display: block;
   @include pointer-event-transition(all);
-  @include label-2();
+  @include label-1();
 
   &.button-neutral {
     @include button-colors('neutral');

@@ -17,6 +17,7 @@
     --option-selected-static-background-color: #{$bl-sys-color-primary-800};
     --option-selected-default-dynamic-background-color: #{$bl-sys-color-primary-700};
     --option-selected-hover-dynamic-background-color: #{$bl-sys-color-primary-600};
+    --option-disabled-foreground-color: #{$bl-sys-color-neutral-400};
 
     --dropdown-bottom-background-color: #{$bl-sys-color-neutral-100};
     --dropdown-top-background-color: #{$bl-sys-color-neutral-050};
@@ -36,6 +37,7 @@
     --option-selected-static-background-color: #{$bl-sys-color-primary-300};
     --option-selected-default-dynamic-background-color: #{$bl-sys-color-primary-200};
     --option-selected-hover-dynamic-background-color: #{$bl-sys-color-primary-100};
+    --option-disabled-foreground-color: #{$bl-sys-color-neutral-600};
 
     --dropdown-bottom-background-color: #{$bl-sys-color-neutral-900};
     --dropdown-top-background-color: #{$bl-sys-color-neutral-800};
@@ -57,7 +59,7 @@
   @include pointer-event-transition(all);
   color: var(--button-foreground-color);
 
-  html[data-theme="light"] & {
+  html[data-theme="light"]  & {
     @include background-gradient(
       var(--button-static-background-color),
       var(--button-default-dynamic-background-color),
@@ -104,6 +106,29 @@
       );
     }
   }
+
+  .select[aria-disabled="true"] & {
+    cursor: not-allowed;
+    opacity: .4;
+
+    &:hover, &:active {
+      html[data-theme="light"]  & {
+        @include background-gradient(
+          var(--button-static-background-color),
+          var(--button-default-dynamic-background-color),
+          "bottom"
+        );
+      }
+
+      html[data-theme="dark"] & {
+        @include background-gradient(
+          var(--button-static-background-color),
+          var(--button-default-dynamic-background-color),
+          "top"
+        );
+      }
+    }
+  }
 }
 
 .select__label {
@@ -148,7 +173,7 @@
     @include body-3();
     text-wrap: nowrap;
   
-    @media (max-width: $bl-prim-breakpoint-medium-screen) {
+    @media (max-width: $bl-prim-breakpoint-small-screen) {
       padding-block: $bl-sys-padding-xxs;
     }
 
@@ -160,6 +185,14 @@
         var(--option-hover-top-background-color),
         "top"
       );
+    }
+  }
+
+  &[aria-disabled="true"] {
+    pointer-events: none;
+
+    label {
+      color: var(--option-disabled-foreground-color);
     }
   }
 

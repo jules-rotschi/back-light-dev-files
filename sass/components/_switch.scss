@@ -12,6 +12,7 @@
     --checked-default-dynamic-background-color: #{$bl-sys-color-primary-700};
     --checked-hover-dynamic-background-color: #{$bl-sys-color-primary-600};
     --checked-active-dynamic-background-color: #{$bl-sys-color-primary-500};
+    --disabled-foreground-color: #{$bl-sys-color-neutral-400};
   }
 
   html[data-theme="dark"] & {
@@ -23,11 +24,12 @@
     --checked-default-dynamic-background-color: #{$bl-sys-color-primary-600};
     --checked-hover-dynamic-background-color: #{$bl-sys-color-primary-500};
     --checked-active-dynamic-background-color: #{$bl-sys-color-primary-400};
+    --disabled-foreground-color: #{$bl-sys-color-neutral-700};
   }
 
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
+  width: fit-content;
+  display: flex;
 
   input {
     appearance: none;
@@ -126,12 +128,20 @@
         );
       }
     }
+
+    &:disabled {
+      opacity: 0.4;
+    }
   }
 
   label {
-    @include label-3();
+    @include label-2();
     cursor: pointer;
     padding-left: $bl-sys-gap-xs;
     color: var(--foreground-color);
+  }
+
+  & > input:disabled + label {
+    color: var(--disabled-foreground-color);
   }
 }

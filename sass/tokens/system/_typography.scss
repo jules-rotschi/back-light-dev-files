@@ -3,6 +3,7 @@
 $bl-sys-font-family-headings: $bl-prim-font-family-unbounded, $bl-prim-default-font-family;
 $bl-sys-font-family-body: $bl-prim-font-family-figtree, $bl-prim-default-font-family;
 
+$bl-sys-font-size-xxxxs: $bl-prim-length-100;
 $bl-sys-font-size-xxxs: $bl-prim-length-125;
 $bl-sys-font-size-xxs: $bl-prim-length-150;
 $bl-sys-font-size-xs: $bl-prim-length-175;
@@ -15,6 +16,7 @@ $bl-sys-font-size-xl: $bl-prim-length-600;
 $bl-sys-font-size-xxl: $bl-prim-length-800;
 $bl-sys-font-size-xxxl: $bl-prim-length-1000;
 
+$bl-sys-line-height-xxxs: $bl-prim-length-100;
 $bl-sys-line-height-xxs: $bl-prim-length-200;
 $bl-sys-line-height-xs: $bl-prim-length-300;
 $bl-sys-line-height-s: $bl-prim-length-400;
@@ -24,3 +26,13 @@ $bl-sys-line-height-ml: $bl-prim-length-700;
 $bl-sys-line-height-l: $bl-prim-length-800;
 $bl-sys-line-height-xl: $bl-prim-length-900;
 $bl-sys-line-height-xxl: $bl-prim-length-1000;
+
+$bl-sys-letter-spacing-negative-l: calc(-1 * $bl-prim-length-38);
+$bl-sys-letter-spacing-negative-m: calc(-1 * $bl-prim-length-25);
+$bl-sys-letter-spacing-negative-s: calc(-1 * $bl-prim-length-13);
+$bl-sys-letter-spacing-negative-xs: calc(-1 * $bl-prim-length-06);
+$bl-sys-letter-spacing-null: 0px;
+$bl-sys-letter-spacing-positive-xs: $bl-prim-length-06;
+$bl-sys-letter-spacing-positive-s: $bl-prim-length-13;
+$bl-sys-letter-spacing-positive-m: $bl-prim-length-25;
+$bl-sys-letter-spacing-positive-l: $bl-prim-length-38;
