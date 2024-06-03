@@ -9,7 +9,7 @@
   padding: $bl-sys-padding-s $bl-sys-padding-m;
   border-radius: $bl-sys-border-radius-m;
   display: block;
-  @include pointer-event-transition(all);
+  @include appearence-transition(all);
   @include label-1();
 
   &.button-neutral {

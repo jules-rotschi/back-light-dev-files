@@ -40,7 +40,7 @@
       var(--default-dynamic-background-color),
       "top"
       );
-    @include pointer-event-transition(all);
+    @include appearence-transition(all);
 
     &::before {
       content: "";
@@ -78,7 +78,7 @@
           var(--default-dynamic-background-color),
           "top"
         );
-        @include pointer-event-transition(all);
+        @include appearence-transition(all);
       }
 
       &:hover {

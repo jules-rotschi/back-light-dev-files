@@ -1,6 +1,6 @@
 @use '../tokens/' as *;
 
-@mixin pointer-event-transition($property) {
+@mixin appearence-transition($property) {
   transition: $property $bl-sys-motion-fast $bl-prim-timing-function-ease-out;
 }
 

@@ -38,7 +38,7 @@
     height: $bl-sys-size-xs;
     border-radius: $bl-sys-border-radius-full;
     position: relative;
-    @include pointer-event-transition(background-color);
+    @include appearence-transition(background-color);
 
     html[data-theme="light"] & {
       @include background-gradient(

@@ -10,7 +10,7 @@
   border-radius: $bl-sys-border-radius-ms;
   display: block;
   @include label-2();
-  @include pointer-event-transition(all);
+  @include appearence-transition(all);
 
   &.button-neutral {
     @include button-colors('neutral');

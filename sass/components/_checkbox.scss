@@ -31,7 +31,7 @@
     position: relative;
     display: grid;
     place-items: center;
-    @include pointer-event-transition(all);
+    @include appearence-transition(all);
     @include background-gradient(var(--static-background-color), var(--default-dynamic-background-color), "top");
     
     &::before {

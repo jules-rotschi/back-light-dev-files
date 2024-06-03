@@ -11,7 +11,7 @@
   background-color: transparent;
 
 
-  @include pointer-event-transition(all);
+  @include appearence-transition(all);
 
   @include icon-button-colors('default');
 
