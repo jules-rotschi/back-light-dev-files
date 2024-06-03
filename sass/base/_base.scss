@@ -23,7 +23,7 @@ body {
   }
 
   html[data-theme="dark"] & {
-    --background-color: #{$bl-sys-color-dark};
+    --background-color: #{$bl-sys-color-neutral-950};
     --foreground-color: #{$bl-sys-color-light};
   }
 
