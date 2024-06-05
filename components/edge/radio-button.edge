@@ -1,0 +1,11 @@
+<div className="radio-button">
+  <input
+    type="radio"
+    id="{{id}}"
+    name="{{name}}"
+    @if(disabled)
+      disabled
+    @end
+  />
+  <label htmlFor="{{id}}">{{label || "Label"}}</label>
+</div>

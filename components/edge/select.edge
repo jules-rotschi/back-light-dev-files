@@ -1,0 +1,31 @@
+@let(openClassName = isOpen ? " select--open" : "")
+
+<div className="{{'select' + openClassName}}" aria-disabled="{{disabled}}">
+  <button
+    type="button"
+    className="select__button"
+    role="combobox"
+    aria-controls="select-dropdown"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+  >
+    <span className="select__label">{{defaultLabel || "Select"}}</span>
+    <span className="select__arrow">
+      @!component('icons::chevron', {size: 16})
+    </span>
+  </button>
+  <ul className="select__dropdown" role="listbox" id="select-dropdown">
+    @each(option in options)
+      <li className="select__option" role="option" aria-disabled={{!option.isEnabled}}>
+        <input
+          type="radio"
+          id="{{name + '-' + option.value}}"
+          className="select__option"
+          name="{{name}}"
+          value="{{option.value}}"
+        />
+        <label htmlFor="{{name + '-' + option.value}}">{{option.label || "Option"}}</label>
+      </li>
+    @end
+  </ul>
+</div>

@@ -1,0 +1,36 @@
+@let(computedType = type || "info")
+@let(typeClassName = "")
+@let(icon = "icons::code")
+
+@if(computedType === "info")
+  @assign(typeClassName = " snackbar--info")
+  @assign(icon = "icons::info")
+
+@elseif(computedType === "success")
+  @assign(typeClassName = " snackbar--success")
+  @assign(icon = "icons::success")
+
+@elseif(computedType === "warning")
+  @assign(typeClassName = " snackbar--warning")
+  @assign(icon = "icons::warning")
+
+@elseif(computedType === "critical")
+  @assign(typeClassName = " snackbar--critical")
+  @assign(icon = "icons::alert")
+
+@end
+
+<div className="{{'snackbar' + typeClassName}}">
+  <div className="snackbar__start">
+    <span className="snackbar__icon">
+      @!component(icon, {size: 24})
+    </span>
+    <div className="snackbar__content">
+      <div className="snackbar__title">{{title || "Title"}}</div>
+      <div className="snackbar__message">{{message || "Message"}}</div>
+    </div>
+  </div>
+  <button type="button" className="icon-button">
+    @!component('icons::cross', {size: 24})
+  </button>
+</div>

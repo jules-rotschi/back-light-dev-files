@@ -1,0 +1,25 @@
+@let(colorClassName = ` button-${color || 'neutral'}`)
+@let(customClassName = className ? ` ${className}` : "")
+
+@if(link)
+  <a
+    href="{{link}}"
+    className="{{'icon-button' + colorClassName + customClassName}}"
+    id="{{id}}"
+  >
+    @!component((icon || "icons::code"), {size: 24})
+  </a>
+
+@else
+  <button
+    type="{{type || 'button'}}"
+    className="{{'icon-button' + colorClassName + customClassName}}"
+    id="{{id}}"
+    @if(disabled)
+      disabled
+    @end
+  >
+    @!component((icon || "icons::code"), {size: 24})
+  </button>
+
+@end

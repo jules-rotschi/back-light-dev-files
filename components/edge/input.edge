@@ -1,0 +1,26 @@
+@let(errorClassName = error ? " input--error" : "")
+
+<div className="{{'input' + errorClassName}}" aria-disabled="{{disabled}}">
+  <div className="label-container">
+    <label htmlFor="{{id}}">{{label || "Label"}}</label>
+  </div>
+  <div className="field">
+    <input
+      type="{{type || "text"}}"
+      id="{{id}}"
+      name="{{name}}"
+      @if(placeholder)
+        placeholder="{{placeholder}}"
+      @end
+      @if(disabled)
+        disabled
+      @end
+    />
+    @if(unit)
+      <span className="unit">{{unit}}</span>
+    @end
+  </div>
+  @if(legend)
+    <legend>{{legend}}</legend>
+  @end
+</div>

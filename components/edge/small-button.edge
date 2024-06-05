@@ -1,0 +1,37 @@
+@let(styleClassName = ` button-${style || "filled"}`)
+@let(colorClassName = ` button-${color || "outlined"}`)
+@let(iconClassName = icon ? " button-with-icon" : "")
+@let(customClassName = className ? ` ${className}` : "")
+
+@if(link)
+  <a
+    href="{{link}}"
+    className="{{'small-button' + styleClassName + colorClassName + iconClassName + customClassName}}"
+    id="{{id}}"
+  >
+    @if(icon !== undefined)
+      <span>
+        @!component(icon, {size: 16})
+      </span>
+    @end
+    <span>{{label || "Label"}}</span>
+  </a>
+
+@else
+  <button
+    type="{{type || 'button'}}"
+    className="{{'small-button' + styleClassName + colorClassName + iconClassName + customClassName}}"
+    id="{{id}}"
+    @if(disabled)
+      disabled
+    @end
+  >
+    @if(icon !== undefined)
+      <span>
+        @!component(icon, {size: 16})
+      </span>
+    @end
+    <span>{{label || "Label"}}</span>
+  </button>
+
+@end

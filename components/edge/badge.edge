@@ -1,0 +1,8 @@
+<div className="badge">
+  @if(icon !== undefined)
+    <span className="icon">
+      @!component(icon, {size: 16})
+    </span>
+  @end
+  <span className="label">{{ label || "Label" }}</span>
+</div>
