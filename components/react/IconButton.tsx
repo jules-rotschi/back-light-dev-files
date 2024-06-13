@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { IconComponent } from '../../icons/react/icon-component-type';
 
 interface IconButtonProps {
-  color: "neutral" | "primary" | "info" | "success" | "warning" | "critical";
   icon: IconComponent;
   className?: string;
   onClick?: ReactEventHandler;
@@ -16,13 +15,13 @@ interface IconButtonProps {
 
 export const IconButton = (props: IconButtonProps) => {
 
-  const colorClassName = ` button-${props.color}`;
   const customClassName = props.className ? ` ${props.className}` : "";
 
   if (props.link && props.externalLink) return (
     <a
       href={props.link}
-      className={"icon-button" + colorClassName + customClassName}
+      target='_blank'
+      className={"icon-button" + customClassName}
     >
       <props.icon size={24}/>
     </a>
@@ -31,7 +30,7 @@ export const IconButton = (props: IconButtonProps) => {
   if (props.link) return (
     <Link
       to={props.link}
-      className={"button" + colorClassName + customClassName}
+      className={"button" + customClassName}
     >
       <props.icon size={24}/>
     </Link>
@@ -40,7 +39,7 @@ export const IconButton = (props: IconButtonProps) => {
   return (
     <button
       type={props.type || 'button'}
-      className={"icon-button" + colorClassName + customClassName}
+      className={"icon-button" + customClassName}
       onClick={props.onClick}
       disabled={props.disabled}
     >

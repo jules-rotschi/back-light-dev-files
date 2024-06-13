@@ -4,8 +4,8 @@ import { IconComponent } from '../../icons/react/icon-component-type';
 
 interface ButtonProps {
   style: "filled" | "outlined" | "ghost";
-  color: "neutral" | "primary" | "info" | "success" | "warning" | "critical";
   label: string;
+  color?: "neutral" | "primary" | "info" | "success" | "warning" | "critical";
   icon?: IconComponent;
   onClick?: ReactEventHandler;
   link?: string;
@@ -18,13 +18,14 @@ interface ButtonProps {
 export const Button = (props: ButtonProps) => {
 
   const styleClassName = ` button-${props.style}`;
-  const colorClassName = ` button-${props.color}`;
+  const colorClassName = props.color ? ` button-${props.color}` : "";
   const iconClassName = props.icon ? " button-with-icon" : "";
   const customClassName = props.className ? ` ${props.className}` : "";
 
   if (props.link && props.externalLink) return (
     <a
       href={props.link}
+      target='_blank'
       className={"button" + styleClassName + colorClassName + iconClassName + customClassName}
     >
       <span>{props.icon !== undefined && <props.icon size={16}/>}</span>

@@ -20,10 +20,10 @@
     --not-checked-default-dynamic-background-color: #{$bl-sys-color-neutral-600};
     --not-checked-hover-dynamic-background-color: #{$bl-sys-color-neutral-500};
     --not-checked-active-dynamic-background-color: #{$bl-sys-color-neutral-400};
-    --checked-static-background-color: #{$bl-sys-color-primary-700};
-    --checked-default-dynamic-background-color: #{$bl-sys-color-primary-600};
-    --checked-hover-dynamic-background-color: #{$bl-sys-color-primary-500};
-    --checked-active-dynamic-background-color: #{$bl-sys-color-primary-400};
+    --checked-static-background-color: #{$bl-sys-color-secondary-500};
+    --checked-default-dynamic-background-color: #{$bl-sys-color-secondary-400};
+    --checked-hover-dynamic-background-color: #{$bl-sys-color-secondary-300};
+    --checked-active-dynamic-background-color: #{$bl-sys-color-secondary-200};
     --disabled-foreground-color: #{$bl-sys-color-neutral-700};
   }
 

@@ -65,7 +65,7 @@
     border: $bl-sys-stroke-width-s solid;
     border-color: var(--outlined-border-color);
     color: var(--outlined-foreground-color);
-    background-color: transparent;
+    background: none;
 
     &:not(:disabled):hover {
       border-color: var(--hover-outlined-border-color);

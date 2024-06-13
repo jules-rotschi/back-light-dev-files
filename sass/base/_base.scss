@@ -8,9 +8,14 @@
 
 body {
   --layout-number-of-columns: 4;
+  --layout-column-width: 48px;
 
   @media (min-width: $bl-prim-breakpoint-small-screen) {
     --layout-number-of-columns: 8;
+  }
+
+  @media (min-width: $bl-prim-breakpoint-medium-screen) {
+    --layout-column-width: 96px;
   }
 
   @media (min-width: $bl-prim-breakpoint-large-screen) {
@@ -27,7 +32,8 @@ body {
     --foreground-color: #{$bl-sys-color-light};
   }
 
-  width: calc(100vw - 2 * $layout-margin);
+  @include get-column-width(--layout-number-of-columns);
+  width: var(--got-width);
   margin-inline: auto;
   overflow-x: hidden;
   background: var(--background-color);

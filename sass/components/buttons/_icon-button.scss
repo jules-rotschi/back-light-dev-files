@@ -1,43 +1,26 @@
 @use '../../tokens' as *;
 @use '../../abstract/' as *;
-@use './icon-button-colors' as *;
 
 .icon-button {
+
+  html[data-theme="light"] & {
+    --hover-background-color: #{$bl-sys-color-dark-opacity-10};
+    --active-background-color: #{$bl-sys-color-dark-opacity-20};
+  }
+
+  html[data-theme="dark"] & {
+    --hover-background-color: #{$bl-sys-color-light-opacity-10};
+    --active-background-color: #{$bl-sys-color-light-opacity-20};
+  }
+
   cursor: pointer;
   padding: $bl-sys-padding-xs $bl-sys-padding-xs;
   border-radius: $bl-sys-border-radius-full;
   display: flex;
   color: var(--foreground-color);
-  background-color: transparent;
-
+  background: none;
 
   @include appearence-transition(all);
-
-  @include icon-button-colors('default');
-
-  &.button-neutral {
-    @include icon-button-colors('neutral');
-  }
-
-  &.button-primary {
-    @include icon-button-colors('primary');
-  }
-
-  &.button-info {
-    @include icon-button-colors('info');
-  }
-
-  &.button-success {
-    @include icon-button-colors('success');
-  }
-
-  &.button-warning {
-    @include icon-button-colors('warning');
-  }
-
-  &.button-critical {
-    @include icon-button-colors('critical');
-  }
 
   &:not(:disabled):hover {
     background-color: var(--hover-background-color);

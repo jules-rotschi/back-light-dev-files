@@ -4,15 +4,15 @@
 .select {
 
   html[data-theme="light"] & {
-    --button-foreground-color: #{$bl-sys-color-dark};
+    --button-foreground-color: #{$bl-sys-color-neutral-950};
     --button-static-background-color: #{$bl-sys-color-neutral-050};
     --button-default-dynamic-background-color: #{$bl-sys-color-neutral-100};
     --button-hover-dynamic-background-color: #{$bl-sys-color-neutral-200};
     --button-active-dynamic-background-color: #{$bl-sys-color-neutral-300};
 
-    --option-foreground-color: #{$bl-sys-color-dark};
-    --option-hover-bottom-background-color: #{$bl-sys-color-primary-200};
-    --option-hover-top-background-color: #{$bl-sys-color-primary-100};
+    --option-foreground-color: #{$bl-sys-color-neutral-950};
+    --option-hover-bottom-background-color: #{$bl-sys-color-primary-300};
+    --option-hover-top-background-color: #{$bl-sys-color-primary-200};
     --option-selected-foreground-color: #{$bl-sys-color-light};
     --option-selected-static-background-color: #{$bl-sys-color-primary-800};
     --option-selected-default-dynamic-background-color: #{$bl-sys-color-primary-700};
@@ -31,12 +31,12 @@
     --button-active-dynamic-background-color: #{$bl-sys-color-neutral-600};
 
     --option-foreground-color: #{$bl-sys-color-light};
-    --option-hover-bottom-background-color: #{$bl-sys-color-primary-900};
-    --option-hover-top-background-color: #{$bl-sys-color-primary-800};
-    --option-selected-foreground-color: #{$bl-sys-color-dark};
-    --option-selected-static-background-color: #{$bl-sys-color-primary-300};
-    --option-selected-default-dynamic-background-color: #{$bl-sys-color-primary-200};
-    --option-selected-hover-dynamic-background-color: #{$bl-sys-color-primary-100};
+    --option-hover-bottom-background-color: #{$bl-sys-color-secondary-700};
+    --option-hover-top-background-color: #{$bl-sys-color-secondary-600};
+    --option-selected-foreground-color: #{$bl-sys-color-neutral-950};
+    --option-selected-static-background-color: #{$bl-sys-color-secondary-400};
+    --option-selected-default-dynamic-background-color: #{$bl-sys-color-secondary-300};
+    --option-selected-hover-dynamic-background-color: #{$bl-sys-color-secondary-200};
     --option-disabled-foreground-color: #{$bl-sys-color-neutral-600};
 
     --dropdown-bottom-background-color: #{$bl-sys-color-neutral-900};
@@ -169,13 +169,10 @@
     cursor: pointer;
     display: inline-block;
     min-width: 100%;
-    padding-inline: $bl-sys-padding-s;
-    @include body-3();
+    padding: $bl-sys-padding-xxs $bl-sys-padding-xs;
+    @include label-3();
     text-wrap: nowrap;
   
-    @media (max-width: $bl-prim-breakpoint-small-screen) {
-      padding-block: $bl-sys-padding-xxs;
-    }
 
     color: var(--option-foreground-color);
 

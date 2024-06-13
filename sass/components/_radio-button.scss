@@ -15,10 +15,10 @@
   }
 
   html[data-theme="dark"] & {
-    --static-background-color: #{$bl-sys-color-primary-600};
-    --default-dynamic-background-color: #{$bl-sys-color-primary-500};
-    --hover-dynamic-background-color: #{$bl-sys-color-primary-400};
-    --active-dynamic-background-color: #{$bl-sys-color-primary-300};
+    --static-background-color: #{$bl-sys-color-secondary-500};
+    --default-dynamic-background-color: #{$bl-sys-color-secondary-400};
+    --hover-dynamic-background-color: #{$bl-sys-color-secondary-300};
+    --active-dynamic-background-color: #{$bl-sys-color-secondary-200};
     --disabled-foreground-color: #{$bl-sys-color-neutral-700};
   }
 

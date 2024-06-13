@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "sass": "sass test.scss:test.css --watch",
-    "dev": "parcel index.html"
+    "react": "parcel index.html",
+    "edge": "node server.js"
   },
   "keywords": [],
   "author": "",

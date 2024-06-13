@@ -1,11 +1,14 @@
 @let(styleClassName = ` button-${style || "filled"}`)
-@let(colorClassName = ` button-${color || "outlined"}`)
+@let(colorClassName = color ? ` button-${color}` : "")
 @let(iconClassName = icon ? " button-with-icon" : "")
 @let(customClassName = className ? ` ${className}` : "")
 
 @if(link)
   <a
     href="{{link}}"
+    @if(externalLink)
+      target="_blank"
+    @end
     className="{{'button' + styleClassName + colorClassName + iconClassName + customClassName}}"
     id="{{id}}"
   >

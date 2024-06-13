@@ -1,21 +1,12 @@
 @use '../tokens' as *;
 
-$layout-margin: 1.5rem;
+$layout-mobile-margin: 1.5rem;
 $layout-gutter-width: 1.5rem;
-$layout-colomn-width: calc(((100vw - 2 * $layout-margin - (var(--layout-column-number) - 1) * $layout-gutter-width) / var(--layout-column-number)));
 
-@mixin get-column-width($number-of-columns, $edge) {
-  @if ($edge) {
-    --got-width: calc($number-of-columns * ($layout-colomn-width + $layout-gutter-width))
-  } @else {
-    --got-width: calc($number-of-columns * $layout-colomn-width + ($number-of-columns - 1) * $layout-gutter-width)
-  }
+@mixin get-column-width($number-of-columns) {
+  --got-width: calc($number-of-columns * var(--layout-colomn-width) + ($number-of-columns - 1) * $layout-gutter-width)
 }
 
-@mixin get-column-space($number-of-columns, $edge) {
-  @if ($edge) {
-    --got-space: calc($number-of-columns * ($layout-colomn-width + $layout-gutter-width))
-  } @else {
-    --got-space: calc($number-of-columns * $layout-colomn-width + ($number-of-columns + 1) * $layout-gutter-width)
-  }
+@mixin get-column-space($number-of-columns) {
+  --got-space: calc($number-of-columns * var(--layout-colomn-width) + ($number-of-columns + 1) * $layout-gutter-width)
 }
