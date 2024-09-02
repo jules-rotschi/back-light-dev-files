@@ -4,6 +4,7 @@
 .input {
 
   html[data-theme="light"] & {
+    --foreground-color: #{$bl-sys-color-neutral-800};
     --foreground-color-secondary: #{$bl-sys-color-neutral-400};
     --active-stroke-color: #{$bl-sys-color-primary-700};
     --error-foreground-color: #{$bl-sys-color-critical-800};
@@ -12,6 +13,7 @@
   }
   
   html[data-theme="dark"] & {
+    --foreground-color: #{$bl-sys-color-neutral-100};
     --foreground-color-secondary: #{$bl-sys-color-neutral-600};
     --active-stroke-color: #{$bl-sys-color-secondary-400};
     --error-foreground-color: #{$bl-sys-color-critical-500};
@@ -25,7 +27,7 @@
   .label-container {
     position: absolute;
     left: 12px;
-    top: -10px;
+    top: -8px;
     padding-inline: 2px;
     background-color: var(--background-color);
   }
@@ -40,9 +42,10 @@
   .field {
     width: fit-content;
     height: 2rem;
-    border-radius: $bl-sys-border-radius-ms;
+    border-radius: $bl-sys-border-radius-s;
     padding-inline: $bl-sys-padding-xs;
     outline: $bl-sys-stroke-width-s solid var(--foreground-color);
+    outline-offset: -$bl-sys-stroke-width-m;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -77,7 +80,7 @@
 
     @media (min-width: $bl-prim-breakpoint-small-screen) {
       height: 2.5rem;
-      border-radius: $bl-sys-border-radius-m;
+      border-radius: $bl-sys-border-radius-ms;
     }
 
     &:has(input:focus-within) {

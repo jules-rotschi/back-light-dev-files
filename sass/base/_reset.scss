@@ -24,3 +24,9 @@ input[type=number] {
   -webkit-appearance: none;
   -moz-appearance: textfield;
 }
+
+select {
+  // appearance: none;
+  border: none;
+  background: none;
+}

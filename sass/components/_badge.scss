@@ -4,13 +4,11 @@
 .badge {
 
   html[data-theme="light"] & {
-    --label-color: $bl-sys-color-neutral-800;
-    @include background-gradient($bl-sys-color-neutral-opacity-40, $bl-sys-color-neutral-opacity-20, "top");
+    --label-color: #{$bl-sys-color-neutral-800};
   }
 
   html[data-theme="dark"] & {
-    --label-color: $bl-sys-color-neutral-200;
-    @include background-gradient($bl-sys-color-neutral-opacity-20, $bl-sys-color-neutral-opacity-40, "bottom");
+    --label-color: #{$bl-sys-color-neutral-200};
   }
 
   width: fit-content;
@@ -21,6 +19,7 @@
   justify-content: center;
   gap: $bl-sys-gap-xxs;
   color: var(--label-color);
+  background-color: $bl-sys-color-neutral-opacity-20;
 
   .icon {
     display: grid;

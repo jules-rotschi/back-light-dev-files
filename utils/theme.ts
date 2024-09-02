@@ -3,6 +3,12 @@ export enum Theme {
   dark = "dark"
 }
 
+export const detectUserPreference = () => {
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+}
+
 export const getCurrentTheme = () => {
   return document.documentElement.getAttribute('data-theme') as Theme;
 }

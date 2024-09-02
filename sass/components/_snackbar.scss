@@ -3,7 +3,7 @@
 
 .snackbar {
   
-  --foreground-color: #{$bl-sys-color-light};
+  --text-color: #{$bl-sys-color-light};
   --info-bottom-background-color: #{$bl-sys-color-info-800};
   --info-top-background-color: #{$bl-sys-color-info-700};
   --success-bottom-background-color: #{$bl-sys-color-success-800};
@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--foreground-color);
+  color: var(--text-color);
 
   .icon-button {
     color: inherit;

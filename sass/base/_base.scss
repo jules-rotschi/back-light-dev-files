@@ -2,8 +2,15 @@
 @use '../abstract' as *;
 
 *::selection {
-  background-color: $bl-sys-color-primary-600;
-  color: $bl-sys-color-neutral-050;
+  html[data-theme="light"] & {
+    background-color: $bl-sys-color-primary-600;
+    color: $bl-sys-color-neutral-050;
+  }
+
+  html[data-theme="dark"] & {
+    background-color: $bl-sys-color-secondary-400;
+    color: $bl-sys-color-neutral-950;
+  }
 }
 
 body {

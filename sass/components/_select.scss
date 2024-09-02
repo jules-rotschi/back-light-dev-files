@@ -4,221 +4,52 @@
 .select {
 
   html[data-theme="light"] & {
-    --button-foreground-color: #{$bl-sys-color-neutral-950};
-    --button-static-background-color: #{$bl-sys-color-neutral-050};
-    --button-default-dynamic-background-color: #{$bl-sys-color-neutral-100};
-    --button-hover-dynamic-background-color: #{$bl-sys-color-neutral-200};
-    --button-active-dynamic-background-color: #{$bl-sys-color-neutral-300};
-
-    --option-foreground-color: #{$bl-sys-color-neutral-950};
-    --option-hover-bottom-background-color: #{$bl-sys-color-primary-300};
-    --option-hover-top-background-color: #{$bl-sys-color-primary-200};
-    --option-selected-foreground-color: #{$bl-sys-color-light};
-    --option-selected-static-background-color: #{$bl-sys-color-primary-800};
-    --option-selected-default-dynamic-background-color: #{$bl-sys-color-primary-700};
-    --option-selected-hover-dynamic-background-color: #{$bl-sys-color-primary-600};
-    --option-disabled-foreground-color: #{$bl-sys-color-neutral-400};
-
-    --dropdown-bottom-background-color: #{$bl-sys-color-neutral-100};
-    --dropdown-top-background-color: #{$bl-sys-color-neutral-050};
+    --foreground-color: #{$bl-sys-color-neutral-800};
+    --active-stroke-color: #{$bl-sys-color-primary-700};
+    --disabled-foreground-color: #{$bl-sys-color-neutral-300};
   }
-
+  
   html[data-theme="dark"] & {
-    --button-foreground-color: #{$bl-sys-color-light};
-    --button-static-background-color: #{$bl-sys-color-neutral-900};
-    --button-default-dynamic-background-color: #{$bl-sys-color-neutral-800};
-    --button-hover-dynamic-background-color: #{$bl-sys-color-neutral-700};
-    --button-active-dynamic-background-color: #{$bl-sys-color-neutral-600};
-
-    --option-foreground-color: #{$bl-sys-color-light};
-    --option-hover-bottom-background-color: #{$bl-sys-color-secondary-700};
-    --option-hover-top-background-color: #{$bl-sys-color-secondary-600};
-    --option-selected-foreground-color: #{$bl-sys-color-neutral-950};
-    --option-selected-static-background-color: #{$bl-sys-color-secondary-400};
-    --option-selected-default-dynamic-background-color: #{$bl-sys-color-secondary-300};
-    --option-selected-hover-dynamic-background-color: #{$bl-sys-color-secondary-200};
-    --option-disabled-foreground-color: #{$bl-sys-color-neutral-600};
-
-    --dropdown-bottom-background-color: #{$bl-sys-color-neutral-900};
-    --dropdown-top-background-color: #{$bl-sys-color-neutral-800};
+    --foreground-color: #{$bl-sys-color-neutral-100};
+    --active-stroke-color: #{$bl-sys-color-secondary-400};
+    --disabled-foreground-color: #{$bl-sys-color-neutral-700};
   }
 
-  width: fit-content;
-  position: relative;
-}
-
-.select__button {
-  cursor: pointer;
-  min-width: fit-content;
-  border-radius: $bl-sys-border-radius-ms;
   padding: $bl-sys-padding-xs $bl-sys-padding-ms;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: $bl-sys-gap-xs;
-  @include appearence-transition(all);
-  color: var(--button-foreground-color);
-
-  html[data-theme="light"]  & {
-    @include background-gradient(
-      var(--button-static-background-color),
-      var(--button-default-dynamic-background-color),
-      "bottom"
-    );
-
-    &:hover {
-      @include background-gradient(
-        var(--button-static-background-color),
-        var(--button-hover-dynamic-background-color),
-        "bottom"
-      );
-    }
-
-    &:active {
-      @include background-gradient(
-        var(--button-static-background-color),
-        var(--button-active-dynamic-background-color),
-        "bottom"
-      );
-    }
-  }
-
-  html[data-theme="dark"] & {
-    @include background-gradient(
-      var(--button-static-background-color),
-      var(--button-default-dynamic-background-color),
-      "top"
-    );
-
-    &:hover {
-      @include background-gradient(
-        var(--button-static-background-color),
-        var(--button-hover-dynamic-background-color),
-        "top"
-      );
-    }
-
-    &:active {
-      @include background-gradient(
-        var(--button-static-background-color),
-        var(--button-active-dynamic-background-color),
-        "top"
-      );
-    }
-  }
-
-  .select[aria-disabled="true"] & {
-    cursor: not-allowed;
-    opacity: .4;
-
-    &:hover, &:active {
-      html[data-theme="light"]  & {
-        @include background-gradient(
-          var(--button-static-background-color),
-          var(--button-default-dynamic-background-color),
-          "bottom"
-        );
-      }
-
-      html[data-theme="dark"] & {
-        @include background-gradient(
-          var(--button-static-background-color),
-          var(--button-default-dynamic-background-color),
-          "top"
-        );
-      }
-    }
-  }
-}
-
-.select__label {
-  @include label-2();
-}
-
-.select__arrow {
-  @include transform-transition();
-}
-
-.select__dropdown {
-  min-width: fit-content;
-  width: 100%;
+  outline: $bl-sys-stroke-width-s solid;
   border-radius: $bl-sys-border-radius-ms;
-  position: absolute;
-  top: 2.5rem;
-  visibility: hidden;
-  overflow: hidden;
-  @include background-gradient(
-      var(--dropdown-bottom-background-color),
-      var(--dropdown-top-background-color),
-      "top"
-    );
-}
+  color: var(--foreground-color);
+  background-color: var(--background-color);
+  outline-color: var(--foreground-color);
+  outline-offset: -$bl-sys-stroke-width-m;
+  @include label-2();
+  cursor: pointer;
 
-.select__option {
-  height: fit-content;
-  min-width: fit-content;
-  position: relative;
-  display: flex;
-
-  input{
-    appearance: none;
-    position: absolute;
+  &:focus-within {
+    border-color: transparent;
+    outline:
+      $bl-sys-stroke-width-m
+      solid
+      var(--active-stroke-color);
   }
-  
-  label {
-    cursor: pointer;
-    display: inline-block;
-    min-width: 100%;
-    padding: $bl-sys-padding-xxs $bl-sys-padding-xs;
+
+  &[disabled] {
+    cursor: not-allowed;
+    outline-color: var(--disabled-foreground-color);
+    color: var(--disabled-foreground-color);
+    outline-color: var(--disabled-foreground-color);
+  }
+
+  option {
     @include label-3();
-    text-wrap: nowrap;
-  
+    color: $bl-sys-color-neutral-950;
 
-    color: var(--option-foreground-color);
-
-    &:hover {
-      @include background-gradient(
-        var(--option-hover-bottom-background-color),
-        var(--option-hover-top-background-color),
-        "top"
-      );
+    &[disabled] {
+      color: $bl-sys-color-neutral-600;
     }
   }
 
-  &[aria-disabled="true"] {
-    pointer-events: none;
-
-    label {
-      color: var(--option-disabled-foreground-color);
-    }
-  }
-
-  &:has(input:checked) {
-    label {
-      color: var(--option-selected-foreground-color);
-      @include background-gradient(
-        var(--option-selected-static-background-color),
-        var(--option-selected-default-dynamic-background-color),
-        "top"
-      );
-  
-      &:hover {
-        @include background-gradient(
-          var(--option-selected-static-background-color),
-          var(--option-selected-hover-dynamic-background-color),
-          "top"
-        );
-      }
-    }
-  }
-}
-
-.select--open {
-  .select__arrow {
-    transform: rotate(180deg);
-  }
-
-  .select__dropdown {
-    visibility: visible;
+  @media (min-width:$bl-prim-breakpoint-small-screen) {
+    height: 2.5rem;
   }
 }

@@ -1,5 +1,13 @@
 @use '../abstract/' as *;
 
+.website-title {
+  @include website-title();
+}
+
+.website-subtitle {
+  @include website-subtitle();
+}
+
 .display {
   @include display();
 }

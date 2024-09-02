@@ -1,13 +1,15 @@
 @use '../abstract/' as *;
 
-.shadow-1 {
-  @include shadow-1();
-}
-
-.shadow-2 {
-  @include shadow-2();
-}
-
-.shadow-3 {
-  @include shadow-3();
+html[data-theme="light"] {
+  .shadow-1 {
+    @include shadow-1();
+  }
+  
+  .shadow-2 {
+    @include shadow-2();
+  }
+  
+  .shadow-3 {
+    @include shadow-3();
+  }
 }

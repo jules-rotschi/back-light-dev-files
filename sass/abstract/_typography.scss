@@ -1,5 +1,33 @@
 @use '../tokens/' as *;
 
+@mixin website-title() {
+  font-family: $bl-sys-font-family-headings;
+  font-weight: $bl-prim-font-weight-black;
+  font-size: $bl-sys-font-size-l;
+  line-height: $bl-sys-line-height-ms;
+  letter-spacing: $bl-sys-letter-spacing-negative-m;
+
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
+    font-size: 12rem;
+    line-height: 12rem;
+    letter-spacing: $bl-sys-letter-spacing-negative-m;
+  }
+}
+
+@mixin website-subtitle() {
+  font-family: $bl-sys-font-family-body;
+  font-weight: $bl-prim-font-weight-light;
+  font-size: $bl-sys-font-size-m;
+  line-height: $bl-sys-line-height-xs;
+  letter-spacing: $bl-sys-letter-spacing-null;
+
+  @media (min-width: $bl-prim-breakpoint-small-screen) {
+    font-size: $bl-sys-font-size-xl;
+    line-height: $bl-sys-line-height-m;
+    letter-spacing: $bl-sys-letter-spacing-null;
+  }
+}
+
 @mixin display() {
   font-family: $bl-sys-font-family-headings;
   font-weight: $bl-prim-font-weight-bold;
