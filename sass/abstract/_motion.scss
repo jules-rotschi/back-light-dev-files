@@ -1,9 +1,0 @@
-@use '../tokens/' as *;
-
-@mixin appearence-transition($property) {
-  transition: $property $bl-sys-motion-fast $bl-prim-timing-function-ease-out;
-}
-
-@mixin transform-transition() {
-  transition: transform $bl-sys-motion-medium $bl-prim-timing-function-ease-in-out;
-}

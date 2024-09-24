@@ -1,0 +1,16 @@
+:root {
+  --bl-header-height: 7rem;
+  --bl-footer-height: 7rem;
+}
+
+.page-header {
+  height: var(--bl-header-height);
+}
+
+.page-content {
+  min-height: calc(100dvh - var(--bl-header-height) - var(--bl-footer-height));
+}
+
+.page-footer {
+  height: var(--bl-footer-height);
+}

@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "sass": "sass test.scss:test.css --watch",
-    "react": "parcel index.html",
-    "edge": "node server.js"
+    "sass": "sass demo/test.scss:demo/test.css",
+    "react": "parcel demo/index.html",
+    "edge": "node demo/server.js"
   },
   "keywords": [],
   "author": "",

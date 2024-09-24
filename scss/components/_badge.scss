@@ -1,0 +1,32 @@
+@use '../tokens' as *;
+@use '../abstract' as *;
+
+.badge {
+
+  html[data-theme="light"] & {
+    --label-color: #{$bl-sys-color-neutral-800};
+  }
+
+  html[data-theme="dark"] & {
+    --label-color: #{$bl-sys-color-neutral-200};
+  }
+
+  width: fit-content;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  color: var(--label-color);
+  background-color: $bl-sys-color-neutral-opacity-20;
+
+  .icon {
+    display: grid;
+    place-items: center;
+  }
+
+  .label {
+    @include label-2();
+  }
+}

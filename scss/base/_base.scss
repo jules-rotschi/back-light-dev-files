@@ -1,0 +1,78 @@
+@use '../tokens' as *;
+@use '../abstract' as *;
+
+*::selection {
+  html[data-theme="light"] & {
+    background-color: $bl-sys-color-primary-800;
+    color: $bl-sys-color-neutral-050;
+  }
+
+  html[data-theme="dark"] & {
+    background-color: $bl-sys-color-secondary-400;
+    color: $bl-sys-color-neutral-950;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  display: block;
+  overflow-x: hidden;
+
+  html[data-theme="light"] & {
+    --bl-background-color: #{$bl-sys-color-light};
+    --bl-foreground-color: #{$bl-sys-color-neutral-950};
+  }
+
+  html[data-theme="dark"] & {
+    --bl-background-color: #{$bl-sys-color-neutral-950};
+    --bl-foreground-color: #{$bl-sys-color-light};
+  }
+
+  background-color: var(--bl-background-color);
+  color: var(--bl-foreground-color);
+}
+
+h1 {
+  @include headline-1();
+}
+
+h2 {
+  @include headline-2();
+}
+
+h3 {
+  @include headline-3();
+}
+
+h4 {
+  @include title-1();
+}
+
+h5 {
+  @include title-2();
+}
+
+h6 {
+  @include title-3();
+}
+
+p, li, a, div, span {
+  @include body-2();
+}
+
+p > strong {
+  @include body-2-strong();
+}
+
+[disabled] {
+  pointer-events: cursor;
+}
+
+span:has(> svg) {
+  display: grid;
+}

@@ -1,0 +1,91 @@
+@use '../../tokens' as *;
+@use '../../abstract/' as *;
+@use './button-colors' as *;
+
+.small-button {
+  cursor: pointer;
+  width: fit-content;
+  height: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  display: block;
+  @include label-2();
+  @include appearence-transition(all);
+
+  &.button-neutral {
+    @include button-colors('neutral');
+  }
+
+  &.button-primary {
+    @include button-colors('primary');
+  }
+
+  &.button-info {
+    @include button-colors('info');
+  }
+
+  &.button-success {
+    @include button-colors('success');
+  }
+
+  &.button-warning {
+    @include button-colors('warning');
+  }
+
+  &.button-critical {
+    @include button-colors('critical');
+  }
+
+  &.button-filled {
+    color: var(--filled-foreground-color);
+    @include dynamic-background-gradient(var(--filled-static-background-color), var(--default-filled-dynamic-background-color), "top");
+
+    html[data-theme="dark"] &.button-neutral {
+      @include dynamic-background-gradient(var(--filled-static-background-color), var(--default-filled-dynamic-background-color), "bottom");
+    }
+
+    &:not(:disabled):hover {
+      @include dynamic-background-gradient(var(--filled-static-background-color), var(--hover-filled-dynamic-background-color), "top");
+
+      html[data-theme="dark"] &.button-neutral {
+        @include dynamic-background-gradient(var(--filled-static-background-color), var(--hover-filled-dynamic-background-color), "bottom");
+      }
+    }
+
+    &:not(:disabled):active {
+      @include dynamic-background-gradient(var(--filled-static-background-color), var(--active-filled-dynamic-background-color), "top");
+
+      html[data-theme="dark"] &.button-neutral {
+        @include dynamic-background-gradient(var(--filled-static-background-color), var(--active-filled-dynamic-background-color), "bottom");
+      }
+    }
+  }
+
+  &.button-outlined {
+    border: 1px solid;
+    border-color: var(--outlined-border-color);
+    color: var(--outlined-foreground-color);
+    background: none;
+
+    &:not(:disabled):hover {
+      border-color: var(--hover-outlined-border-color);
+      background-color: var(--hover-outlined-background-color);
+    }
+
+    &:not(:disabled):active {
+      border-color: var(--active-outlined-border-color);
+      background-color: var(--active-outlined-background-color);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &.button-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+}

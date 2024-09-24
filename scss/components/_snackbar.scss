@@ -1,0 +1,95 @@
+@use '../tokens' as *;
+@use '../abstract' as *;
+
+.snackbar {
+  
+  --text-color: #{$bl-sys-color-light};
+  --info-bottom-background-color: #{$bl-sys-color-info-800};
+  --info-top-background-color: #{$bl-sys-color-info-700};
+  --success-bottom-background-color: #{$bl-sys-color-success-800};
+  --success-top-background-color: #{$bl-sys-color-success-700};
+  --warning-bottom-background-color: #{$bl-sys-color-warning-800};
+  --warning-top-background-color: #{$bl-sys-color-warning-700};
+  --critical-bottom-background-color: #{$bl-sys-color-critical-800};
+  --critical-top-background-color: #{$bl-sys-color-critical-700};
+
+  width: 20rem;
+  border-radius: 1.25rem;
+  padding: 0.75rem 1.5rems;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-color);
+
+  .icon-button {
+    color: inherit;
+  }
+
+  @include above-breakpoint('small') {
+    width: 26rem;
+    padding: 1.5rems 1.5rem;
+  }
+}
+
+.snackbar--info {
+  @include dynamic-background-gradient(
+    var(--info-bottom-background-color),
+    var(--info-top-background-color),
+    "top"
+  )
+}
+
+.snackbar--success {
+  @include dynamic-background-gradient(
+    var(--success-bottom-background-color),
+    var(--success-top-background-color),
+    "top"
+  )
+}
+
+.snackbar--warning {
+  @include dynamic-background-gradient(
+    var(--warning-bottom-background-color),
+    var(--warning-top-background-color),
+    "top"
+  )
+}
+
+.snackbar--critical {
+  @include dynamic-background-gradient(
+    var(--critical-bottom-background-color),
+    var(--critical-top-background-color),
+    "top"
+  )
+}
+
+.snackbar__start {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  @include above-breakpoint('small') {
+    gap: 1rem;
+  }
+}
+
+.snackbar__icon {
+  display: flex;
+  
+  @include under-breakpoint('small') {
+    width: 1rem;
+  }
+}
+
+.snackbar__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.snackbar__title {
+  @include title-3();
+}
+
+.snackbar__message {
+  @include body-2();
+}

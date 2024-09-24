@@ -1,0 +1,55 @@
+@use '../tokens' as *;
+@use '../abstract' as *;
+
+.select {
+
+  html[data-theme="light"] & {
+    --bl-foreground-color: #{$bl-sys-color-neutral-800};
+    --active-stroke-color: #{$bl-sys-color-primary-700};
+    --disabled-foreground-color: #{$bl-sys-color-neutral-300};
+  }
+  
+  html[data-theme="dark"] & {
+    --bl-foreground-color: #{$bl-sys-color-neutral-100};
+    --active-stroke-color: #{$bl-sys-color-secondary-400};
+    --disabled-foreground-color: #{$bl-sys-color-neutral-700};
+  }
+
+  padding: 0.5rem 1.5rems;
+  outline: 1px solid;
+  border-radius: 0.5rem;
+  color: var(--bl-foreground-color);
+  background-color: var(--bl-background-color);
+  outline-color: var(--bl-foreground-color);
+  outline-offset: -2px;
+  @include label-2();
+  cursor: pointer;
+
+  &:focus-within {
+    border-color: transparent;
+    outline:
+      2px
+      solid
+      var(--active-stroke-color);
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    outline-color: var(--disabled-foreground-color);
+    color: var(--disabled-foreground-color);
+    outline-color: var(--disabled-foreground-color);
+  }
+
+  option {
+    @include label-3();
+    color: $bl-sys-color-neutral-950;
+
+    &[disabled] {
+      color: $bl-sys-color-neutral-600;
+    }
+  }
+
+  @include above-breakpoint('small') {
+    height: 2.5rem;
+  }
+}
