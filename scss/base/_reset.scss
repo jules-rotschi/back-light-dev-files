@@ -1,22 +1,26 @@
 * {
   padding: 0;
+  border: 0;
   margin: 0;
   list-style: none;
-  
-  &, ::before, ::after {
-    box-sizing: border-box;
-  }
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
 }
 
 a {
-  color: currentColor;
+  color: inherit;
   text-decoration: none;
 }
 
 button {
   background: none;
-  border: none;
   border-radius: 0;
+}
+
+button:focus:not(:focus-visible) {
+  outline: 0;
 }
 
 input[type=number] {
@@ -28,4 +32,13 @@ input[type=number] {
 select {
   border: none;
   background: none;
+  word-wrap: normal;
+}
+
+address {
+  font-style: normal;
+}
+
+hr {
+  color: inherit;
 }

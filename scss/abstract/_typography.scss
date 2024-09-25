@@ -1,5 +1,5 @@
 @use '../tokens/' as *;
-@use '../abstract/layout' as *;
+@use '../abstract/breakpoints' as *;
 
 @mixin website-title() {
   font-family: $bl-sys-font-family-headings;
@@ -156,10 +156,10 @@
     font-size: 1.25rem;
     line-height: 2rem;
   }
-}
 
-@mixin body-1-strong() {
-  font-weight: $bl-prim-font-weight-extra-bold;
+  & > strong, & > b {
+    font-weight: $bl-prim-font-weight-extra-bold;
+  }
 }
 
 @mixin body-2() {
@@ -173,10 +173,10 @@
     font-size: 1rem;
     line-height: 1.5rem;
   }
-}
 
-@mixin body-2-strong() {
-  font-weight: $bl-prim-font-weight-bold;
+  & > strong, & > b {
+    font-weight: $bl-prim-font-weight-bold;
+  }
 }
 
 @mixin body-3() {
@@ -190,10 +190,10 @@
     font-size: 0.875rem;
     line-height: 1.5rem;
   }
-}
 
-@mixin body-3-strong() {
-  font-weight: $bl-prim-font-weight-bold;
+  & > strong, & > b {
+    font-weight: $bl-prim-font-weight-bold;
+  }
 }
 
 @mixin quiet-1() {
