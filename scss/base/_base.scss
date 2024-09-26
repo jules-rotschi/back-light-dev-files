@@ -21,6 +21,7 @@
 body {
   display: block;
   overflow-x: hidden;
+  font-size: 16px;
 
   html[data-theme="light"] & {
     --bl-background-color: #{$light};
@@ -60,7 +61,7 @@ h6, dt {
   @include title-3();
 }
 
-p, li, a, dd, div, span {
+p, li, dd, div, span {
   @include body-2();
 }
 
@@ -143,4 +144,8 @@ button:not(:disabled),
 
 [disabled] {
   pointer-events: cursor;
+}
+
+span.icon {
+  display: grid;
 }

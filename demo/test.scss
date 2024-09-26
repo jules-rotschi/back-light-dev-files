@@ -3,3 +3,9 @@
 
 @use '../scss/abstract' as bl;
 
+.box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}

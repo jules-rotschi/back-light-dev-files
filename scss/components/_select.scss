@@ -5,51 +5,82 @@
 
   html[data-theme="light"] & {
     --bl-foreground-color: #{$bl-sys-color-neutral-800};
-    --active-stroke-color: #{$bl-sys-color-primary-700};
-    --disabled-foreground-color: #{$bl-sys-color-neutral-300};
+    --bl-active-stroke-color: #{$bl-sys-color-primary-700};
+    --bl-disabled-foreground-color: #{$bl-sys-color-neutral-300};
   }
   
   html[data-theme="dark"] & {
     --bl-foreground-color: #{$bl-sys-color-neutral-100};
-    --active-stroke-color: #{$bl-sys-color-secondary-400};
-    --disabled-foreground-color: #{$bl-sys-color-neutral-700};
+    --bl-active-stroke-color: #{$bl-sys-color-secondary-400};
+    --bl-disabled-foreground-color: #{$bl-sys-color-neutral-700};
   }
 
-  padding: 0.5rem 1.5rems;
-  outline: 1px solid;
+  position: relative;
   border-radius: 0.5rem;
-  color: var(--bl-foreground-color);
-  background-color: var(--bl-background-color);
+  overflow: hidden;
+  outline: 1px solid;
+  outline-offset: -1px;
   outline-color: var(--bl-foreground-color);
-  outline-offset: -2px;
-  @include label-2();
-  cursor: pointer;
+  background-color: var(--bl-background-color);
+  
+  select {
+    @include label-2();
+    padding: 0.5rem 1rem;
+    padding-right: 2rem;
+    outline: none;
+    cursor: pointer;
+    color: var(--bl-foreground-color);
 
-  &:focus-within {
-    border-color: transparent;
+    @include above-breakpoint('small') {
+      height: 2.5rem;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: var(--bl-disabled-foreground-color);
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border: solid var(--bl-foreground-color);
+    border-width: 0 0 1.5px 1.5px;
+    transform: rotate(-45deg);
+    pointer-events: none;
+    position: absolute;
+    right: 1rem;
+    top: 10px;
+
+    @include above-breakpoint('small') {
+      top: 13px;
+    }
+  }
+  
+  &:has(select:focus-within) {
     outline:
       2px
       solid
-      var(--active-stroke-color);
+      var(--bl-active-stroke-color);
   }
 
-  &[disabled] {
-    cursor: not-allowed;
-    outline-color: var(--disabled-foreground-color);
-    color: var(--disabled-foreground-color);
-    outline-color: var(--disabled-foreground-color);
+  &:has(select[disabled]) {
+    outline-color: var(--bl-disabled-foreground-color);
+    color: var(--bl-disabled-foreground-color);
+
+    &::after {
+      border-color: var(--bl-disabled-foreground-color);
+    }
   }
 
   option {
     @include label-3();
-    color: $bl-sys-color-neutral-950;
+    color: $neutral-800;
 
     &[disabled] {
-      color: $bl-sys-color-neutral-600;
+      color: $neutral-500;
     }
-  }
-
-  @include above-breakpoint('small') {
-    height: 2.5rem;
   }
 }

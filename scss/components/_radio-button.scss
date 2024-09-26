@@ -4,40 +4,38 @@
 
 .radio-button {
   
-  --stroke-width: #{1px};
+  --stroke-width: 1px;
 
   html[data-theme="light"] & {
-    --static-background-color: #{$bl-sys-color-primary-700};
-    --default-dynamic-background-color: #{$bl-sys-color-primary-600};
-    --hover-dynamic-background-color: #{$bl-sys-color-primary-500};
-    --active-dynamic-background-color: #{$bl-sys-color-primary-400};
-    --disabled-foreground-color: #{$bl-sys-color-neutral-400};
+    --bl-static-background-color: #{$bl-sys-color-primary-700};
+    --bl-dynamic-background-color: #{$bl-sys-color-primary-600};
+    --bl-hover-dynamic-background-color: #{$bl-sys-color-primary-500};
+    --bl-active-dynamic-background-color: #{$bl-sys-color-primary-400};
+    --bl-disabled-foreground-color: #{$bl-sys-color-neutral-400};
   }
 
   html[data-theme="dark"] & {
-    --static-background-color: #{$bl-sys-color-secondary-500};
-    --default-dynamic-background-color: #{$bl-sys-color-secondary-400};
-    --hover-dynamic-background-color: #{$bl-sys-color-secondary-300};
-    --active-dynamic-background-color: #{$bl-sys-color-secondary-200};
-    --disabled-foreground-color: #{$bl-sys-color-neutral-700};
+    --bl-static-background-color: #{$bl-sys-color-secondary-500};
+    --bl-dynamic-background-color: #{$bl-sys-color-secondary-400};
+    --bl-hover-dynamic-background-color: #{$bl-sys-color-secondary-300};
+    --bl-active-dynamic-background-color: #{$bl-sys-color-secondary-200};
+    --bl-disabled-foreground-color: #{$bl-sys-color-neutral-700};
   }
 
-  cursor: pointer;
-  width: fit-content;
   display: flex;
 
   input {
-    appearance: none;
     cursor: pointer;
+    appearance: none;
     width: 1rem;
     height: 1rem;
-    border-radius: 100vmax;
+    border-radius: 100%;
     position: relative;
     display: grid;
     place-items: center;
     @include dynamic-background-gradient(
-      var(--static-background-color),
-      var(--default-dynamic-background-color),
+      var(--bl-static-background-color),
+      var(--bl-dynamic-background-color),
       "top"
       );
     @include appearence-transition(all);
@@ -46,22 +44,22 @@
       content: "";
       width: 12px;
       height: 12px;
-      border-radius: 100vmax;
+      border-radius: 100%;
       background-color: var(--bl-background-color);
     }
 
     &:hover {
       @include dynamic-background-gradient(
-        var(--static-background-color),
-        var(--hover-dynamic-background-color),
+        var(--bl-static-background-color),
+        var(--bl-hover-dynamic-background-color),
         "top"
       );
     }
 
     &:active {
       @include dynamic-background-gradient(
-        var(--static-background-color),
-        var(--active-dynamic-background-color),
+        var(--bl-static-background-color),
+        var(--bl-active-dynamic-background-color),
         "top"
       );
     }
@@ -74,8 +72,8 @@
         height: 8px;
         border-radius: 100vmax;
         @include dynamic-background-gradient(
-          var(--static-background-color),
-          var(--default-dynamic-background-color),
+          var(--bl-static-background-color),
+          var(--bl-dynamic-background-color),
           "top"
         );
         @include appearence-transition(all);
@@ -84,8 +82,8 @@
       &:hover {
         &::after {
           @include dynamic-background-gradient(
-            var(--static-background-color),
-            var(--hover-dynamic-background-color),
+            var(--bl-static-background-color),
+            var(--bl-hover-dynamic-background-color),
             "top"
           );
         }
@@ -94,8 +92,8 @@
       &:active {
         &::after {
           @include dynamic-background-gradient(
-            var(--static-background-color),
-            var(--active-dynamic-background-color),
+            var(--bl-static-background-color),
+            var(--bl-active-dynamic-background-color),
             "top"
           );
         }
@@ -104,6 +102,7 @@
 
     &:disabled {
       opacity: 0.4;
+      cursor: not-allowed;
     }
   }
 
@@ -115,6 +114,7 @@
   }
 
   & > input:disabled + label {
-    color: var(--disabled-foreground-color);
+    color: var(--bl-disabled-foreground-color);
+    cursor: not-allowed;
   }
 }

@@ -1,6 +1,6 @@
-# Button
+# Icon button
 
-A button is an interactive component which can trigger an action or redirect to another page when clicked.
+An icon-button is a button without label, but only an icon.
 
 ## Action button vs link button
 
@@ -10,11 +10,7 @@ A link button is a button that redirects the user to another page. A link elemen
 
 ## Props
 
-- label: String
-- small (optional): Boolean
-- style: "filled" | "outlined" | "ghost" (only if !small)
-- color (optional, only if style == "filled"): "neutral" (d) | "primary" | "info" | "success" | "warning" | "critical"
-- icon (optional): Icon
+- icon: Icon
 - link (optional): String
 - onClick (optional, only if !link): Function
 - disabled (optional, only if !link): Boolean

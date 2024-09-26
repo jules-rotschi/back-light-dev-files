@@ -1,7 +1,5 @@
-@use '../tokens/' as *;
-
 @mixin appearence-transition($property) {
-  transition: $property 100ms ease-out;
+    transition: $property 100ms ease-out;
 }
 
 @mixin transform-transition() {

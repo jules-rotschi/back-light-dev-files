@@ -2,65 +2,49 @@
 @use '../abstract' as *;
 
 .snackbar {
-  
-  --text-color: #{$bl-sys-color-light};
-  --info-bottom-background-color: #{$bl-sys-color-info-800};
-  --info-top-background-color: #{$bl-sys-color-info-700};
-  --success-bottom-background-color: #{$bl-sys-color-success-800};
-  --success-top-background-color: #{$bl-sys-color-success-700};
-  --warning-bottom-background-color: #{$bl-sys-color-warning-800};
-  --warning-top-background-color: #{$bl-sys-color-warning-700};
-  --critical-bottom-background-color: #{$bl-sys-color-critical-800};
-  --critical-top-background-color: #{$bl-sys-color-critical-700};
-
-  width: 20rem;
-  border-radius: 1.25rem;
-  padding: 0.75rem 1.5rems;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--text-color);
-
+  width: 20rem;
+  padding: 0.75rem 1rem;
+  border-radius: 1.25rem;
+  color: var(--bl-text-color);
+  --bl-text-color: #{$bl-sys-color-light};
+  
+  @include dynamic-background-gradient(
+    var(--bl-bottom-background-color),
+    var(--bl-top-background-color),
+    "top"
+  );
+    
   .icon-button {
     color: inherit;
   }
-
+  
   @include above-breakpoint('small') {
     width: 26rem;
-    padding: 1.5rems 1.5rem;
+    padding: 1rem 1.5rem;
   }
 }
-
+  
 .snackbar--info {
-  @include dynamic-background-gradient(
-    var(--info-bottom-background-color),
-    var(--info-top-background-color),
-    "top"
-  )
+  --bl-bottom-background-color: #{$bl-sys-color-info-800};
+  --bl-top-background-color: #{$bl-sys-color-info-700};
 }
 
 .snackbar--success {
-  @include dynamic-background-gradient(
-    var(--success-bottom-background-color),
-    var(--success-top-background-color),
-    "top"
-  )
+  --bl-bottom-background-color: #{$bl-sys-color-success-800};
+  --bl-top-background-color: #{$bl-sys-color-success-700};
 }
 
 .snackbar--warning {
-  @include dynamic-background-gradient(
-    var(--warning-bottom-background-color),
-    var(--warning-top-background-color),
-    "top"
-  )
+  --bl-bottom-background-color: #{$bl-sys-color-warning-800};
+  --bl-top-background-color: #{$bl-sys-color-warning-700};
 }
 
 .snackbar--critical {
-  @include dynamic-background-gradient(
-    var(--critical-bottom-background-color),
-    var(--critical-top-background-color),
-    "top"
-  )
+  --bl-bottom-background-color: #{$bl-sys-color-critical-800};
+  --bl-top-background-color: #{$bl-sys-color-critical-700};
 }
 
 .snackbar__start {

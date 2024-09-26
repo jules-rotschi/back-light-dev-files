@@ -17,6 +17,7 @@ a {
 button {
   background: none;
   border-radius: 0;
+  text-transform: none;
 }
 
 button:focus:not(:focus-visible) {
@@ -24,6 +25,10 @@ button:focus:not(:focus-visible) {
 }
 
 input[type=number] {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: textfield;
@@ -33,6 +38,12 @@ select {
   border: none;
   background: none;
   word-wrap: normal;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &:disabled {
+    opacity: 1;
+  }
 }
 
 address {

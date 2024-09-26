@@ -4,35 +4,34 @@
 .checkbox {
 
   html[data-theme="light"] & {
-    --static-background-color: #{$bl-sys-color-primary-700};
-    --default-dynamic-background-color: #{$bl-sys-color-primary-600};
-    --hover-dynamic-background-color: #{$bl-sys-color-primary-500};
-    --active-dynamic-background-color: #{$bl-sys-color-primary-400};
-    --disabled-foreground-color: #{$bl-sys-color-neutral-400};
+    --bl-static-background-color: #{$bl-sys-color-primary-700};
+    --bl-dynamic-background-color: #{$bl-sys-color-primary-600};
+    --bl-hover-dynamic-background-color: #{$bl-sys-color-primary-500};
+    --bl-active-dynamic-background-color: #{$bl-sys-color-primary-400};
+    --bl-disabled-foreground-color: #{$bl-sys-color-neutral-400};
   }
 
   html[data-theme="dark"] & {
-    --static-background-color: #{$bl-sys-color-secondary-500};
-    --default-dynamic-background-color: #{$bl-sys-color-secondary-400};
-    --hover-dynamic-background-color: #{$bl-sys-color-secondary-300};
-    --active-dynamic-background-color: #{$bl-sys-color-secondary-200};
-    --disabled-foreground-color: #{$bl-sys-color-neutral-700};
+    --bl-static-background-color: #{$bl-sys-color-secondary-500};
+    --bl-dynamic-background-color: #{$bl-sys-color-secondary-400};
+    --bl-hover-dynamic-background-color: #{$bl-sys-color-secondary-300};
+    --bl-active-dynamic-background-color: #{$bl-sys-color-secondary-200};
+    --bl-disabled-foreground-color: #{$bl-sys-color-neutral-700};
   }
   
-  width: fit-content;
   display: flex;
   
   input {
-    appearance: none;
     cursor: pointer;
+    appearance: none;
     width: 1rem;
     height: 1rem;
     border-radius: 0.25rem;
     position: relative;
     display: grid;
-    place-items: center;
+    place-content: center;
+    @include dynamic-background-gradient(var(--bl-static-background-color), var(--bl-dynamic-background-color), "top");
     @include appearence-transition(all);
-    @include dynamic-background-gradient(var(--static-background-color), var(--default-dynamic-background-color), "top");
     
     &::before {
       content: "";
@@ -43,33 +42,33 @@
     }
 
     &:hover {
-      @include dynamic-background-gradient(var(--static-background-color), var(--hover-dynamic-background-color), "top");
+      @include dynamic-background-gradient(var(--bl-static-background-color), var(--bl-hover-dynamic-background-color), "top");
     }
 
     &:active {
-      @include dynamic-background-gradient(var(--static-background-color), var(--active-dynamic-background-color), "top");
+      @include dynamic-background-gradient(var(--bl-static-background-color), var(--bl-active-dynamic-background-color), "top");
     }
     
     &:checked {
       border: none;
       @include dynamic-background-gradient(
-        var(--static-background-color),
-        var(--default-dynamic-background-color),
+        var(--bl-static-background-color),
+        var(--bl-dynamic-background-color),
         "top"
       );
 
       &:hover {
         @include dynamic-background-gradient(
-          var(--static-background-color),
-          var(--hover-dynamic-background-color),
+          var(--bl-static-background-color),
+          var(--bl-hover-dynamic-background-color),
           "top"
         );
       }
 
       &:active {
         @include dynamic-background-gradient(
-          var(--static-background-color),
-          var(--active-dynamic-background-color),
+          var(--bl-static-background-color),
+          var(--bl-active-dynamic-background-color),
           "top"
         );
       }
@@ -81,32 +80,31 @@
       
       &::after {
         content: "";
-        width: 6.5px;
-        height: 9.5px;
-        position: absolute;
-        bottom: 4.5px;
-        left: 4.5px;
+        height: 8.75px;
+        width: 5.75px;
         border: solid $bl-sys-color-light;
         border-width: 0 1.5px 1.5px 0;
-        margin: auto;
-        display: block;
         transform: rotate(45deg);
+        position: relative;
+        top: -1px;
       }
     }
 
     &:disabled {
       opacity: 0.4;
+      cursor: not-allowed;
     }
   }
   
   label {
+    @include label-2();
     cursor: pointer;
     padding-left: 0.5rem;
     color: var(--bl-foreground-color);
-    @include label-2();
   }
 
   & > input:disabled + label {
-    color: var(--disabled-foreground-color);
+    color: var(--bl-disabled-foreground-color);
+    cursor: not-allowed;
   }
 }
