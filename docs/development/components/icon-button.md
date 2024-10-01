@@ -12,6 +12,7 @@ A link button is a button that redirects the user to another page. A link elemen
 
 - icon: Icon
 - link (optional): String
+- externalLink (optional, only if link): Boolean
 - onClick (optional, only if !link): Function
 - disabled (optional, only if !link): Boolean
 - type (optional, only if !link): "button" (d) | "submit" | "reset"

@@ -1,44 +1,44 @@
+import { ReactEventHandler } from "react";
+
 export interface Option {
   label: string;
   value: string;
-  isEnabled: boolean;
+  disabled: boolean;
 }
 
 interface SelectProps {
-  name: string;
+  label: string;
   options: Option[];
-  value?: string;
-  onChange?: Function;
+  name?: string;
+  id?: string;
+  required?: boolean;
   defaultValue?: string;
-  placeholder?: string;
+  onChange?: ReactEventHandler;
   disabled?: boolean;
+  tabIndex?: number;
+  customClass?: string;
 }
 
 export const Select = (props: SelectProps) => {
 
   return (
-    <select
-      name={props.name}
-      className="select"
-      disabled={props.disabled}
-      defaultValue={props.defaultValue}
-      onChange={
-        () => {
-          if (props.onChange) props.onChange();
+    <div className={'select' + (props.customClass ? ` ${props.customClass}` : '')}>
+      <select
+        name={props.name}
+        defaultValue={props.defaultValue || ''}
+        id={props.id}
+        required={props.required}
+        disabled={props.disabled}
+        tabIndex={props.tabIndex}
+        onChange={props.onChange}
+      >
+        <option value="" disabled>{props.label}</option> :
+        {
+          props.options.map((option) => {
+            return <option value={option.value} key={option.value}>{option.label}</option>
+          })
         }
-      }
-    >
-      {
-        (props.placeholder && !props.defaultValue) &&
-          <option value="" disabled selected>{props.placeholder}</option>
-      }
-      {
-        props.options.map((option) => {
-          return (
-            <option value={option.value} disabled={!option.isEnabled}>{option.label}</option>
-          )
-        })
-      }
-    </select>
+      </select>
+    </div>
   )
 }

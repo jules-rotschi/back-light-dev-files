@@ -1,3 +1,9 @@
-<a className="navlink" href="{{link || "/"}}">
+<a
+  class="{{'navlink' + (current ? ' navlink--current' : '') + (customClass ? ` ${customClass}` : '')}}"
+  href="{{link || "/"}}"
+  @if(id)
+    id="{{id}}"
+  @end
+>
   {{label || "Label"}}
 </a>

@@ -47,7 +47,7 @@
         "bottom"
       );
 
-      &:hover {
+      &:not(:disabled):hover {
         @include dynamic-background-gradient(
           var(--not-checked-static-background-color),
           var(--not-checked-hover-dynamic-background-color),
@@ -55,7 +55,7 @@
         );
       }
   
-      &:active {
+      &:not(:disabled):active {
         @include dynamic-background-gradient(
           var(--not-checked-static-background-color),
           var(--not-checked-active-dynamic-background-color),
@@ -71,7 +71,7 @@
         "top"
       );
   
-      &:hover {
+      &:not(:disabled):hover {
         @include dynamic-background-gradient(
           var(--not-checked-static-background-color),
           var(--not-checked-hover-dynamic-background-color),
@@ -79,7 +79,7 @@
         );
       }
   
-      &:active {
+      &:not(:disabled):active {
         @include dynamic-background-gradient(
           var(--not-checked-static-background-color),
           var(--not-checked-active-dynamic-background-color),
@@ -112,7 +112,7 @@
         "top"
       );
   
-      &:hover {
+      &:not(:disabled):hover {
         @include dynamic-background-gradient(
           var(--checked-static-background-color),
           var(--checked-hover-dynamic-background-color),
@@ -120,7 +120,7 @@
         );
       }
   
-      &:active {
+      &:not(:disabled):active {
         @include dynamic-background-gradient(
           var(--checked-static-background-color),
           var(--checked-active-dynamic-background-color),
@@ -131,6 +131,7 @@
 
     &:disabled {
       opacity: 0.4;
+      cursor: not-allowed;
     }
   }
 
@@ -143,5 +144,6 @@
 
   & > input:disabled + label {
     color: var(--bl-disabled-foreground-color);
+    cursor: not-allowed;
   }
 }

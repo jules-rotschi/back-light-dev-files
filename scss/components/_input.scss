@@ -61,7 +61,7 @@
       color: var(--bl-foreground-color);
 
       &::placeholder {
-        @include body-2();
+        @include body-2(false);
         color: var(--bl-foreground-color-secondary);
         opacity: 1;
       }
@@ -113,7 +113,7 @@
       outline-color: var(--bl-disabled-foreground-color);
     }
 
-    label, legend {
+    label, input, legend {
       color: var(--bl-disabled-foreground-color);
     }
 

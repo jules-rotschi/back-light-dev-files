@@ -5,7 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 20rem;
+  min-width: 20rem;
+  width: max-content;
   padding: 0.75rem 1rem;
   border-radius: 1.25rem;
   color: var(--bl-text-color);
@@ -22,7 +23,7 @@
   }
   
   @include above-breakpoint('small') {
-    width: 26rem;
+    min-width: 26rem;
     padding: 1rem 1.5rem;
   }
 }

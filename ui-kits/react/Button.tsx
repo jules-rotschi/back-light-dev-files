@@ -1,57 +1,68 @@
 import { ReactEventHandler } from 'react';
-import { Link } from 'react-router-dom';
 import { IconComponent } from '../../icons/react/icon-component-type';
+import { RouterLinkElement } from './router-link-type';
 
 interface ButtonProps {
-  style: "filled" | "outlined" | "ghost";
   label: string;
+  small?: boolean;
+  style: "filled" | "outlined" | "ghost";
   color?: "neutral" | "primary" | "info" | "success" | "warning" | "critical";
   icon?: IconComponent;
-  onClick?: ReactEventHandler;
   link?: string;
-  externalLink?: boolean
-  className?: string;
-  type?: "button" | "submit" | "reset";
+  externalLink?: boolean;
+  onClick?: ReactEventHandler;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
+  tabIndex?: number;
+  id?: string;
+  customClass?: string;
+  routerLink?: RouterLinkElement;
 }
 
 export const Button = (props: ButtonProps) => {
 
-  const styleClassName = ` button-${props.style}`;
-  const colorClassName = props.color ? ` button-${props.color}` : "";
-  const iconClassName = props.icon ? " button-with-icon" : "";
-  const customClassName = props.className ? ` ${props.className}` : "";
+  const sizeClass = props.small ? 'small-button' : 'button';
+  const styleClass = ` button-${props.style}`;
+  const colorClass = props.color ? ` button-${props.color}` : '';
+  const customClass = props.customClass ? ` ${props.customClass}` : '';
+  const className = sizeClass + styleClass + colorClass + customClass;
 
-  if (props.link && props.externalLink) return (
+  if (props.externalLink) return (
     <a
       href={props.link}
       target='_blank'
-      className={"button" + styleClassName + colorClassName + iconClassName + customClassName}
+      className={className}
+      id={props.id}
+      tabIndex={props.tabIndex}
     >
-      <span>{props.icon !== undefined && <props.icon size={16}/>}</span>
-      <span>{props.label}</span>
+      {props.icon && <span className='icon'><props.icon size={16}/></span>}
+      <span className='label'>{props.label}</span>
     </a>
   )
 
-  if (props.link) return (
-    <Link
+  if (props.link && props.routerLink) return (
+    <props.routerLink
       to={props.link}
-      className={"button" + styleClassName + colorClassName + iconClassName + customClassName}
+      className={className}
+      id={props.id}
+      tabIndex={props.tabIndex}
     >
-      <span>{props.icon !== undefined && <props.icon size={16}/>}</span>
-      <span>{props.label}</span>
-    </Link>
+      {props.icon ? <span className='icon'><props.icon size={16}/></span> : <></>}
+      <span className='label'>{props.label}</span>
+    </props.routerLink>
   )
 
   return (
     <button
       type={props.type || 'button'}
-      className={"button" + styleClassName + colorClassName + iconClassName + customClassName}
+      className={className}
+      id={props.id}
       onClick={props.onClick}
       disabled={props.disabled}
+      tabIndex={props.tabIndex}
     >
-      <span>{props.icon !== undefined && <props.icon size={16}/>}</span>
-      <span>{props.label}</span>
+      {props.icon && <span className='icon'><props.icon size={16}/></span>}
+      <span className='label'>{props.label}</span>
     </button>
   )
 }

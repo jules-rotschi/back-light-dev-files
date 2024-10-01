@@ -1,10 +1,40 @@
-<select
-    name="{{name || "select-name"}}"
-    class="select"
-    aria-disabled="{{disabled}}"
+<div class="{{'select' + (customClass ? ` ${customClass}` : '')}}">
+  <select
+    @if(name)
+      name="{{name}}"
+    @end
+    @if(id)
+      id="{{id}}"
+    @end
+    @if(required)
+      required
+    @end
+    @if(tabIndex)
+      tabindex="{{tabIndex}}"
+    @end
+    @if(disabled)
+      disabled
+    @end
   >
-  <option value="" disabled selected>{{defaultLabel || "Select"}}</option>
-  @each(option in options)
-    <option value="{{option.value || ""}}">{{option.label || "Option"}}</option>
-  @end
-</select>
+    <option
+      value=""
+      disabled
+      @unless(defaultValue)
+        selected
+      @end
+    >{{label || 'Label'}}</option>
+    @each(option in options)
+      <option
+        value="{{option.value}}"
+        @if(option.value === defaultValue)
+          selected
+        @end
+        @if(option.disabled)
+          disabled
+        @end
+      >
+        {{option.label}}
+      </option>
+    @end
+  </select>
+</div>

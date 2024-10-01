@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Back Light Server Side</title>
-  <link rel="stylesheet" href="../test.css">
+  <link rel="stylesheet" href="./test.css">
 </head>
 <body>
-  @!component('components::badge', {})
-  
-  @!component('components::input', {})
-
-  @!component('components::select', {})
+  @!component('components::snackbar', {})
+  @!component('components::snackbar', {
+    type: 'critical',
+    title: 'Your account will be deleted',
+    message: 'You will not be able to cancel this action',
+    id: 'custom-snack',
+    customClass: 'custom-snacks',
+  })
 </body>
 </html>

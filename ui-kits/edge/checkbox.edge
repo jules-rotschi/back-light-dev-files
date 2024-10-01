@@ -1,11 +1,25 @@
-<div className="checkbox">
+<div class="{{'checkbox' + (customClass ? ` ${customClass}` : '')}}">
   <input
     type="checkbox"
-    id="{{id}}"
-    name="{{name}}"
+    id="{{id || 'checkbox-id'}}"
+    @if(name)
+      name="{{name}}"
+    @end
+    @if(value)
+      value="{{value}}"
+    @end
+    @if(required)
+      required
+    @end
+    @if(defaultChecked)
+      checked
+    @end
     @if(disabled)
       disabled
     @end
+    @if(tabIndex)
+      tabindex="{{tabIndex}}"
+    @end
   />
-  <label htmlFor="{{id}}">{{label || "Label"}}</label>
+  <label for="{{id || 'checkbox-id'}}">{{label || "Label"}}</label>
 </div>

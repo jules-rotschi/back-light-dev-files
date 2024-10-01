@@ -5,9 +5,9 @@ A radio button is an interactive component that corresponds to the native HTML e
 ## Props
 
 - label: String
+- id: String
 - name (optional): String
 - value (optional): String
-- id (optional): String
 - required (optional): Boolean
 - defaultChecked (optional): Boolean
 - onChange (optional): Function

@@ -7,3 +7,6 @@ A navlink is an interactive component which redirects to another page of the app
 - label: String
 - link: URL
 - current (optional): Boolean
+- tabIndex: Number
+- id (optional) String
+- customClass (optional): String

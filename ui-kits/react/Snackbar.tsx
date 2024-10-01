@@ -4,40 +4,43 @@ import { Info } from "../../icons/react/Info";
 import { Success } from "../../icons/react/Sucess";
 import { Warning } from "../../icons/react/Warning";
 import { Cross } from "../../icons/react/Cross";
+import { IconButton } from "./IconButton";
 
 interface SnackbarProps {
   type: "info" | "success" | "warning" | "critical";
   title: string;
   message: string;
   close: Function;
+  id?: string;
+  customClass?: string;
 }
 
 export const Snackbar = (props: SnackbarProps) => {
 
-  let typeClassName: string;
+  let typeClass: string;
   let Icon: IconComponent;
 
   switch (props.type) {
     case "info":
-      typeClassName = " snackbar--info"
+      typeClass = " snackbar--info"
       Icon = Info;
       break;
     case "success":
-      typeClassName = " snackbar--success"
+      typeClass = " snackbar--success"
       Icon = Success;
       break;
     case "warning":
-      typeClassName = " snackbar--warning"
+      typeClass = " snackbar--warning"
       Icon = Warning;
       break;
     case "critical":
-      typeClassName = " snackbar--critical"
+      typeClass = " snackbar--critical"
       Icon = Alert;
       break;
   }
 
   return (
-    <div className={"snackbar" + typeClassName}>
+    <div className={"snackbar" + typeClass + (props.customClass ? ` ${props.customClass}` : '')} id={props.id}>
       <div className="snackbar__start">
         <span className="snackbar__icon"><Icon size={24}/></span>
         <div className="snackbar__content">
@@ -45,9 +48,7 @@ export const Snackbar = (props: SnackbarProps) => {
           <div className="snackbar__message">{props.message}</div>
         </div>
       </div>
-      <button type="button" className="icon-button" onClick={() => props.close()}>
-        <Cross size={24}/>
-      </button>
+      <IconButton icon={Cross} onClick={() => props.close()}/>
     </div>
   )
 }

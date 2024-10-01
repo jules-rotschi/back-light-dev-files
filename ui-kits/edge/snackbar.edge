@@ -1,36 +1,35 @@
-@let(computedType = type || "info")
-@let(typeClassName = "")
-@let(icon = "icons::code")
+@let(typeClass = " snackbar--info")
+@let(icon = "icons::info")
 
-@if(computedType === "info")
-  @assign(typeClassName = " snackbar--info")
+@if(type === "info")
+  @assign(typeClass = " snackbar--info")
   @assign(icon = "icons::info")
 
-@elseif(computedType === "success")
-  @assign(typeClassName = " snackbar--success")
+@elseif(type === "success")
+  @assign(typeClass = " snackbar--success")
   @assign(icon = "icons::success")
 
-@elseif(computedType === "warning")
-  @assign(typeClassName = " snackbar--warning")
+@elseif(type === "warning")
+  @assign(typeClass = " snackbar--warning")
   @assign(icon = "icons::warning")
 
-@elseif(computedType === "critical")
-  @assign(typeClassName = " snackbar--critical")
+@elseif(type === "critical")
+  @assign(typeClass = " snackbar--critical")
   @assign(icon = "icons::alert")
 
 @end
 
-<div className="{{'snackbar' + typeClassName}}">
-  <div className="snackbar__start">
-    <span className="snackbar__icon">
+<div class="{{'snackbar' + typeClass}}" id="{{id || 'snackbar-id'}}">
+  <div class="snackbar__start">
+    <span class="snackbar__icon">
       @!component(icon, {size: 24})
     </span>
-    <div className="snackbar__content">
-      <div className="snackbar__title">{{title || "Title"}}</div>
-      <div className="snackbar__message">{{message || "Message"}}</div>
+    <div class="snackbar__content">
+      <div class="snackbar__title">{{title || "Title"}}</div>
+      <div class="snackbar__message">{{message || "Message"}}</div>
     </div>
   </div>
-  <button type="button" className="icon-button">
-    @!component('icons::cross', {size: 24})
-  </button>
+  @!component('components::icon-button', {
+    icon: 'icons::cross',
+  })
 </div>

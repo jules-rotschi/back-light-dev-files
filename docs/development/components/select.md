@@ -18,4 +18,5 @@ A select is an interactive component that corresponds to the native HTML element
 Option {
   label: String;
   value: String;
+  disabled?: Boolean;
 }

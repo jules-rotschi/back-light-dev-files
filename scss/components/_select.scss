@@ -22,6 +22,7 @@
   outline-offset: -1px;
   outline-color: var(--bl-foreground-color);
   background-color: var(--bl-background-color);
+  width: fit-content;
   
   select {
     @include label-2();

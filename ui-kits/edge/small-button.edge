@@ -1,7 +1,7 @@
-@let(styleClassName = ` button-${style || "filled"}`)
-@let(colorClassName = color ? ` button-${color}` : "")
-@let(iconClassName = icon ? " button-with-icon" : "")
-@let(customClassName = className ? ` ${className}` : "")
+@let(styleclass = ` button-${style || "filled"}`)
+@let(colorclass = color ? ` button-${color}` : "")
+@let(iconclass = icon ? " button-with-icon" : "")
+@let(customclass = class ? ` ${class}` : "")
 
 @if(link)
   <a
@@ -9,7 +9,7 @@
     @if(externalLink)
       target="_blank"
     @end
-    className="{{'small-button' + styleClassName + colorClassName + iconClassName + customClassName}}"
+    class="{{'small-button' + styleclass + colorclass + iconclass + customclass}}"
     id="{{id}}"
   >
     @if(icon !== undefined)
@@ -23,7 +23,7 @@
 @else
   <button
     type="{{type || 'button'}}"
-    className="{{'small-button' + styleClassName + colorClassName + iconClassName + customClassName}}"
+    class="{{'small-button' + styleclass + colorclass + iconclass + customclass}}"
     id="{{id}}"
     @if(disabled)
       disabled

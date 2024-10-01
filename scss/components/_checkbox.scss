@@ -41,11 +41,11 @@
       background-color: var(--bl-background-color);
     }
 
-    &:hover {
+    &:not(:disabled):hover {
       @include dynamic-background-gradient(var(--bl-static-background-color), var(--bl-hover-dynamic-background-color), "top");
     }
 
-    &:active {
+    &:not(:disabled):active {
       @include dynamic-background-gradient(var(--bl-static-background-color), var(--bl-active-dynamic-background-color), "top");
     }
     
@@ -57,7 +57,7 @@
         "top"
       );
 
-      &:hover {
+      &:not(:disabled):hover {
         @include dynamic-background-gradient(
           var(--bl-static-background-color),
           var(--bl-hover-dynamic-background-color),
@@ -65,7 +65,7 @@
         );
       }
 
-      &:active {
+      &:not(:disabled):active {
         @include dynamic-background-gradient(
           var(--bl-static-background-color),
           var(--bl-active-dynamic-background-color),

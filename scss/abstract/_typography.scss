@@ -145,7 +145,7 @@
   letter-spacing: 0.5px;
 }
 
-@mixin body-1() {
+@mixin body-1($real-element: true) {
   font-family: $bl-sys-font-family-body;
   font-weight: $bl-prim-font-weight-regular;
   font-size: 1rem;
@@ -157,12 +157,14 @@
     line-height: 2rem;
   }
 
-  & > strong, & > b {
-    font-weight: $bl-prim-font-weight-extra-bold;
+  @if ($real-element == true) {
+    & > strong, & > b {
+      font-weight: $bl-prim-font-weight-extra-bold;
+    }
   }
 }
 
-@mixin body-2() {
+@mixin body-2($real-element: true) {
   font-family: $bl-sys-font-family-body;
   font-weight: $bl-prim-font-weight-regular;
   font-size: 0.875rem;
@@ -174,12 +176,14 @@
     line-height: 1.5rem;
   }
 
-  & > strong, & > b {
-    font-weight: $bl-prim-font-weight-bold;
+  @if ($real-element == true) {
+    & > strong, & > b {
+      font-weight: $bl-prim-font-weight-bold;
+    }
   }
 }
 
-@mixin body-3() {
+@mixin body-3($real-element: true) {
   font-family: $bl-sys-font-family-body;
   font-weight: $bl-prim-font-weight-regular;
   font-size: 0.75rem;
@@ -191,8 +195,10 @@
     line-height: 1.5rem;
   }
 
-  & > strong, & > b {
-    font-weight: $bl-prim-font-weight-bold;
+  @if ($real-element == true) {
+    & > strong, & > b {
+      font-weight: $bl-prim-font-weight-bold;
+    }
   }
 }
 

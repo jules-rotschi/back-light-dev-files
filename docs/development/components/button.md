@@ -16,11 +16,12 @@ A link button is a button that redirects the user to another page. A link elemen
 - color (optional, only if style == "filled"): "neutral" (d) | "primary" | "info" | "success" | "warning" | "critical"
 - icon (optional): Icon
 - link (optional): String
+- externalLink (optional, only if link): Boolean
 - onClick (optional, only if !link): Function
 - disabled (optional, only if !link): Boolean
 - type (optional, only if !link): "button" (d) | "submit" | "reset"
 - popoverTarget (optional, only if !link): String
-- popoverTargetAction (optional, only if popoverTarget): "hide" | "show" | "toggle
+- popoverTargetAction (optional, only if popoverTarget): "hide" | "show" | "toggle"
 - tabIndex (optional): Number
 - id (optional): String
 - customClass (optional): String
